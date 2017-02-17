@@ -1,184 +1,86 @@
-<!DOCTYPE HTML>
+<!doctype html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>  
-	  
-  	素色流年 - 池暝月影
-  	
-	</title>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+		<title>祭鳄鱼文</title>
+		
+		<link rel="stylesheet" type="text/css" href="asset/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="asset/mermaid.css">
+    <link type="text/css" rel="stylesheet" href="asset/style.css">
+   <script type="text/javascript" src="asset/jquery_plantuml/jquery.js"></script>
+   <script type="text/javascript" src="asset/jquery_plantuml/rawdeflate.js"></script>
+   <script type="text/javascript" src="asset/jquery_plantuml/encode64.js"></script>
+    <script src="asset/echarts.common.min.js"></script>
+    <script src="asset/mermaid.min.js"></script>
+    <script type="text/javascript">
+    $(function(){    
+      var mwebii=0;    
+      var mwebChartEleId = 'mweb-chart-ele-';    
+      $('pre>code').each(function(){        
+        mwebii++;        
+        var eleiid = mwebChartEleId+mwebii;        
+        if($(this).hasClass('language-mermaid')){            
+          var ele = $(this).addClass('nohighlight').parent();  
+          ele.hide();           
+          $('<div id="'+eleiid+'"></div>').addClass('mermaid').html($(this).text()).insertAfter(ele);                
+        }else if($(this).hasClass('language-plantuml')){            
+          var ele = $(this).addClass('nohighlight').parent(); 
+          ele.hide(); 
+          var str = unescape(encodeURIComponent($(this).text()));
+          var imgURL = "http://www.plantuml.com/plantuml/svg/"+encode64(deflate(str,9));
+          var newEle = $('<div id="'+eleiid+'"><img src="'+imgURL+'" /></div>').insertAfter(ele);
+        }else if($(this).hasClass('language-echarts')){  
+          var ele = $(this).addClass('nohighlight').parent();  
+          ele.hide();           
+          $('<div style="width: 100%;height:400px;" id="'+eleiid+'"></div>').insertAfter(ele);                
+          var myChart = echarts.init(document.getElementById(eleiid));
+          try  {
+            eval($(this).text());
+            myChart.setOption(option);
+          }catch(exception) {}
+        }    
+      });
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+      mermaid.init({noteMargin: 10}, ".mermaid");
+    });
+    </script>
+		<style>
+			body {
+				min-width: 200px;
+				max-width: 790px;
+				margin: 0 auto;
+				padding: 30px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<div class="markdown-body">
+			<h1 id="toc_0">祭鳄鱼文</h1>
 
-	<link href="atom.xml" rel="alternate" title="池暝月影" type="application/atom+xml">
+<h3 id="toc_1">韩愈</h3>
 
-	<link href="asset/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<link href="asset/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<script src="asset/javascripts/jquery.min.js"></script>
-	<script src="asset/highlightjs/highlight.pack.js"></script>
-	<link href="asset/soundmanager/css/bar-ui.css" media="screen, projection" rel="stylesheet" type="text/css">
-	<script type="text/javascript" src="asset/soundmanager/soundmanager2-jsmin.js"></script>
-	<script type="text/javascript" src="asset/soundmanager/bar-ui.js"></script>
+<p>原文：</p>
 
-<script>
-soundManager.setup({
-  preferFlash: false,
-  onready: function() {
+<blockquote>
+<h6 id="toc_2">维年月日，潮州刺史韩愈使军事衙推秦济，以羊一、猪一，投恶溪之潭水，以与鳄鱼食，而告之曰：</h6>
 
-  }
-});
-</script>
-<style type="text/css">
-	.sm2-bar-ui {
- font-size: 16px;
-}
-.sm2-bar-ui .sm2-main-controls,
-.sm2-bar-ui .sm2-playlist-drawer {
- background-color: #000000;
-}
-.sm2-bar-ui .sm2-inline-texture {
- background: transparent;
-}
-</style>
-	<link href="asset/highlightjs/styles/solarized_dark.css" media="screen, projection" rel="stylesheet" type="text/css">
-<script>hljs.initHighlightingOnLoad();</script>
+<h6 id="toc_3">昔先王既有天下，列山泽，罔绳擉刃，以除虫蛇恶物为民害者，驱而出之四海之外。及后王德薄，不能远有，则江汉之间，尚皆弃之以与蛮、夷、楚、越；况潮岭海之间，去京师万里哉！鳄鱼之涵淹卵育于此，亦固其所。今天子嗣唐位，神圣慈武，四海之外，六合之内，皆抚而有之；况禹迹所揜，扬州之近地，刺史、县令之所治，出贡赋以供天地宗庙百神之祀之壤者哉？鳄鱼其不可与刺史杂处此土也。</h6>
 
-	<!--[if lt IE 9]><script src="asset/javascripts/html5.js"></script><![endif]-->
-	<!-- <link href='http://fonts.googleapis.com/css?family=Nunito:400,300,700' rel='stylesheet' type='text/css'> -->
-	<style type="text/css">
-/* latin */
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 300;
-  src: local('Nunito-Light'), url(asset/font/1TiHc9yag0wq3lDO9cw0voX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-/* latin */
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Nunito-Regular'), url(asset/font/6TbRXKWJjpj6V2v_WyRbMX-_kf6ByYO6CLYdB4HQE-Y.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-/* latin */
-@font-face {
-  font-family: 'Nunito';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Nunito-Bold'), url(asset/font/TttUCfJ272GBgSKaOaD7KoX0hVgzZQUfRDuZrPvH3D8.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-	</style>
-	
-	<style type="text/css">
-	.container .left-col{ opacity: 1;}
-	#pagenavi a{ font-size: 1.3em;}
-	#pagenavi .next:before{ top: 3px;}
-	#pagenavi .prev:before{ top: 3px;}
-	.container .mid-col .mid-col-container #content .archives .title{ font-size: 1.5em;}
-	.container .mid-col .mid-col-container #content article{ padding: 15px 0px;}
-	#header .subtitle {
-		line-height: 1.2em;
-		padding-top: 8px;
-	}
-	article pre{ background: none; border: none; padding: 0;}
-	article .entry-content{text-align: left;}
-	.share-comment{ padding: 25px 0px; clear: both;}
-	hr{ margin: 20px 0px;border: 0; border-top:solid 1px #ddd;}
-	</style>
-  
+<h6 id="toc_4">刺史受天子命，守此土，治此民，而鳄鱼睅然不安溪潭，据处食民畜、熊、豕、鹿、獐，以肥其身，以种其子孙；与刺史亢拒，争为长雄；刺史虽驽弱，亦安肯为鳄鱼低首下心，伈伈睍睍，为民吏羞，以偷活于此邪！且承天子命以来为吏，固其势不得不与鳄鱼辨。</h6>
 
-</head>
-
-
-<body>
-	<div class="container">
-		<div class="left-col">
-			<div class="intrude-less">
-				<header id="header" class="inner">
-					<div class="profilepic">
-						<img src="asset/icon.jpg" style="width:160px;">
-					</div>
-					<h1><a href="index.html">池暝月影</a></h1>
-					<p class="subtitle">浅尝辄止<br/>不求甚解</p>
-					<nav id="main-nav">
-						<ul class="main">
-							<li><a href="index.html">Home</a></li>
-						    <!-- <li><a href="all.html">Blog</a></li>-->	
-						    <li><a href="archives.html">Archives</a></li>
-						</ul>
-					</nav>
-
-					<nav id="sub-nav">
-						<div class="social">
-
-<!-- 
-			<a class="email" href="mailto:" title="Email">Email</a>
-			<a class="facebook" href="http://www.facebook.com/" title="Facebook">Facebook</a>
-			<a class="google" href="https://plus.google.com/" rel="author" title="Google+">Google+</a>
-			<a class="twitter" href="http://twitter.com/" title="Twitter">Twitter</a>
-			<a class="github" href="https://github.com/" title="GitHub">GitHub</a>
-			<a class="coderwall" href="https://coderwall.com/" title="Coderwall">Coderwall</a>
-		    <a class="stackoverflow" href="http://stackoverflow.com/users/" title="StackOverflow"></a>
-			<a class="linkedin" href="http://www.linkedin.com/in/" title="LinkedIn">LinkedIn</a>
-			<a class="pinterest" href="https://pinterest.com/" title="Pinterest">Pinterest</a>
-			<a class="delicious" href="http://delicious.com/" title="Delicious">Delicious</a>
-			<a class="pinboard" href="https://pinboard.in/u:" title="Pinboard">Pinboard</a>
-			<a class="douban" href="https://www.douban.com/people/" title="Douban">Douban</a>
-			<a class="quora" href="https://quora.com/" title="Quora">Quora</a>
-			<a class="instagram" href="https://instagram.com/" title="Instagram">Instagram</a>
-			<a class="behance" href="https://www.behance.net/" title="Behance">Behance</a>
-			<a class="facebook" href="http://www.facebook.com/" title="Facebook">Facebook</a>
-								<a class="twitter" href="http://twitter.com/" title="Twitter">Twitter</a>
-								<a class="github" href="https://github.com/" title="GitHub">GitHub</a>
--->	
-								
-
-								<a class="rss" href="atom.xml" title="RSS">RSS</a>
-							
-						</div>
-					</nav>
-				</header>				
-			</div>
-		</div>	
-		<div class="mid-col">
-			<div class="mid-col-container"> <div id="content" class="inner">
-
-<article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">素色流年</h1>
-	<div class="entry-content" itemprop="articleBody">
-		<blockquote>
-<p>素色流年，花事深处，薄如蝉翼的花瓣随风如雨，暮香已残，落英翩翩。尘缘若梦，心随花飞，任红尘纷扰，独守一隅风光，落落清欢中一份安然，伴我水墨流年。     ------题记</p>
+<h6 id="toc_5">鳄鱼有知，其听刺史言：潮之州，大海在其南，鲸、鹏之大，虾、蟹之细，无不归容，以生以食，鳄鱼朝发而夕至也。今与鳄鱼约：尽三日，其率丑类南徙于海，以避天子之命吏；三日不能，至五日；五日不能，至七日；七日不能，是终不肯徙也。是不有刺史、听从其言也；不然，则是鳄鱼冥顽不灵，刺史虽有言，不闻不知也。夫傲天子之命吏，不听其言，不徙以避之，与冥顽不灵而为民物害者，皆可杀。刺史则选材技吏民，操强弓毒矢，以与鳄鱼从事，必尽杀乃止。其无悔！</h6>
 </blockquote>
 
-<p>一窗明媚，心事嫣然，瘦笔素笺在一缕墨香里清写流年。捡拾大大小小的过往，在风轻云淡的日子里，让自己远离那份喧嚣，随几片闲云，挽一抹暖阳，随风而行一袭衣袂飘飘，长发漫卷。原野里青草萋萋，陌上花香，恬淡的心空，变得温婉芬芳。喜欢这一种淡然，让心澄净而又遥远，万千尘凡都随风去，心静如莲，一缕馨香静静生暖。任光阴荏苒，我心素已闲。</p>
+<hr/>
 
-<p>行一程山水，盈一弯心醉，让一路风景且歌且行。稍纵即逝的岁月里，跟随时光的脚步，看四季花开花落，任年轮一圈圈荡漾，随风逝去的，留下痕迹的，都化作心语慢慢晕开在素白的光阴里，把每次优雅的转身变作释然一笑，如风过耳不染纤尘。一颗禅心倾听那来自自然的声音，花开生香，花谢无语，那一枚枚落叶，写满斑驳的记忆。一片片雪花晶莹着隔世的琉璃。经历千百次回眸，无论友情爱情在哪里，而我在这样，打开心门，等你住进这温暖柔情心里。</p>
+<h4 id="toc_6">阅记：</h4>
 
-<p>岁月翩翩。每个女子都是一朵花，清清雅雅，摇曳着风华，就是细小如丝，也会斑斓的盛开，能够繁华，亦能安于天涯中那孤芳自赏的矜持。在生命里最好的姿态就是能隐忍，也能绽放，让心灵的深处有花的柔软，也有树的坚强。即便葱茏过后的苍凉，秋寒里花瓣落下也不是飘零。依然还会用花开的爱恋仰望星空，看满天星光的灵动，月圆月缺的从容。心中用真情穿起曾经美好的感动，漫过淡淡哀愁，以一朵花开的心念，让时光变的清宁，盛放全部的自己，在空灵和悦里且行切悟，就会在心静性闲变得淡泊素简，静谧中静待光阴老去，依然修篱种菊。</p>
+<p>首先，文章本身，简单通俗易懂，但又不失韵味，除却个别古字古词，跟阅读现在的文章没有两样。作为古文，读着舒服、基本不用去看注释是最舒服的体验。</p>
 
-<p>独守清欢流年，让捻在指尖的暖在紫尘阡陌里化作一朵莲，沾染一抹清雨的飘逸，在素色年华里，描一幅清瘦印记，晕开嘴角一丝浅浅的笑意。时光总会在岁月里老去，回不去的记忆就放在心里。人本身就是一个成长的过程，用一颗素淡而美好的心，望尽烟云。用一盏茶怡情，一段文字暖心，在绵长的光阴里，成为一个温暖的女子，浅浅行，深深爱。让时光变得温软，即使青丝落霜也保留花开半朵的纤柔。缘深缘浅，红尘里也期待那美好的遇见，让满心的芬芳缠绕着思念，花开甜甜，缱绻在俗世里，清雅而又缠绵。</p>
+<p>其次，纵观各个朝代的文章，你会发现，只有唐朝的文章，是读起来最舒服的。这就是我要说的第二点。从距离现在的时间来说，唐后面有宋、元、明、清，从文章大家来说，唐宋八大家有五位是宋代的，从这两个维度上面唐代均不占优势，然而唐代却是诗文发展的巅峰，深究其中的原因，</p>
 
-<p>让心住进春里，心绪里开满碎碎的小花走在烟火的路上，路边有花有草，有你还有我，让一份飘逸的情致在经年的风里雨里。用淡然静雅的心守一份清欢，在水墨烟云里相偎相暖心香似莲。</p>
-
-	</div>
-
-</article>
-
-</div>       </div>
-			<footer id="footer" class="inner">Copyright &copy; 2014
-Powered by <a target="_blank" href="http://www.mweb.im">MWeb</a> &nbsp;&nbsp; 
-Theme by <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
-      </footer>
 		</div>
-	</div>
-
-
-
-
-</body>
+	</body>
 </html>
