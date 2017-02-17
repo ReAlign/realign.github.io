@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+<!-- first -->
+<div class="box box1">
+    <div class="con1">
+        table&nbsp;&&nbsp;table-cell
+        <br/>垂直居中
+        <br/>我是垂直居中
+        <br/>信不信我都是垂直居中
+    </div>
+</div>
+<!-- second -->
+<div class="line"></div>
+<div class="box box2">
+    <div class="con2">
+        Flex
+        <br/> 1、display: flex;
+        <br/> 2、align-items: center;
+        <br/> 3、justify-content: center;
+    </div>
+</div>
+<!-- third -->
+<div class="line"></div>
+<div class="box box3">
+    <p class="con3">
+        1、vertical-align: middle & inline-block貌似可以？
+        <br/>2、vertical-align的对齐是需要有参照物的
+        <br/>3、box容器通过:before生成一个高度 100% 的“备胎”，它的高度和容器的高度是一致的，内容相对于“备胎”垂直居中，在视觉上表现出来，就是相对于容器垂直居中了
+    </p>
+</div>
+<!-- forth -->
+<div class="line"></div>
+<div class="box box4">
+    <div class="con4">
+        1、绝对定位，top:50%; left:50%（相对于父元素的50%,即内容定点在中间）
+        <br/>2、内容transform，左、上translate各50% （此50%为内容的50%）
+    </div>
+</div>
+</body>
+
+</html>
