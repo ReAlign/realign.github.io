@@ -32,6 +32,7 @@
     mounted () {
       this.elevator()
       this.handleScrollEffectBackToTop()
+      this.addCNZZScript()
     },
 
     beforeDestroy () {
@@ -70,7 +71,34 @@
             this.fire = false
           }
         })
-      }
+      },
+
+      addCNZZScript() {
+        const _protocol = document.location.protocol;
+
+        const _div = document.createElement('div');
+        _div.style = `
+          position: absolute;
+          top: -30px;
+          opacity: .01;
+        `;
+
+        const _span = document.createElement('span');
+        _span.id = 'cnzz_stat_icon_1277768848';
+        _div.appendChild(_span);
+
+        const _s = document.createElement('script');
+        _s.type = 'text/javascript';
+        _s.src = `${_protocol}//s23.cnzz.com/z_stat.php?id=1277768848&show=pic`;
+        _div.appendChild(_s);
+
+        const _body = document.querySelector('body');
+        if(_body) {
+          _body.appendChild(_div);
+        } else {
+          console.error('insert error');
+        }
+      },
     }
   }
 </script>
