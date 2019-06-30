@@ -1,0 +1,35 @@
+{
+    "name": "realign.github.io",
+    "version": "0.0.1",
+    "description": "Personal Web Site.",
+    "scripts": {
+        "dev": "vuepress dev src",
+        "build": "vuepress build src"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/ReAlign/realign.github.io"
+    },
+    "keywords": [
+        "vuepress",
+        "vuepress-theme",
+        "site",
+        "blog",
+        "theme-ktquez",
+        "markdown",
+        "static",
+        "vuejs"
+    ],
+    "author": "ReAlign <realign@yeah.net>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ReAlign/realign.github.io/issues"
+    },
+    "homepage": "https://github.com/ReAlign/realign.github.io#readme",
+    "dependencies": {
+        "vuepress-theme-ktquez": "^0.2.18"
+    },
+    "devDependencies": {
+        "vuepress": "^0.14.11"
+    }
+}
