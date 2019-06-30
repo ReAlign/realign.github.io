@@ -3,7 +3,7 @@ view: post
 layout: post                          # Only in unique we use the "layout: post"
 lang: zh-cn                           # Lang is required
 author: realign
-title: 第一篇帖子
+title: 第一篇帖子【更新】
 description: 这是第一篇帖子
 excerpt: 这是第一篇帖子
 cover: false                          # Leave false if the post does not have cover image, if there is set to true

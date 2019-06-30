@@ -4,7 +4,8 @@
     "description": "Personal Web Site.",
     "scripts": {
         "dev": "vuepress dev src",
-        "build": "vuepress build src"
+        "build": "vuepress build src",
+        "postinstall": "cd ./src/.vuepress/theme && npm i"
     },
     "repository": {
         "type": "git",
