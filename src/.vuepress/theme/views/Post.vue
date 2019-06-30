@@ -243,8 +243,8 @@
       initGitalk() {
         const vm = this
         const gitalk = new Gitalk({
-          clientID: '50ec969bc8a321fc2d86',
-          clientSecret: '42b7634b0b3fb4c1c8c3b4c13d8500d114942bb2',
+          clientID: '326af3875aa67ae1a698',
+          clientSecret: '3f4a9df676d6df9df3982dec0d1250ea2c5d4f9a',
           repo: 'realign-gitalk-repo',
           owner: 'realign',
           admin: ['realign'],
