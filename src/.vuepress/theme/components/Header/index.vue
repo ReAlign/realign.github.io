@@ -5,7 +5,7 @@
     itemscope itemtype="https://schema.org/Organization">
     <navigation class="header-navigation" v-if="$themeConfig.topNavigation" />
     <div class="row header-top">
-      <div class="column xs-25 sm-20">
+      <div class="column xs-20 sm-20">
         <menu-hamburguer
           class="header-top__hamburguer"
           :open="openMenu"
@@ -13,7 +13,7 @@
 
         <languages class="header-top__languages" />
       </div>
-      <div class="column xs-50 sm-60">
+      <div class="column xs-60 sm-60">
         <h1 class="header__logo" v-if="$page.frontmatter.view === 'home'">
           <logo />
         </h1>
@@ -30,7 +30,7 @@
           :content="social.link">
 
       </div>
-      <div class="column xs-25 sm-20">
+      <div class="column xs-20 sm-20">
         <search class="header-top__search" />
         <black-white v-if="$themeConfig.blackWhite" class="header-top__toggle" />
       </div>
