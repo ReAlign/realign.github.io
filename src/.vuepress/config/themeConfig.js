@@ -19,9 +19,9 @@ module.exports = {
   topNavigation: false,
   searchMaxSuggestions: 7,
   responsive: {
-    active: false,
+    active: true, // Turn on responsive images on the cover of the post
     ext: 'png',
-    breakpoints: []
+    breakpoints: [320, 427, 524, 680] // Breakpoints used for picture media tag
   },
   lazyLoad: {},
   share: {

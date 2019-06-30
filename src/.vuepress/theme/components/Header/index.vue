@@ -1,12 +1,12 @@
 <template>
-  <header 
-    class="header" 
+  <header
+    class="header"
     :class="{ 'header--search-open': searchOpened }"
     itemscope itemtype="https://schema.org/Organization">
     <navigation class="header-navigation" v-if="$themeConfig.topNavigation" />
     <div class="row header-top">
       <div class="column xs-33 sm-20">
-        <menu-hamburguer 
+        <menu-hamburguer
           class="header-top__hamburguer"
           :open="openMenu"
           @click="toggleMenuMobile" />
@@ -19,11 +19,11 @@
         </h1>
 
         <div class="header__logo" v-else>
-          <logo />          
+          <logo />
         </div>
 
         <meta itemprop="name" :content="$site.title">
-        <meta 
+        <meta
           v-for="social in $themeLocaleConfig.social"
           :key="`meta-org-${social.name}`"
           itemprop="sameAs"
@@ -43,7 +43,7 @@
   import Search from '@theme/components/Header/Search'
   import MenuHamburguer from '@theme/components/Hamburguer'
   import Navigation from '@theme/components/Header/Navigation'
-  
+
   import EventBus from '@theme/plugins/EventBus'
 
   export default {
@@ -70,6 +70,7 @@
       EventBus.$on('close_nm', data => {
         this.openMenu = data
       })
+      this.addCNZZScript();
     },
 
     methods: {
@@ -79,7 +80,33 @@
       },
       toggleSearch (show) {
         this.searchOpened = show
-      }
+      },
+      addCNZZScript() {
+        const _protocol = document.location.protocol;
+
+        const _div = document.createElement('div');
+        _div.style = `
+          position: absolute;
+          top: -30px;
+          opacity: .01;
+        `;
+
+        const _span = document.createElement('span');
+        _span.id = 'cnzz_stat_icon_1277768848';
+        _div.appendChild(_span);
+
+        const _s = document.createElement('script');
+        _s.type = 'text/javascript';
+        _s.src = `${_protocol}//s23.cnzz.com/z_stat.php?id=1277768848&show=pic`;
+        _div.appendChild(_s);
+
+        const _body = document.querySelector('body');
+        if(_body) {
+          _body.appendChild(_div);
+        } else {
+          console.error('insert error');
+        }
+      },
     }
   }
 </script>
@@ -87,7 +114,7 @@
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
 
-.header  
+.header
   &--search-open
     position: relative
     z-index: 20
@@ -105,7 +132,7 @@
   position: relative
   padding: 30px 20px 24px
   background-color: white
-  
+
   &__hamburguer
     position: relative
     transform: rotate(90deg)
@@ -114,7 +141,7 @@
     position: absolute
     bottom: -35px
     right: 10px
-  
+
 
   &__languages
     position: absolute
@@ -125,7 +152,7 @@
       top: auto
       bottom: -42px
       left: 18px
-    
+
 @media (max-width: $mobile)
   .header-top
     top: 0
@@ -135,5 +162,5 @@
     &__toggle.switch-bw
       display: none
 
-  
+
 </style>

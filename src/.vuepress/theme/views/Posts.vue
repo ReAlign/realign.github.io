@@ -5,7 +5,7 @@
         <back-button />
       </div>
       <div class="column xs-100">
-        <h1 class="page-header__title">{{ $page.frontmatter.title }} {{ tag ? `by ${tag.toUpperCase()} tag` : '' }}</h1>
+        <h1 class="page-header__title">{{ $page.frontmatter.title }}{{ tag ? `标签: ${tag.toUpperCase()}` : '' }}</h1>
         <h2 class="page-header__subtitle">{{ $page.frontmatter.excerpt }}</h2>
       </div>
       <div class="column xs-100">
@@ -17,7 +17,7 @@
     </section>
 
     <section class="row posts-grid">
-      <div 
+      <div
         class="column md-50 mt-30"
         v-for="post in getPosts(0, 4)"
         :key="post.key">
@@ -34,7 +34,7 @@
     </section>
 
     <section class="row posts-grid">
-      <div 
+      <div
         class="column md-50 mt-30"
         v-for="post in getPosts(4)"
         :key="post.key">
@@ -64,7 +64,7 @@
       BackButton: () => import(/* webpackChunkName = "BackButton" */ '@theme/components/BackButton'),
       Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter')
     },
-    
+
     computed: {
       tag () {
         return this.$route.query.tag

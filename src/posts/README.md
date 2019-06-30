@@ -1,8 +1,8 @@
 ---
 view: posts
-title: All posts of
-description: 
-excerpt: 
+title: 所有帖子含有以下
+description:
+excerpt:
 meta:
   - property: og:image
     content: /image-social-share.png

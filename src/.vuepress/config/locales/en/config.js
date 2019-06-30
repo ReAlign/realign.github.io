@@ -11,6 +11,7 @@ module.exports = {
   ads,
   logo: {
     name: 'realign-play-logo',
+    title: 'Notes of Re',
     ext: 'png',
     alt: 'Logo in 3 colors in play format'
   },

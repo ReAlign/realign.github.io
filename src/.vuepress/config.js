@@ -11,7 +11,7 @@ module.exports = {
   base: '/',
   port: 8899,
   dest: '.vuepress/../dist',
-  title: `杂记`,
+  title: `雜記`,
   // ga: `MY TRACKING CODE GOOGLE ANALYTICS`,
   evergreen: true,  // For modern browsers
   serviceWorker: true,

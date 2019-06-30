@@ -8,6 +8,7 @@ module.exports = {
   ads,
   logo: {
     name: 'realign-play-logo',
+    title: '雜記',
     ext: 'png',
     alt: 'Luego en 3 colores en el formato de reproducción'
   },
@@ -25,7 +26,7 @@ module.exports = {
         </a>`,
   footer: {
     nav1: {
-      title: '杂记 | ReAlign',
+      title: '雜記 | ReAlign',
       items: [
         {
           label: '关于',

@@ -18,7 +18,7 @@ module.exports = {
   all_posts_author: '所有参与者',
   share: '分享',
   see_demo: '查看例子',
-  table_content: '表格内容',
+  table_content: '大纲',
   avatar_of: '头像',
   joined: '加入',
   article: '帖子',

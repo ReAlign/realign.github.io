@@ -5,7 +5,6 @@
     <div class="card__box1" :class="`card__box1--${cover}`">
       <header>
         <div class="card-category">
-          <!-- {{getCurrentCategory.path}} -->
           <router-link
             v-if="getCurrentCategory"
             class="card-category__link"
@@ -23,7 +22,7 @@
             <responsive-picture :coverName="item.coverName">
               <img
                 class="card-cover__image card-cover__image--top cover"
-                :src="`${item.coverName},w_${lastBreakpoint}.${extension}`"
+                :src="`${item.cover ? `${item.coverName}.${extension}` : ''}`"
                 :title="item.coverAlt"
                 :alt="item.coverAlt">
             </responsive-picture>
