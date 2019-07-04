@@ -20,10 +20,30 @@ module.exports = {
     provider: 'mailchimp',
     action: ''
   },
-  copy: `2019 © 安亮军 | ReAlign - By
-        <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank">
-          VUEPRESS
-        </a>`,
+  copy: [
+    // `
+    //   <div
+    //     id="la_20158977"
+    //     style="
+    //       display: inline-block;
+    //       width: 200px;
+    //       height: 12px;
+    //       line-height: 12px;
+    //       margin-right: 16px;
+    //       padding-right: 16px;
+    //       border-right: 2px solid #fff;
+    //       opacity: 0;
+    //     "
+    //   >
+    //   </div>
+    // `,
+    `
+      2019 © 安亮军 | ReAlign - By
+      <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank" style="text-decoration: underline;">
+        &nbsp;&nbsp;🔗vuepress
+      </a>
+    `
+  ].join(''),
   footer: {
     nav1: {
       title: '雜記 | ReAlign',

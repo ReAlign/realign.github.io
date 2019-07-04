@@ -13,6 +13,20 @@
 <script>
   import Elevator from 'elevator.js'
 
+  const ID = '#la_20158977'
+  const J_ID = {
+    'cnzz': 'j-div-cnzz',
+    '51la': 'j-div-51la',
+    'bdtj': 'j-div-bdtj',
+  }
+  const NEED_NUM = [
+    '总访问量',
+    // '本月访问量',
+    // '昨日访问量',
+    '今日访问量',
+    // '当前在线',
+  ]
+
   export default {
     name: 'VueElevator',
 
@@ -30,9 +44,10 @@
     },
 
     mounted () {
+      // debugger
       this.elevator()
       this.handleScrollEffectBackToTop()
-      this.addCNZZScript()
+      this.injectScriptAbout()
     },
 
     beforeDestroy () {
@@ -72,11 +87,64 @@
           }
         })
       },
+      injectScriptAbout() {
+        // this.clearAllScript()
+        // this.addCNZZScript()
+        // this.add51LaStatistical()
+        this.addBaiduTongji()
+      },
+      clearAllScript() {
+        Object.keys(J_ID).forEach((id) => {
+          const _node = document.querySelector(`#${J_ID[id]}`);
+          console.log('_node', id);
+          console.log(_node);
+          if(_node) {
+            const _body = document.querySelector('body');
+            if(_body) {
+              _body.removeChild(_node);
+            }
+          }
+        });
+      },
+      injectDom2Body(domNode) {
+        if(!domNode) {
+          return;
+        }
 
+        const _body = document.querySelector('body');
+        if(_body) {
+          _body.appendChild(domNode);
+        } else {
+          console.error('insert error', domNode);
+        }
+      },
+      addBaiduTongji() {
+        const _id = document.getElementById(J_ID['bdtj']);
+        if(_id) {
+          return;
+        }
+        const _protocol = document.location.protocol;
+
+        const _div = document.createElement('div');
+        _div.id = J_ID['bdtj'];
+        _div.style = `
+          position: absolute;
+          top: -30px;
+          opacity: .01;
+        `;
+
+        const _s = document.createElement('script');
+        _s.type = 'text/javascript';
+        _s.src = `${_protocol}//hm.baidu.com/hm.js?e1aa0ba1a5b324aba91c20ecda976616`;
+        _div.appendChild(_s);
+
+        this.injectDom2Body(_div);
+      },
       addCNZZScript() {
         const _protocol = document.location.protocol;
 
         const _div = document.createElement('div');
+        _div.id = J_ID['cnzz'];
         _div.style = `
           position: absolute;
           top: -30px;
@@ -92,12 +160,73 @@
         _s.src = `${_protocol}//s23.cnzz.com/z_stat.php?id=1277768848&show=pic`;
         _div.appendChild(_s);
 
-        const _body = document.querySelector('body');
-        if(_body) {
-          _body.appendChild(_div);
-        } else {
-          console.error('insert error');
-        }
+        this.injectDom2Body(_div);
+      },
+      add51LaStatistical() {
+        const _protocol = document.location.protocol;
+
+        const _div = document.createElement('div');
+        _div.id = J_ID['51la'];
+        _div.style = `
+          position: absolute;
+          top: 10px;
+          opacity: 1;
+        `;
+
+        const _sMain = document.createElement('script');
+        _sMain.type = 'text/javascript';
+        _sMain.src = `${_protocol}//quote.51.la/q?id=20158977&mb=1`;
+        _div.appendChild(_sMain);
+
+        const _sStatic = document.createElement('script');
+        _sStatic.type = 'text/javascript';
+        _sStatic.src = 'https://js.users.51.la/20158977.js';
+        _div.appendChild(_sStatic);
+
+        this.injectDom2Body(_div);
+        this.intervalStatic();
+      },
+      intervalStatic() {
+        const vm = this;
+        let _count = 0;
+
+        let _timer = setInterval(() => {
+          _count++;
+          const _id = document.querySelector(ID);
+          const flag = (_id.innerText || '').length || _count === 30;
+          if(flag) {
+            debugger
+            clearInterval(_timer);
+            if(_count !== 30) {
+              const _newHtml = vm.getCustomStatic(_id);
+              _id.innerHTML = _newHtml;
+              setTimeout(() => {
+                _id.style.opacity = 1;
+              }, 1000);
+            }
+          }
+        }, 500);
+      },
+      getCustomStatic(_id) {
+        const vm = this;
+        const _strArr = [];
+        const _strSep = '<span style="margin-left: 8px;"></span>';
+        const newSep = '___';
+        const _obj = {};
+
+        const _text = _id.innerText;
+        const arr = _text.split('，');
+
+        arr.forEach(item => {
+          const _a = item.replace(/\s/ig, newSep).split(newSep) || [];
+          if(_a.length === 2) {
+            _obj[_a[0]] = _a[1];
+          }
+        });
+        (NEED_NUM || []).forEach(key => {
+          _strArr.push(`${key.replace('量', '')}：${_obj[key]}`);
+        });
+        return _strArr.join(_strSep);
       },
     }
   }
