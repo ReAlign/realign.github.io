@@ -4,9 +4,9 @@
       <li class="share__item">
         <span class="txt-share">{{ $t('share') }}:</span>
       </li>
-      <li 
-        class="share__item" 
-        v-for="(network, index) in networks" 
+      <li
+        class="share__item"
+        v-for="(network, index) in networks"
         :key="`${network.name}-${index}`"
         v-if="network.active">
         <a
@@ -58,9 +58,9 @@
       getLinkInfo (post, network) {
         const twitterVia = network.name === 'twitter' ? this.$themeLocaleConfig.share.twitterVia : null
         return network.link(
-          post.title, this.getFullURL(network.name), 
-          `${this.$themeConfig.url}${post.coverName}.${this.$themeConfig.responsive.ext}`, 
-          post.excerpt, 
+          post.title, this.getFullURL(network.name),
+          `${this.$themeConfig.url}${post.coverName}.${this.$themeConfig.responsive.ext}`,
+          post.excerpt,
           twitterVia
         )
       },
@@ -89,9 +89,9 @@
 
       facebook (fb) {
         const meta = fb.meta(
-          this.post.title, this.$el.baseURI, 
+          this.post.title, this.$el.baseURI,
           `${this.$themeConfig.url}${this.post.coverName}.${this.$themeConfig.responsive.ext}`,
-          this.post.excerpt, 
+          this.post.excerpt,
           this.$themeLocaleConfig.share.facebookCaption
         )
         window.FB.ui({

@@ -4,20 +4,20 @@ layout: post
 lang: zh-cn
 author: realign
 title: 第一篇帖子-千古奇赋：寒窑赋
-description: 千古奇赋镇楼
-excerpt: 千古奇赋镇楼：这是第一篇帖子
-coverAlt:
-demo:
+description: 寒窑赋，破窑赋，命运赋，千古奇赋，励志，四大奇文，钱本草，诫子书，驮人经
+excerpt: 天有不测风云，人有旦夕祸福。蜈蚣百足，行不及蛇；雄鸡两翼，飞不过鸦。马有千里之程，无骑不能自往；人有冲天之志，非运不能自通。
 categories:
   - 古文
 tags:
   - 古文
-  - classical-chinese
   - 赋
   - 骈文
   - 励志
 created_at: 2019-06-30 19:53
-updated_at: 2019-06-30 19:53
+updated_at: 2019-07-06 21:13
+meta:
+  - name: keywords
+    content: 寒窑赋,破窑赋,命运赋,四大奇文
 ---
 
 ***

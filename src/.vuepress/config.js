@@ -5,23 +5,19 @@ const themeConfig = require('./config/themeConfig')
 const resolve = pathName => path.join(__dirname, pathName)
 
 module.exports = {
-  // theme: 'ktquez',
   head,
   themeConfig,
   base: '/',
   port: 8899,
   dest: '.vuepress/../dist',
-  title: `雜記`,
-  // ga: `MY TRACKING CODE GOOGLE ANALYTICS`,
-  evergreen: true,  // For modern browsers
+  title: `杂记`,
+  description: '杂记，雑記，安亮军的博客，专注记录技术点滴，以及生活随笔。',
+  evergreen: true,
   serviceWorker: true,
   locales: {
     '/': {
       lang: 'zh-cn'
     },
-    // '/en/': {
-    //   lang: 'en'
-    // }
   },
   configureWebpack () {
     return {

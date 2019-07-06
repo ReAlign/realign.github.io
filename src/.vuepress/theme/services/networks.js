@@ -3,8 +3,8 @@ export default [
     active: true,
     name: 'facebook',
     label: 'Facebook',
-    link () {
-      return '#'
+    link (title, link) {
+      return encodeURI(`http://www.facebook.com/sharer/sharer.php?u=${link}&amp;t=${title}`)
     },
     meta (title, link, image, description, caption) {
       return {
@@ -26,7 +26,7 @@ export default [
     target: '_blank'
   },
   {
-    active: false,
+    active: true,
     name: 'linkedin',
     label: 'linkedin',
     link (title, link, image, description) {
@@ -42,5 +42,5 @@ export default [
       return encodeURI(`https://plus.google.com/share?url=${link}`)
     },
     target: '_blank'
-  }
+  },
 ]

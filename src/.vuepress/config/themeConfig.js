@@ -1,6 +1,5 @@
 // See more in https://github.com/ktquez/vuepress-theme-ktquez#themeconfig
 const zh = require('./locales/zh/config')
-const en = require('./locales/en/config')
 
 module.exports = {
   locales: {

@@ -1,14 +1,14 @@
 ---
 view: post
-layout: post                          # Only in unique we use the "layout: post"
-lang: zh-cn                           # Lang is required
-author: realign
-title: 第一篇帖子【更新】
-description: 这是第一篇帖子
-excerpt: 这是第一篇帖子
-cover: false                          # Leave false if the post does not have cover image, if there is set to true
+layout: post # Only in unique we use the "layout: post"
+lang: zh-cn # 语言，必填
+author: realign # 昵称
+title: 第一篇帖子【更新】 # 标题
+description: 这是第一篇帖子 # 描述
+excerpt: 这是第一篇帖子 # 摘抄
+cover: false # Leave false if the post does not have cover image, if there is set to true
 coverAlt:
-demo:
+demo: https://www.baidu.com
 categories:
   - word
 tags:
