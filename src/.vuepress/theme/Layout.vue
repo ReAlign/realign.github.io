@@ -1,6 +1,6 @@
 <template>
-  <div 
-    class="layout-main" 
+  <div
+    class="layout-main"
     :class="{ 'layout-main__nm--opened': nmOpened, 'layout-main__negative': negative }"
     itemscope itemtype="https://schema.org/WebPage">
 
@@ -13,11 +13,11 @@
     </transition>
     <transition :name="transitionName">
       <component :is="layout" class="wrapper-body__nm" :class="{ 'wrapper-body__nm--opened': nmOpened }">
-        <div slot="view">          
+        <div slot="view">
           <skip-to to="#main" :text="$t('skip_to_main_content')" />
           <component :is="view" />
           <global-events @keyup.esc="cancel" />
-          <back-to-top /> 
+          <back-to-top />
           <overlay />
         </div>
       </component>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+  import 'carbon-grid/dist/css/carbon-grid.css'
   // layouts
   import LayoutBase from '@theme/layouts/Base'
   import LayoutPost from '@theme/layouts/Post'
@@ -55,13 +56,13 @@
   import AnnouncerMixin from '@theme/mixins/Announcer'
 
   import FontFaceObserver from 'fontfaceobserver'
-  
+
   export default {
     name: 'MainLayout',
 
     mixins: [NProgressMixin, AnnouncerMixin],
 
-    components: { 
+    components: {
       Home,
       Page,
       Post,
@@ -116,7 +117,7 @@
         EventBus.$on('toggle_black_white', data => {
           this.negative = data
         })
-      }      
+      }
     },
 
     beforeMount () {
@@ -159,7 +160,7 @@
   }
 </script>
 
-<style src="carbon-grid"></style>
+<!--<style src="carbon-grid"></style>-->
 <style src="./styles/base.styl" lang="stylus"></style>
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
@@ -187,7 +188,7 @@
   &__nm
     transition: transform .2s ease-in-out
     transform-origin: top center
-    
+
     &--opened
       border-radius: 20px
       overflow: hidden

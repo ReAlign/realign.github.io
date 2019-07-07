@@ -46,8 +46,8 @@
     },
 
     mounted () {
-      this.snippetFacebook()
-      this.snippetTwitter()
+      // this.snippetFacebook()
+      // this.snippetTwitter()
     },
 
     methods: {
