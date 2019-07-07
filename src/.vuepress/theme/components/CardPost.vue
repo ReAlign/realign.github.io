@@ -67,7 +67,7 @@
       <router-link :to="item.path">
         <img
           class="card-cover__image card-cover__image--side cover"
-          :src="getSideImage(item.coverName)"
+          :src="`${item.coverName}.${item.coverExt || $themeConfig.responsive.ext || 'png'}`"
           :alt="item.coverAlt">
       </router-link>
     </div>
@@ -121,9 +121,9 @@
         return this.cover === position
       },
       getSideImage (coverName) {
-        if (this.$themeConfig.responsive.active) {
-          return `${coverName},w_${this.$themeConfig.responsive.breakpoints[0]}.${this.extension}`
-        }
+        // if (this.$themeConfig.responsive.active) {
+        //   return `${coverName},w_${this.$themeConfig.responsive.breakpoints[0]}.${this.extension}`
+        // }
         return `${coverName}.${this.extension}`
       }
     }
@@ -159,6 +159,7 @@
 
     &--right
       padding-left: 30px
+      width: 50%
 
   @media (max-width: $max-tablet)
     &__box1

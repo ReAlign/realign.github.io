@@ -6,6 +6,7 @@ author: realign
 title: 设置 letter-spacing 后文字不居中
 description: 设置 letter-spacing 之后，文字不居中的解决方案
 excerpt: 设置 letter-spacing 后文字不居中，原始场景...
+cover: true
 categories:
   - css
   - notes

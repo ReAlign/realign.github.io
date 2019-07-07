@@ -3,7 +3,10 @@ import config from '@source/.vuepress/config'
 export function getImagePost (path, source) {
   const slug = getSlug(path)
   const date = new Date(source.frontmatter.created_at)
-  return config.themeConfig.cdn ? `${config.themeConfig.cdn}/${date.getFullYear()}/${date.getMonth() + 1}/${slug}` : `/images/posts/${date.getFullYear()}/${date.getMonth() + 1}/${slug}`
+  return config.themeConfig.cdn
+    ? `${config.themeConfig.cdn}/${date.getFullYear()}/${date.getMonth() + 1}/${slug}`
+    // : `/images/posts/${date.getFullYear()}/${date.getMonth() + 1}/${slug}`
+    : `/images/posts/${slug}`
 }
 
 export function getSlug (path) {
@@ -19,7 +22,7 @@ export function filterPages (pages, type) {
 
 export function sortArrayByProp (arr, prop, orderBy = 'asc') {
   const result = arr.sort((a, b) => {
-    return a[prop] - b[prop] 
+    return a[prop] - b[prop]
   })
   if (orderBy.toLowerCase() === 'desc') return result.reverse()
   return result

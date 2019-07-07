@@ -1,0 +1,71 @@
+.m-btn {
+    padding: 4px 8px 6px;
+    border: 0;
+    border-radius: 3px;
+}
+
+.m-wrap {
+    margin-bottom: 12px;
+    padding: 16px;
+}
+
+.m-color {
+    background: #71b771;
+}
+
+.m-my-div {
+    position: relative;
+    display: inline-block;
+    width: 2732px;/*1366*/
+    height: 716px;/*358px;*/
+    font-size: 0;
+    /* font-size: 200px;
+    line-height: 188px; */
+    text-align: center;
+    vertical-align: middle;
+}
+
+.m-my-div p {
+    position: absolute;
+    display: inline-block;
+    width: 2200px;
+    background: rgba(0, 0, 0, .2);
+    font-size: 92px;/*46px;*/
+
+    color: #fff;
+
+    top: 50%;
+    left: 50%;
+    /* padding: 12px 30px 12px 26px; */
+    padding: 24px 60px 24px 52px;
+    line-height: 144px;/*72px;*/
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-flex: 2;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.m-my-div span.u-water-mark {
+    position: absolute;
+    display: block;
+    bottom: 20px;
+    right: 20px;
+    width: 160px;
+    height: 52px;
+    background: rgba(0, 0, 0, .2);
+    color: #fff;
+    font-size: 32px;
+    line-height: 52px;
+    border-radius: 6px;
+}
+
+.m-bor {
+    display: inline-block;
+    border: 1px solid rgba(0, 0, 0, .15);
+}

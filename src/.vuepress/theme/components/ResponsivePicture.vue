@@ -1,12 +1,12 @@
 <template>
   <picture>
-    <source 
-      v-for="size in breakpoints" 
+    <source
+      v-for="size in breakpoints"
       :key="size"
       :media="`(max-width: ${size}px)`"
       :srcset="getSrcSet[size]"
       v-if="isResponsive">
-    <slot></slot>  
+    <slot></slot>
   </picture>
 </template>
 
@@ -28,10 +28,10 @@
 
       getSrcSet () {
         const src = {}
-        const responsive = this.$themeConfig.responsive
-        responsive.breakpoints.forEach(breakpoint => {
-          src[breakpoint] = `${this.coverName},w_${breakpoint}.${responsive.ext}`
-        })
+        // const responsive = this.$themeConfig.responsive
+        // responsive.breakpoints.forEach(breakpoint => {
+        //   src[breakpoint] = `${this.coverName},w_${breakpoint}.${responsive.ext}`
+        // })
         return src
       },
 

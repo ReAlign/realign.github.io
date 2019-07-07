@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>dom2png</title>
+    <link rel="stylesheet" href="./css.css">
+</head>
+
+<body>
+    <div class="m-wrap m-color">
+        <button id="btn" class="m-btn">trans2png</button>
+    </div>
+    <div class="m-wrap m-bor">
+        <div id="my-div" class="m-my-div">
+            <p>️
+                寒窑赋 | 钱本草 | 诫子书 | 驮人经
+            </p>
+            <span class="u-water-mark">@ReAlign</span>
+        </div>
+    </div>
+    <script src="./jquery.js"></script>
+    <script src="./dom-to-image.js"></script>
+    <script src="./file-saver.js"></script>
+    <script src="./color.js"></script>
+    <script type="text/javascript">
+        const _random = (min = 0, max = 10) => {
+            var range = max - min;
+            var rand = Math.random();
+            var num = min + Math.round(rand * range); //四舍五入
+
+            return num;
+        }
+        $(function () {
+            const _bgc = `${colors[_random(0, colors.length - 1)]}`;
+            $('#my-div').attr('style', `background: ${_bgc};`);
+            $("#btn").click(function () {
+                // 下载png图片
+                domtoimage.toBlob(document.getElementById('my-div'), {
+                        width: 2732,
+                        height: 716
+                    })
+                    .then(function (blob) {
+                        window.saveAs(blob, 'my-node.png');
+                    });
+            });
+        })
+    </script>
+</body>
+
+</html>

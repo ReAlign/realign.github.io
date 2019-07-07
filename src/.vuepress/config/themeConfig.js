@@ -20,7 +20,8 @@ module.exports = {
   responsive: {
     active: true, // Turn on responsive images on the cover of the post
     ext: 'png',
-    breakpoints: [320, 427, 524, 680] // Breakpoints used for picture media tag
+    // breakpoints: [320, 427, 524, 680] // Breakpoints used for picture media tag
+    breakpoints: []
   },
   lazyLoad: {},
   share: {

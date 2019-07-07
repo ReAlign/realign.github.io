@@ -6,6 +6,7 @@ author: realign
 title: Web Audio Api：由声道合并讲起
 description: 从声道合并讲起，深入浅出学习 Web Audio Api，彻底搞懂 audio api
 excerpt: 需求
+cover: true
 categories:
   - js
   - api
