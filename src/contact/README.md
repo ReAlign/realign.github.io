@@ -12,7 +12,9 @@ meta:
 
 ## 联系
 
-待完善
+<div style="margin-top: 40px;font-size: 22px;">
+  <a href="mailto:realign_service@163.com?subject=联系ReAlign">📩 联系 ReAlign | @realign_service@163.com</a>
+</div>
 <!-- My contact form (Ideal for using a typeform iframe) -->
 
 <!--

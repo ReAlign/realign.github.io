@@ -22,7 +22,7 @@ module.exports = {
   avatar_of: '头像',
   joined: '加入',
   article: '帖子',
-  text_comments: '有任何想法，告诉我们',
+  text_comments: '有想法？一起聊聊呗 👇',
   tip_contact: '联系我们',
   title_contact: '来聊聊吧',
   refresh: '刷新',

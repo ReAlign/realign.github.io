@@ -1,11 +1,11 @@
 {
- "name": "NAME OF YOUR APP",
- "short_name": "SHORTNAME OF YOUR APP",
- "lang": "en",
+ "name": "杂记",
+ "short_name": "杂记",
+ "lang": "zh-cn",
  "theme_color": "#263647",
  "background_color": "#263647",
  "display": "standalone",
- "description": "DESCRIPTION OF YOUR APP",
+ "description": "杂记，雑記，专注记录技术点滴，以及生活随笔，安亮军的博客。",
  "start_url": "/?utm_source=pwahomescreen",
  "icons": [
   {

@@ -8,7 +8,7 @@
 
   p {
     word-wrap: break-word
-    margin-bottom: 40px    
+    margin-bottom: 40px
 
     code {
       border-radius: 4px
@@ -36,7 +36,7 @@
   }
 
   h1, h2, h3, h4, h5, h6, ol, ul, pre, table, figure { margin-bottom: 1.2em }
-  
+
   h1, h3, h4, h5, h6 {
     .header-anchor { display: none }
   }
@@ -52,7 +52,7 @@
 
     + p {
       margin-top: 30px
-    }    
+    }
 
     .header-anchor {
       position: absolute
@@ -101,7 +101,7 @@
 
     &:hover {
       background-color: $primaryColor
-      color: white  
+      color: white
     }
 
     .icon.outbound {
@@ -135,6 +135,14 @@
     padding: .125em .25em
     box-shadow: none
   }
+  code {
+    background $primaryColor
+    border-radius 4px
+    color #fff
+    padding-left .4em
+    padding-right .4em
+    font-size 16px
+  }
 
   ol, ul {
     padding-left: 2em
@@ -143,7 +151,7 @@
     margin-bottom: 40px
 
     li:not(:last-child) {
-      margin-bottom: 16px
+      margin-bottom: 8px
     }
   }
 
@@ -192,9 +200,10 @@
   .observer {
     text-align: center
   }
-    
+
   div[class*=language-] {
-    margin-bottom: 30px
+    margin-top 30px
+    margin-bottom 30px
   }
 
   code[class*=language-] ,pre[class*=language-] {
@@ -222,6 +231,7 @@
     code {
       margin: 0
       padding: 0
+      background none
 
       &:before {
         position: absolute
@@ -236,9 +246,9 @@
       }
     }
   }
-    
-  :not(pre)>code[class*=language-],pre[class*=language-] { 
-    background:#151718 
+
+  :not(pre)>code[class*=language-],pre[class*=language-] {
+    background:#151718
   }
   :not(pre)>code[class*=language-] {
       padding: .1em
@@ -272,7 +282,6 @@
   }
 
   iframe {
-    margin-top: 20px
-    margin-bottom: 20px
+    margin: 26px 0
   }
 }

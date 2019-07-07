@@ -241,16 +241,41 @@
         return this.$el.baseURI
       },
       initGitalk() {
-        const vm = this
+        const vm = this;
+        const _env = process.env.NODE_ENV;
+
+        // set id
+        const _idOri = location.pathname;
+        const _len_idOri = _idOri.length;
+        const _prefix = 'ReAlign:';
+        const _max_len = 50 - _prefix.length;
+        const _flag = _len_idOri > _max_len;
+        const _id = `${_prefix}${_flag ? _idOri.substr(_len_idOri - _max_len, _len_idOri) : _idOri}`;
+
+        const CONF = {
+          production: {
+            clientID: '326af3875aa67ae1a698',
+            clientSecret: '3f4a9df676d6df9df3982dec0d1250ea2c5d4f9a',
+            repo: 'realign-gitalk-repo',
+          },
+          development: {
+            clientID: '50ec969bc8a321fc2d86',
+            clientSecret: '42b7634b0b3fb4c1c8c3b4c13d8500d114942bb2',
+            repo: 'realign-gitalk-repo-dev',
+          },
+        };
+
         const gitalk = new Gitalk({
-          clientID: '326af3875aa67ae1a698',
-          clientSecret: '3f4a9df676d6df9df3982dec0d1250ea2c5d4f9a',
-          repo: 'realign-gitalk-repo',
+          clientID: CONF[_env].clientID,
+          clientSecret: CONF[_env].clientSecret,
+          repo: CONF[_env].repo,
           owner: 'realign',
           admin: ['realign'],
-          // id: location.pathname,      // Ensure uniqueness and length less than 50
+          // ↓ Ensure uniqueness and length less than 50
+          id: _id,
           distractionFreeMode: true   // Facebook-like distraction free mode
-        })
+        });
+
         const jId = 'j-gitalk-container';
         let _timer = null;
 
