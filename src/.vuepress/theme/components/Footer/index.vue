@@ -11,7 +11,7 @@
       </svg>
 
       <ul class="footer-social__list">
-        <li 
+        <li
           class="footer-social__item"
           v-for="(network, index) in $themeLocaleConfig.social"
           :key="`${network.name}-${index}`">
@@ -35,15 +35,15 @@
         </div>
         <div class="column sm-50 footer-nav">
           <div class="row justify-right">
-            <div 
+            <div
               v-if="$themeLocaleConfig.footer.nav1.items.length"
               class="column xs-50 sm-40 md-33 footer-nav__box footer-nav__box--1">
               <h2 class="meta-text title">{{ $themeLocaleConfig.footer.nav1.title }}</h2>
               <nav class="footer-nav1">
                 <ul>
-                  <li 
-                    class="footer-nav1__item" 
-                    v-for="(item, index) in $themeLocaleConfig.footer.nav1.items" 
+                  <li
+                    class="footer-nav1__item"
+                    v-for="(item, index) in $themeLocaleConfig.footer.nav1.items"
                     :key="`${item.label}-${index}`">
                     <router-link v-if="item.path" :to="item.path">{{ item.label }}</router-link>
                     <a v-if="item.link" :href="item.link" rel="noopener nofollow" target="_blank">{{ item.label }}</a>
@@ -51,15 +51,15 @@
                 </ul>
               </nav>
             </div>
-            <div 
+            <div
               v-if="$themeLocaleConfig.footer.nav2.items.length"
               class="column xs-50 sm-40 md-33 footer-nav__box footer-nav__box--2">
               <h2 class="meta-text title">{{ $themeLocaleConfig.footer.nav2.title }}</h2>
               <nav class="footer-nav2">
                 <ul>
-                  <li 
-                    class="footer-nav2__item" 
-                    v-for="(item, index) in $themeLocaleConfig.footer.nav2.items" 
+                  <li
+                    class="footer-nav2__item"
+                    v-for="(item, index) in $themeLocaleConfig.footer.nav2.items"
                     :key="`${item.label}-${index}`">
                     <router-link v-if="item.path" :to="item.path">{{ item.label }}</router-link>
                     <a v-if="item.link" :href="item.link" rel="noopener nofollow" target="_blank">{{ item.label }}</a>
@@ -69,7 +69,7 @@
             </div>
           </div>
         </div>
-        <div class="column sm-100 footer-copy" v-html="$themeLocaleConfig.copy"></div>        
+        <div class="column sm-100 footer-copy" v-html="$themeLocaleConfig.copy"></div>
       </div>
 
       <span class="shapes shapes--circle" style="left: 3%; top: -20%"></span>
@@ -84,7 +84,7 @@
       <span class="shapes shapes--circle" style="left: 40%; top: -50%"></span>
       <span class="shapes shapes--color3" style="right: 30%; top: 20%"></span>
       <span class="shapes shapes--circle shapes--primary" style="right: 30%; bottom: 20%"></span>
-    </section>    
+    </section>
   </footer>
 </template>
 
@@ -139,10 +139,10 @@
   padding: 50px 0
 
 .footer-box1, .footer-box2
-  position: relative    
+  position: relative
 
 .footer-social
-  
+
   &__list
     display: inline-block
     margin-top: 8%
@@ -154,11 +154,11 @@
     display: inline
     margin-right: 16px
     color: white
-    
+
   &__icon
     color: white
     font-size: $title1
-    
+
 .footer-newsletter
   position: relative
   width: 40%
@@ -189,7 +189,7 @@
   background-image: url('/watermark-logo.png')
   background-size: cover
   background-repeat: no-repeat
-  z-index: 5
+  z-index: 0
 
 .footer-nav
   padding-right: 4vw !important
@@ -214,7 +214,7 @@
       float: right
       display: block
       width: 85%
-      padding: 6px 4px 
+      padding: 6px 4px
       margin-bottom: 3px
 
       &:hover
@@ -243,14 +243,14 @@
     order: 3
     text-align: center
     padding-top: 10px
-  
+
   .footer-nav
     order: 1
 
   .footer-nav__box--1.column
     text-align: left
     padding-left: 5vw !important
-  
+
   .footer-nav__box--2.column
     padding-right: 5vw !important
 

@@ -303,7 +303,7 @@
 
 .post-cover
   width: 100%
-  height: 358px
+  min-height: 358px
   margin-top: 30px
   margin-bottom: 30px
   background-color: lighten($primaryColor, 90%)
