@@ -78,7 +78,7 @@ module.exports = {
     },
     {
       name: 'youtube',
-      link: 'https://www.youtube.com/ReAlign'
+      link: 'https://www.youtube.com/channel/UCtnj7c33hiaPeDEka4iHeRg'
     },
     {
       name: 'github',

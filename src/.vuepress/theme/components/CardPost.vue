@@ -174,9 +174,9 @@
     margin-bottom: 10px
 
 .card-cover
-  width: 100%
-  height: 150px
-  margin-bottom: 20px
+  width 100%
+  min-height 150px
+  margin-bottom 20px
 
   &__image
     width: 100%
