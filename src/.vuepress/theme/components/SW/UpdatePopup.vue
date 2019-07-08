@@ -32,6 +32,7 @@ export default {
 
     enabled () {
       return Boolean(this.popupConfig && this.updateEvent)
+      // return true
     },
 
     message () {
@@ -66,15 +67,28 @@ export default {
   right 1em
   bottom 1em
   padding 1em
-  border 1px solid $accentColor
-  border-radius 3px
+  font-size 1.2em
+  line-height 2em
+  // border 1px solid $accentColor
+  border-radius 6px
   background #fff
-  box-shadow 0 4px 16px rgba(0, 0, 0, 0.5)
+  box-shadow 2px 5px 10px rgba(0, 0, 0, 0.5)
   text-align center
+  z-index 11
 
   button
+    border 1px solid $primaryColor
+    background #fff
+    border-radius 1em
+    color $primaryColor
     margin-top 0.5em
     padding 0.25em 2em
+    transition all .3s
+    &:hover
+      border 1px solid $primaryColor
+      background $primaryColor
+      color #fff
+      cursor pointer
 
 .sw-update-popup-enter-active, .sw-update-popup-leave-active
   transition opacity 0.3s, transform 0.3s

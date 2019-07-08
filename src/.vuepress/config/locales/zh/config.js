@@ -39,8 +39,12 @@ module.exports = {
     // `,
     `
       2019 © 安亮军 | ReAlign - By
+      <a href="https://github.com/ktquez/vuepress-theme-ktquez" rel="noopener" target="_blank" style="text-decoration: underline;">
+        Theme-ktquez
+      </a>
+      &nbsp;&&nbsp;
       <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank" style="text-decoration: underline;">
-        &nbsp;&nbsp;🔗vuepress
+        Vuepress
       </a>
     `
   ].join(''),

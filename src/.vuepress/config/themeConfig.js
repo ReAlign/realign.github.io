@@ -7,8 +7,8 @@ module.exports = {
   },
   serviceWorker: {
     updatePopup: {
-      message: "New content 🎉🎉",
-      buttonText: "Update"
+      message: " 有新内容啦 🎉🎉🎉 ",
+      buttonText: "更新"
     }
   },
   disqus: 'realign',
