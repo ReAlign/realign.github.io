@@ -1,3 +1,7 @@
+$a-border-size = 6px;
+$a-border-lr-nor = $a-border-size solid transparent;
+$a-border-lr-pri = $a-border-size solid $primaryColor;
+
 .content.custom {
   display: block
   min-height: 150px
@@ -12,7 +16,8 @@
 
     code {
       border-radius: 4px
-      background-color: #151718
+      // background-color: #151718
+      background-color $primaryColor
       color: white
       font-size: $mediumText
       padding: 4px 10px
@@ -23,6 +28,32 @@
       border-bottom: none
       text-decoration: underline
       text-decoration-style: dotted
+    }
+
+    a {
+      position relative
+      text-decoration none
+      padding-left 4px
+      padding-right 4px
+      color: $primaryColor
+      border-bottom 2px solid $primaryColor
+      // border-left $a-border-lr-nor
+      // border-right $a-border-lr-nor
+      // border-radius $a-border-size
+      &:before {
+        content "🔗 "
+      }
+
+      &:hover {
+        background-color: $primaryColor
+        color: white
+        // border-left $a-border-lr-pri
+        // border-right $a-border-lr-pri
+      }
+
+      .icon.outbound {
+        display: none
+      }
     }
   }
 
@@ -48,7 +79,9 @@
     z-index: 2
     font-size: 38px
     line-height 1.04em
-    margin-bottom: 0
+    margin-bottom 0
+    padding-bottom 0.5em
+    border-bottom 1px solid $borderColor
 
     + p {
       margin-top: 30px
@@ -100,8 +133,8 @@
     color: $primaryColor
 
     &:hover {
-      background-color: $primaryColor
-      color: white
+      // background-color: $primaryColor
+      // color: white
     }
 
     .icon.outbound {

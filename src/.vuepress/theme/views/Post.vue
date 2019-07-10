@@ -104,15 +104,18 @@
               <div class="post-content__excerpt">
                 <h2 class="page-header__subtitle" itemprop="description" v-if="currentPost.excerpt">{{ currentPost.excerpt }}</h2>
               </div>
-              <div class="post-content__table-contents" v-if="$page.headers">
+              <!-- <div class="post-content__table-contents" v-if="$page.headers">
                 <table-contents :headers="$page.headers" />
-              </div>
+              </div> -->
               <div ref="content" itemprop="articleBody">
                 <Content></Content>
               </div>
             </div>
             <div class="column no-pad-r sm-25 xl-33 xsNone smNone post-sidebar">
-              <ads class="post-sidebar__bizu" direction="vertical" />
+              <!-- <ads class="post-sidebar__bizu" direction="vertical" /> -->
+              <div class="post-content__table-contents post-content__table-contents_sticky" v-if="$page.headers">
+                <table-contents :headers="$page.headers" />
+              </div>
             </div>
             <aside class="column xs-100">
               <hr class="divider">
@@ -384,6 +387,10 @@
   &__table-contents
     margin-top: 60px
     margin-bottom: 80px
+    &_sticky
+      position sticky
+      top 30px
+      margin-left 30px
 
   &__disqus
     margin-top: 60px

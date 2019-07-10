@@ -3,6 +3,7 @@
     "version": "0.0.1",
     "description": "Personal Web Site.",
     "scripts": {
+        "start": "npm run dev",
         "dev": "vuepress dev src",
         "build": "vuepress build src",
         "postinstall": "cd ./src/.vuepress/theme && npm i"

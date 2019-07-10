@@ -15,6 +15,21 @@ body
   overflow-x: hidden
   background-color: $bgColor
 
+$scroll-bar-size = 10px;
+half(x)
+  x / 2
+
+html, body
+  ::-webkit-scrollbar
+    width $scroll-bar-size
+
+  ::-webkit-scrollbar-thumb
+    background $primaryColor
+    border-radius half($scroll-bar-size)
+
+  ::-webkit-scrollbar-track
+    background rgba(0, 0, 0, 0)
+
 a
   text-decoration none
   color: inherit

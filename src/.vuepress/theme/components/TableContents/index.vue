@@ -3,15 +3,14 @@
     <h3 id="table-of-content" class="table-contents__title">{{ $t('table_content') }}</h3>
     <nav>
       <ol class="table-contents__list">
-        <li 
-          class="table-contents__item" 
-          v-for="header in headers" 
+        <li
+          class="table-contents__item"
+          v-for="header in headers"
           :key="header.slug"
           v-if="header.level < 3">
-          <a 
-            class="table-contents__link" 
-            :href="`#${header.slug}`" 
-            @click.prevent="scrollToHeader(`${header.slug}`)" 
+          <a
+            class="table-contents__link"
+            :href="`#${header.slug}`"
             :title="header.title">
               <span>{{ header.title }}</span>
           </a>
@@ -60,7 +59,7 @@
   &__title
     font-size: $title1
     line-height: 1em
-    margin-bottom: 30px
+    margin-bottom: 22px
 
   &__item
     counter-increment: a
@@ -73,7 +72,7 @@
       background-color: $primaryColor
       color: white
       width: 25px
-      padding: 4px 0      
+      // padding: 4px 0
       text-align: center
       display: inline-block
       font-weight: 700

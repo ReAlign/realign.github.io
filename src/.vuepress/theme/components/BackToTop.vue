@@ -235,6 +235,8 @@
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
 
+$posi-size = 200px
+
 .elevator
   position: relative
   z-index: 99
@@ -246,7 +248,7 @@
     display: inline-block
     transition: bottom .5s
     right: 12vw
-    bottom: -300px
+    bottom: 0 - $posi-size
     opacity: 0
     visibility: hidden
     cursor: pointer
@@ -257,7 +259,7 @@
       animation: fire 1s linear infinite
 
     &--show
-      bottom: 300px
+      bottom: $posi-size
       opacity: 1
       visibility: visible
 
