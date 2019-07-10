@@ -37,7 +37,7 @@ meta:
 
 ## 使用
 
-👉 切换当前 tab 来查看效果
+<a href="/static-html-demo/notes/js/judgment_handle_of_browser_tab_show_or_hide/index.html" target="_blank">查看效果</a>
 
 ```js
 let _title;
@@ -59,24 +59,3 @@ document.addEventListener('visibilitychange', function() {
   }
 });
 ```
-
-<script>
-  let _title;
-
-  //浏览器切换事件
-  document.addEventListener('visibilitychange', function() {
-    //状态判断
-    if(document.visibilityState == 'hidden') {
-      // 缓存原来的标题
-      _title = document.title;
-      document.title = '页面被隐藏后的标题';
-      // 隐藏状态
-      // 你可以做其他操作
-    } else {
-      // 标题还原
-      document.title = _title;
-      // 显示状态
-      // 你可以做其他操作
-    }
-  });
-</script>
