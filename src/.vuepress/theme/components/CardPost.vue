@@ -178,6 +178,9 @@
   min-height 150px
   margin-bottom 20px
 
+  @media (max-width: $max-tablet)
+    min-height: 10px
+
   &__image
     width: 100%
     -o-object-fit: cover
@@ -185,6 +188,9 @@
 
     &--top
       min-height: 150px
+
+      @media (max-width: $max-tablet)
+        min-height: 10px
 
     &--side
       min-height: 120px

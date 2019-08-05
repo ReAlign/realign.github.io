@@ -312,7 +312,8 @@
   background-color: lighten($primaryColor, 90%)
 
   @media (max-width: $max-tablet)
-    height: 192px
+    // height: 192px
+    min-height 10px
 
   &--video
     height: 80vh

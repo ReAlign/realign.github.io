@@ -62,7 +62,12 @@
 .more-posts
   &__list
     margin-top: 30px
-  
+  &__item
+    article.card.box-default
+      margin-bottom 20px
+      &:last-child
+        margin-bottom 0
+
   &.column
     padding-right: 30px
 

@@ -1,14 +1,14 @@
 <template>
   <nav class="categories">
     <ul class="categories__list">
-      <li 
+      <li
         class="categories__item"
         :class="{ 'categories__item--inline': inline }"
         v-if="$categories.length"
         v-for="category in getCategories"
         :key="category.key">
-          <router-link 
-            class="categories__link" 
+          <router-link
+            class="categories__link"
             :to="category.path"
             :aria-current="$route.fullPath === category.path ? 'page' : null">
             <bullet v-if="bullets" :type="category.frontmatter.slug" size="small" />
@@ -58,7 +58,10 @@
 
 .categories
   &__item
-    margin-bottom: 2px
+    margin-bottom 2px
+    margin-right 20px
+    // width 49%
+    display inline-block
 
     &--inline
       display: inline-flex
@@ -76,7 +79,7 @@
     padding: 6px 0
 
     .bullet
-      margin-right: 4px
+      margin-right: 2px
       top: -1px
 
 </style>
