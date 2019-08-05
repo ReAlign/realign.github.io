@@ -56,16 +56,16 @@ meta:
 
 ### 轮询（Polling）
 
-C：有数据了没？（第 1 趟）
-S：没
-C：有数据了没？（第 2 趟）
-S：没
-...
-C：（喘气.jpg）有数据了没？（第 n 趟）
-S：（黑脸.jpg）没~
-...
-C：（生无可恋.jpg）有数据了没？（第 n+m 趟）
-S：有了，给你给你
+* C：有数据了没？（第 1 趟）
+* S：没
+* C：有数据了没？（第 2 趟）
+* S：没
+* ...
+* C：（喘气.jpg）有数据了没？（第 n 趟）
+* S：（黑脸.jpg）没~
+* ...
+* C：（生无可恋.jpg）有数据了没？（第 n+m 趟）
+* S：有了，给你给你
 
 <lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/9416731d-e770-476a-a637-e1024ba8a779_1466_1566.png', alt: 'polling', style: { maxWidth: '700px'} }" />
 
@@ -75,16 +75,16 @@ S：有了，给你给你
 
 ### 长轮询（Long-Polling）
 
-C：有数据了没？（第 1 趟）
-S：没
-C：我等会吧，你快点
-S：好
-...
-S：我们要打烊了，你先走吧，明天再来
-C：（MMP.jpg）好吧
-...
-C：有数据了没？（第 n 趟）
-S：有了，给你给你
+* C：有数据了没？（第 1 趟）
+* S：没
+* C：我等会吧，你快点
+* S：好
+* ...
+* S：我们要打烊了，你先走吧，明天再来
+* C：（MMP.jpg）好吧
+* ...
+* C：有数据了没？（第 n 趟）
+* S：有了，给你给你
 
 <lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/4b5584a3-45eb-4fa8-8807-da220166483a_1490_1630.png', alt: 'Long-Polling', style: { maxWidth: '700px'} }" />
 
@@ -98,14 +98,14 @@ S：有了，给你给你
 >
 > 服务端发送事件EventSource：SSE（Server Sent Events）
 
-C：我预定下今天的数据。有数据没？
-S：没
-C：好，天黑前，有新数据，让伙计送过来吧
-S：（不情愿.jpg）行吧
-...
-S：有 数据1 了，伙计，送过去
-...
-S：有 数据n 了，伙计，噢，下班了呀。天都黑了，算了吧，等他再来吧
+* C：我预定下今天的数据。有数据没？
+* S：没
+* C：好，天黑前，有新数据，让伙计送过来吧
+* S：（不情愿.jpg）行吧
+* ...
+* S：有 数据1 了，伙计，送过去
+* ...
+* S：有 数据n 了，伙计，噢，下班了呀。天都黑了，算了吧，等他再来吧
 
 <lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/cde8e718-d3a6-4322-8bc7-26b8f9f8aa71_1408_1632.png', alt: 'streaming', style: { maxWidth: '700px'} }" />
 
@@ -115,12 +115,12 @@ S：有 数据n 了，伙计，噢，下班了呀。天都黑了，算了吧，�
 
 ### WebSocket
 
-C：我们的合同执行吧，麻烦有数据的时候，推记得给我噢。。
-S：ok
-S：我这有数据给你
-C：👌，我这也有数据给你
-S：👌，给你
-...
+* C：我们的合同执行吧，麻烦有数据的时候，推记得给我噢。。
+* S：ok
+* S：我这有数据给你
+* C：👌，我这也有数据给你
+* S：👌，给你
+* ...
 
 <lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/0a97058b-50e7-4cc6-935d-9fab045bd8bb_1290_1562.png', alt: 'websocket', style: { maxWidth: '700px'} }" />
 
