@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <title>测试页面 | 杂记</title>
+</head>
+
+<body>
+    <div>
+        <button id="btn">全屏按钮</button>
+        <div id="content" style="background:yellow;width:500px;height:500px;">sljfsdlfj
+            <div id="quite" class="btn">退出全屏</div>
+        </div>
+    </div>
+
+    <script>
+        function fullScreen(el) {
+            el = el || document.documentElement;
+            const rfs = el.requestFullScreen
+                        || el.webkitRequestFullScreen
+                        || el.mozRequestFullScreen
+                        || el.msRequestFullScreen;
+            // 非 ie
+            if (typeof rfs !== 'undefined' && rfs) {
+                rfs.call(el);
+                return;
+            }
+            // ie
+            if (typeof window.ActiveXObject !== 'undefined') {
+                const wscript = new ActiveXObject('WScript.Shell');
+                if (wscript) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+
+        function exitFullScreen() {
+            const el = document;
+            const cfs = el.cancelFullScreen
+                || el.webkitCancelFullScreen
+                || el.mozCancelFullScreen
+                || el.exitFullScreen;
+
+            if (typeof cfs !== 'undefined' && cfs) {
+                cfs.call(el);
+                return;
+            }
+
+            if (typeof window.ActiveXObject !== 'undefined') {
+                const wscript = new ActiveXObject('WScript.Shell');
+                if (wscript != null) {
+                    wscript.SendKeys("{F11}");
+                }
+            }
+        }
+        var btn = document.getElementById('btn');
+        var content = document.getElementById('content');
+        btn.onclick = function () {
+            fullScreen();
+        }
+        var quite = document.getElementById('quite');
+        quite.onclick = function () {
+            exitFullScreen();
+        }
+    </script>
+</body>
+
+</html>
