@@ -48,6 +48,8 @@
       this.elevator()
       this.handleScrollEffectBackToTop()
       this.injectScriptAbout()
+
+      this.getAllCodes()
     },
 
     beforeDestroy () {
@@ -55,6 +57,11 @@
     },
 
     methods: {
+      getAllCodes() {
+        debugger
+        const a = document.querySelectorAll('.extra-class');
+        console.log(a);
+      },
       fired () {
         this.fire = true
       },
@@ -88,9 +95,9 @@
         })
       },
       injectScriptAbout() {
-        // this.clearAllScript()
-        // this.addCNZZScript()
-        // this.add51LaStatistical()
+        this.clearAllScript()
+        this.addCNZZScript()
+        this.add51LaStatistical()
         this.addBaiduTongji()
       },
       clearAllScript() {
@@ -195,7 +202,7 @@
           const _id = document.querySelector(ID);
           const flag = (_id.innerText || '').length || _count === 30;
           if(flag) {
-            debugger
+            // debugger
             clearInterval(_timer);
             if(_count !== 30) {
               const _newHtml = vm.getCustomStatic(_id);

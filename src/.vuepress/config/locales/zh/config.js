@@ -21,29 +21,53 @@ module.exports = {
     action: ''
   },
   copy: [
-    // `
-    //   <div
-    //     id="la_20158977"
-    //     style="
-    //       display: inline-block;
-    //       width: 200px;
-    //       height: 12px;
-    //       line-height: 12px;
-    //       margin-right: 16px;
-    //       padding-right: 16px;
-    //       border-right: 2px solid #fff;
-    //       opacity: 0;
-    //     "
-    //   >
-    //   </div>
-    // `,
     `
-      2019 © 安亮军 | ReAlign - By
-      <a href="https://github.com/ktquez/vuepress-theme-ktquez" rel="noopener" target="_blank" style="text-decoration: underline;">
+      <div
+        id="la_20158977"
+        style="
+          display: inline-block;
+          width: 200px;
+          height: 12px;
+          line-height: 12px;
+          margin-right: 16px;
+          padding-right: 16px;
+          border-right: 2px solid #fff;
+          opacity: 0;
+        "
+      >
+      </div>
+    `,
+    // 页脚
+    `
+      © 2019-2019
+      <a
+        href="//realign.pro"
+        rel="noopener"
+        target="_blank">
+      🔗Realign.pro
+      </a>
+      版权所有
+      ICP证：
+      <a
+        href="http://www.beian.miit.gov.cn"
+        rel="noopener"
+        target="_blank">
+        浙ICP备19000351号
+      </a>
+      | ReAlign - 感谢
+      <a
+        href="https://github.com/ktquez/vuepress-theme-ktquez"
+        rel="noopener"
+        target="_blank"
+        style="text-decoration: underline;">
         Theme-ktquez
       </a>
       &nbsp;&&nbsp;
-      <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank" style="text-decoration: underline;">
+      <a
+        href="https://vuepress.vuejs.org/"
+        rel="noopener"
+        target="_blank"
+        style="text-decoration: underline;">
         Vuepress
       </a>
     `

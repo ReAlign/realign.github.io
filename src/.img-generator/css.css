@@ -1,3 +1,9 @@
+:root {
+    --allW: 2732px;
+    --allH: 716px;
+    --uBgSize: 716px;
+}
+
 .m-btn {
     padding: 4px 8px 6px;
     border: 0;
@@ -16,15 +22,22 @@
 .m-my-div {
     position: relative;
     display: inline-block;
-    width: 2732px;/*1366*/
-    height: 716px;/*358px;*/
+    width: var(--allW);/*1366*/
+    height: var(--allH);/*358px;*/
     font-size: 0;
     /* font-size: 200px;
     line-height: 188px; */
     text-align: center;
     vertical-align: middle;
 }
-
+.m-my-div div.u-bg {
+    position: absolute;
+    width: var(--uBgSize);
+    height: var(--uBgSize);
+    background: url(https://lerna.js.org/images/lerna-hero.svg);
+    top: 0;
+    left: 0;
+}
 .m-my-div p {
     position: absolute;
     display: inline-block;

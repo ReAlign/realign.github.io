@@ -3,6 +3,7 @@ const path = require('path')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 const resolve = pathName => path.join(__dirname, pathName)
+const a = require('./a');
 
 module.exports = {
   head,
@@ -14,6 +15,13 @@ module.exports = {
   description: '杂记，雑記，专注记录技术点滴，以及生活随笔，安亮军的博客。',
   evergreen: true,
   serviceWorker: true,
+  markdown: {
+    // lineNumbers: true,
+    config: md => {
+      // md.set({ breaks: true })
+      md.use(a)
+    }
+  },
   locales: {
     '/': {
       lang: 'zh-cn'
