@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "description": "Personal Web Site.",
     "scripts": {
-        "start": "npm run dev",
+        "start": "npm run refresh-vuepress-cache && npm run dev",
+        "refresh-vuepress-cache": "node ./refresh-vuepress-cache.js",
         "dev": "vuepress dev src",
         "build": "vuepress build src",
         "postinstall": "cd ./src/.vuepress/theme && npm i"
@@ -32,6 +33,8 @@
         "vuepress-theme-ktquez": "^0.2.18"
     },
     "devDependencies": {
+        "fs-extra": "^8.1.0",
+        "markdown-it-copy": "^1.0.0",
         "vuepress": "^0.14.11"
     }
 }

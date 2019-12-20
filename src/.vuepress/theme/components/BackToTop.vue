@@ -48,8 +48,6 @@
       this.elevator()
       this.handleScrollEffectBackToTop()
       this.injectScriptAbout()
-
-      this.getAllCodes()
     },
 
     beforeDestroy () {
@@ -57,11 +55,6 @@
     },
 
     methods: {
-      getAllCodes() {
-        debugger
-        const a = document.querySelectorAll('.extra-class');
-        console.log(a);
-      },
       fired () {
         this.fire = true
       },

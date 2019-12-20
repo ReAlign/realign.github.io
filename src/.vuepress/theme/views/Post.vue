@@ -164,9 +164,7 @@
 
   export default {
     name: 'Post',
-
     mixins: [ContentMixin, PostsMixin],
-
     components: {
       Sidebar,
       MorePosts,
@@ -181,13 +179,11 @@
       Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter'),
       LazyLoad: () => import(/* webpackChunkName = "LazyLoad" */ '@theme/components/lazy/load')
     },
-
     data() {
       return {
         jGitalkContainer: 'j-gitalk-container'
       };
     },
-
     computed: {
       getCategories () {
         return this.$categories.filter(category => {
@@ -234,11 +230,9 @@
                           .replace(/#/g, '%23')
       }
     },
-
-    created() {
+    mounted() {
       this.initGitalk();
     },
-
     methods: {
       getUrl () {
         return this.$el.baseURI
@@ -297,9 +291,9 @@
     }
   }
 </script>
-
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
+@import '~@theme/styles/markdown-it-copy-style.styl'
 
 .page-header-cat
   margin-top: 14px

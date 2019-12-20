@@ -3,7 +3,6 @@ const path = require('path')
 const head = require('./config/head')
 const themeConfig = require('./config/themeConfig')
 const resolve = pathName => path.join(__dirname, pathName)
-const a = require('./a');
 
 module.exports = {
   head,
@@ -19,7 +18,7 @@ module.exports = {
     // lineNumbers: true,
     config: md => {
       // md.set({ breaks: true })
-      md.use(a)
+      md.use(require('markdown-it-copy'))
     }
   },
   locales: {
