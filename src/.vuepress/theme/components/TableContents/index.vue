@@ -204,6 +204,10 @@
   &__item
     counter-increment: a
     margin-bottom: 10px
+    cursor: pointer
+    &:hover
+      font-weight bold
+      color: $primaryColor
 
     &:before
       content: counter(a)
