@@ -16,6 +16,9 @@ module.exports = {
   serviceWorker: true,
   markdown: {
     // lineNumbers: true,
+    // toc: {
+    //   includeLevel: [2, 3, 4]
+    // },
     config: md => {
       // md.set({ breaks: true })
       md.use(require('markdown-it-copy'))
