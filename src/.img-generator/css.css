@@ -30,6 +30,8 @@
     text-align: center;
     vertical-align: middle;
 }
+
+/* bg image */
 .m-my-div div.u-bg {
     position: absolute;
     width: var(--uBgSize);
@@ -38,6 +40,7 @@
     top: 0;
     left: 0;
 }
+
 .m-my-div p {
     position: absolute;
     display: inline-block;
@@ -63,6 +66,15 @@
     -webkit-line-clamp: 2;
     line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+.m-my-div-p > * {
+    vertical-align: top;
+}
+.m-my-div-p > img {
+    height: 144px;
+}
+.m-my-div-p-span-small {
+
 }
 .m-my-div span.u-water-mark {
     position: absolute;
