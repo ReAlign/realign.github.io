@@ -11,7 +11,7 @@ module.exports = {
   port: 8899,
   dest: '.vuepress/../dist',
   title: `杂记`,
-  description: '杂记，雑記，专注记录技术点滴，以及生活随笔，安亮军的博客。',
+  description: '杂记, 专注记录技术点滴',
   evergreen: true,
   serviceWorker: true,
   markdown: {

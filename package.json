@@ -3,7 +3,8 @@
     "version": "0.0.1",
     "description": "Personal Web Site.",
     "scripts": {
-        "start": "npm run refresh-vuepress-cache && npm run dev",
+        "start": "npm run dev",
+        "dev-cache": "npm run refresh-vuepress-cache && npm run dev",
         "refresh-vuepress-cache": "node ./refresh-vuepress-cache.js",
         "dev": "vuepress dev src",
         "build": "vuepress build src",

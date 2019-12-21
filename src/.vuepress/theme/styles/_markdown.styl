@@ -12,7 +12,7 @@ $a-border-lr-pri = $a-border-size solid $primaryColor;
 
   p {
     word-wrap: break-word
-    margin-bottom: 40px
+    margin-bottom: 20px
 
     code {
       border-radius: 4px
@@ -181,10 +181,14 @@ $a-border-lr-pri = $a-border-size solid $primaryColor;
     padding-left: 2em
     list-style-type: initial
     margin-top: 0px
-    margin-bottom: 0px
+    margin-bottom: 20px
 
     li:not(:last-child) {
-      margin-bottom: 8px
+      margin-bottom 3px
+    }
+    li ol, li ul {
+      font-size 17px
+      margin-bottom 0
     }
   }
 
@@ -242,6 +246,8 @@ $a-border-lr-pri = $a-border-size solid $primaryColor;
   }
 
   div[class*=language-] {
+    // fix-copy-pos
+    position relative
     margin-top 30px
     margin-bottom 30px
   }
@@ -262,7 +268,8 @@ $a-border-lr-pri = $a-border-size solid $primaryColor;
   }
 
   pre[class*=language-] {
-    position: relative
+    // fix-copy-pos
+    // position: relative
     padding: 4em 1.5em 1.5em
     margin: .5em 0
     overflow: auto
