@@ -172,13 +172,13 @@
 
   &__negative
     &.layout-main__nm--opened,
-    *:not(.no_bw):not([class*='switch-bw']):not([class*='hamburguer__']):not([class*='language-']):not(code):not(.token)
+    *:not(.no_bw):not([class*='switch-bw']):not([class*='hamburguer__']):not([class*='language-']):not(code):not(.token):not([class*='svg-']):not([class*='m-mdic-copy-']):not([class*='u-mdic-copy-']):not([class$='_tcspan']):not([class='overlay'])
       background-color: black !important
       color: #ccc !important
       box-shadow: none !important
       fill: black !important
 
-      input, button:not(.back-button)
+      input, button:not(.back-button):not([class*='u-mdic-copy-'])
         border: 1px solid white !important
 
       ::placeholder
