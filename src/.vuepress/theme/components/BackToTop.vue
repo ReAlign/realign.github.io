@@ -96,8 +96,8 @@
       clearAllScript() {
         Object.keys(J_ID).forEach((id) => {
           const _node = document.querySelector(`#${J_ID[id]}`);
-          console.log('_node', id);
-          console.log(_node);
+          // console.log('_node', id);
+          // console.log(_node);
           if(_node) {
             const _body = document.querySelector('body');
             if(_body) {

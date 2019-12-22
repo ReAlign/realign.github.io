@@ -113,8 +113,8 @@
             </div>
             <div class="column no-pad-r sm-25 xl-33 xsNone smNone post-sidebar">
               <!-- <ads class="post-sidebar__bizu" direction="vertical" /> -->
-              <div class="post-content__table-contents post-content__table-contents_sticky" v-if="$page.headers">
-                <table-contents :headers="$page.headers" />
+              <div class="post-content__table-contents post-content__table-contents_sticky" v-if="headers && headers.length">
+                <table-contents :headers="headers" />
               </div>
             </div>
             <aside class="column xs-100">
@@ -181,6 +181,7 @@
     },
     data() {
       return {
+        headers: [],
         jGitalkContainer: 'j-gitalk-container'
       };
     },
@@ -230,10 +231,26 @@
                           .replace(/#/g, '%23')
       }
     },
+    watch: {
+      '$route' (to, from) {
+        // console.log('to, from');
+        // console.log(to, from);
+        this.updateHeader(this.$page.headers);
+      }
+    },
     mounted() {
       this.initGitalk();
+      this.updateHeader(this.$page.headers);
     },
     methods: {
+      updateHeader(x) {
+        const vm = this;
+
+        vm.headers = [];
+        setTimeout(() => {
+          vm.headers = x;
+        }, 0);
+      },
       getUrl () {
         return this.$el.baseURI
       },
