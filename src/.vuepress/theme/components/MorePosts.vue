@@ -58,6 +58,7 @@
 
 .section-more
   border-top: 1px solid $borderColor
+  border-bottom: 1px solid $borderColor
 
 .more-posts
   &__list

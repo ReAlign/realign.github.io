@@ -121,6 +121,10 @@
             top: el.offsetTop - 30,
             behavior: 'smooth'
           });
+
+          // setTimeout(() => {
+          //   window.location.hash = selector;
+          // }, 1200);
         } else {
           console.error(`selector not exist: ${selector}`);
         }

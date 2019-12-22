@@ -39,7 +39,7 @@ module.exports = {
     `,
     // 页脚
     `
-      © 2019-2019
+      © 2019
       <a
         href="//realign.pro"
         rel="noopener"
@@ -54,13 +54,13 @@ module.exports = {
         target="_blank">
         浙ICP备19000351号
       </a>
-      | ReAlign - 感谢
+      | ReAlign - By
       <a
         href="https://github.com/ktquez/vuepress-theme-ktquez"
         rel="noopener"
         target="_blank"
         style="text-decoration: underline;">
-        Theme-ktquez
+        ktquez
       </a>
       &nbsp;&&nbsp;
       <a

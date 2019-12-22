@@ -120,7 +120,7 @@ meta:
 
 ```bash
 $ npm i lerna -g
-$ lerna -v
+lerna -v
 ```
 
 ### 初始化
@@ -132,7 +132,7 @@ $ cd lerna-pro
 # 默认是 fixed 模式
 $ lerna init
 # 要采用 independent 模式的话
-$ lerna init -i $ lerna init --independent
+$ lerna init -i # lerna init --independent
 ```
 
 生成的目录结构为：
@@ -174,12 +174,49 @@ $ lerna init -i $ lerna init --independent
 }
 ```
 
-## Lerna 命令说明
+## Lerna 命令
 
-> 基于官网文档的翻译，只展示部分，原版以及所有内容可查看 [lerna.js.org](https://lerna.js.org/)
+> 简单列举 Lerna 的命令及用处，原版以及所有内容可查看 [lerna.js.org](https://lerna.js.org/)
 
 ### Init
 
-`lerna init`
+```bash
+$ lerna init # -i/--independent
+```
 
 创建一个新的 `lerna` 仓库或将现有的仓库升级到 `lerna` 的当前版本。
+
+### Publish
+
+```bash
+$ lerna publish # --npm-tag [tagname] | -c | --skip-git | --force-publish [packages]
+```
+
+创建一个新版本的包已经更新。提示输入新版本和更新所有的包在 `git` 和 `npm`。
+
+### Bootstrap
+
+```bash
+$ lerna bootstrap
+```
+
+把所有包的依赖安装到根 `node_modules`。
+
+### Run
+
+```bash
+$ lerna run < script > -- [..args]
+```
+
+在每个包里边运行指定的 `script` 命令。
+
+### Exec
+
+```bash
+$ lerna exec -- < command > [..args]
+# example
+$ lerna exec -- rm -rf ./node_modules
+$ lerna exec -- protractor conf.js
+```
+
+在每个包运行任意命令。

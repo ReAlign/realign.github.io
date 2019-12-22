@@ -18,31 +18,11 @@
 <body>
 <div id="j-source" class="g-source">
     <div>
-        <p>切换 tab 来查看效果</p>
-        <ul>
-            <li>注意页面标题的变化</li>
-        </ul>
+        <!--  -->
     </div>
 
     <script>
-        let _title;
-
-        /* 浏览器切换事件 */
-        document.addEventListener('visibilitychange', function () {
-            /*状态判断 */
-            if (document.visibilityState == 'hidden') {
-                /* 缓存原来的标题 */
-                _title = document.title;
-                document.title = '页面被隐藏后的标题';
-                /* 隐藏状态 */
-                /* 你可以做其他操作 */
-            } else {
-                /* 标题还原 */
-                document.title = _title;
-                /* 显示状态 */
-                /* 你可以做其他操作 */
-            }
-        });
+        //
     </script>
 </div>
 

@@ -1,0 +1,67 @@
+body {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    zoom: 1;
+}
+
+.f-cb,.f-cbli li{zoom:1;}
+
+button {
+    border: 0;
+    border-radius: 3px;
+    padding: 3px 6px 4px 6px;
+    background: #00a3cf;
+    font-size: 14px;
+    color: #fff;
+    margin: 6px 0 6px 6px;
+    outline: none;
+
+    cursor: pointer;
+}
+
+/* button:hover {} */
+
+/* div.u-view-source-btn {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-top: 100px solid #ae4967;
+    border-left: 100px solid transparent;
+} */
+/* div.u-view-source-btn::before {
+    content: "🔍 View source";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+} */
+
+.g-source,.m-view-source-area {
+    display: block;
+    /* float: left; */
+    width: 50%;
+    height: 100%;
+    overflow: auto;
+}
+.g-source {
+    float: left;
+}
+.m-view-source-area {
+    float: right;
+    box-sizing: border-box;
+    border-left: 1px solid #9a9a9a;
+}
+.m-view-source-area pre {
+    margin: 0;
+}
+
+.m-view-source-area pre code {
+    padding-bottom: 30px;
+}
