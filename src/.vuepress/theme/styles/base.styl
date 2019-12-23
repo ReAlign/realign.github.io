@@ -58,8 +58,8 @@ img.cover
 
   &:after
     content: ""
-    background-image: url('/fallback.png')
-    background-size: 80px
+    background-image: url('/watermark-logo.png')
+    background-size: 50px
     background-position: center
     background-repeat: no-repeat
     background-color: $colorImageFallback
@@ -70,6 +70,14 @@ img.cover
     left: 0
     width: 100%
     height: 100%
+
+img.post-cover__image.cover
+  min-height: 358px
+
+  &:after
+    background-image: url('/watermark-logo.png')
+    background-size: 120px
+    min-height: 358px
 
 .layout-main > .container-fluid
   background-color: $bgColor

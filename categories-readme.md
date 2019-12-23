@@ -14,5 +14,6 @@
 * 9   - mobile
 * 10  - node
 * 11  - automation
+* 12  - svelte
 * 101 - 古文
 ```
