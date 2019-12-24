@@ -154,14 +154,20 @@ meta:
 </button>
 ```
 
-The full list of modifiers:
+所有修饰符：
 
-* preventDefault — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
-* stopPropagation — calls event.stopPropagation(), preventing the event reaching the next element
-* passive — improves scrolling performance on touch/wheel events (Svelte will add it automatically where it's safe to do so)
-* capture — fires the handler during the capture phase instead of the bubbling phase ()
-* once — remove the handler after the first time it runs
-* self — only trigger handler if event.target is the element itself
+* preventDefault
+  * 运行事件句柄之前先调用 event.preventDefault()
+* stopPropagation
+  * 调用 event.stopPropagation()
+* passive
+  * 改善触摸/滚轮事件的滚动性能
+* capture
+  * 捕获阶段处理事件句柄
+* once
+  * 句柄触发一次
+* self
+  * 只有在 event.target 是元素本身时才触发句柄
 
 ### 组件间事件处理
 
@@ -246,10 +252,16 @@ The full list of modifiers:
 
 [context-api](https://svelte.dev/tutorial/context-api)
 
+待完善
+
 ### 一些特殊标签
 
 [svelte-self](https://svelte.dev/tutorial/svelte-self)
 
+待完善
+
 ### Module ontext
 
 [sharing-code](https://svelte.dev/tutorial/sharing-code)
+
+待完善
