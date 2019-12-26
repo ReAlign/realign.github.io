@@ -54,6 +54,12 @@ module.exports = {
         target="_blank">
         浙ICP备19000351号
       </a>
+      <div style="display:inline-block;margin:0 auto 0 3px;padding:0;">
+        <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010802010599" style="display:inline-block;text-decoration:none;line-height:12px;">
+          <img src="/images/others/beian.png" style="width:14px;vertical-align:top;"/>
+          <p style="display:inline-block;line-height:16px;margin: 0px 0px 0px 5px; color:#939393;">浙公网安备 33010802010599号</p>
+        </a>
+      </div>
       | ReAlign - By
       <a
         href="https://github.com/ktquez/vuepress-theme-ktquez"
