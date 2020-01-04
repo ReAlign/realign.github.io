@@ -1,0 +1,23 @@
+---
+view: post
+layout: post
+lang: zh-cn
+author: realign
+title: <%= title %>
+description: <%= description %>
+excerpt: <%= excerpt %>
+cover: true
+categories:<% for(var i = 0; i < cates.length; ++i) {%>
+  - <%=cates[i]%><% } %>
+tags:<% for(var j = 0; j < tags.length; ++j) {%>
+  - <%=tags[j]%><% } %>
+created_at: <%= createdTime %>
+updated_at: <%= updatedTime %>
+meta:
+  - name: keywords
+    content: <%= contents %>
+---
+
+## 二级标题
+
+### 三级标题
