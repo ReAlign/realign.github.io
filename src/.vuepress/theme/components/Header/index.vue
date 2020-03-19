@@ -3,6 +3,7 @@
     class="header"
     :class="{ 'header--search-open': searchOpened }"
     itemscope itemtype="https://schema.org/Organization">
+    <vue-scroll-progress-bar :barClass="vspb.barClass" />
     <navigation class="header-navigation" v-if="$themeConfig.topNavigation" />
     <div class="row header-top">
       <div class="column xs-20 sm-20">
@@ -46,6 +47,8 @@
 
   import EventBus from '@theme/plugins/EventBus'
 
+  import { VueScrollProgressBar } from '@guillaumebriday/vue-scroll-progress-bar'
+
   export default {
     name: 'Header',
 
@@ -55,13 +58,21 @@
       Navigation,
       MenuHamburguer,
       Languages: () => import(/* webpackChunkName = Languages */ '@theme/components/Header/Languages'),
-      BlackWhite: () => import(/* webpackChunkName = BlackWhite */ '@theme/components/BlackWhite')
+      BlackWhite: () => import(/* webpackChunkName = BlackWhite */ '@theme/components/BlackWhite'),
+
+      VueScrollProgressBar,
     },
 
     data () {
       return {
         searchOpened: false,
-        openMenu: false
+        openMenu: false,
+
+        vspb: {
+          barClass: {
+            'g-vspb-bar-style': true
+          },
+        }
       }
     },
 
@@ -86,6 +97,9 @@
 
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
+
+_linearGradient(l, r)
+  background linear-gradient(to right, l, r)!important
 
 .header
   &--search-open
@@ -135,5 +149,9 @@
     &__toggle.switch-bw
       display: none
 
+.g-vspb-bar-style
+  height 4px!important
+  box-shadow 0 3px 6px #999!important
+  _linearGradient($primaryColor, $accentColor)
 
 </style>

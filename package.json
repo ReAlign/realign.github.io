@@ -32,6 +32,7 @@
     },
     "homepage": "https://github.com/ReAlign/realign.github.io#readme",
     "dependencies": {
+        "@guillaumebriday/vue-scroll-progress-bar": "^0.5.0",
         "vuepress-theme-ktquez": "^0.2.18"
     },
     "devDependencies": {
