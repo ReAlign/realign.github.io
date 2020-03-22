@@ -3,7 +3,7 @@
     class="header"
     :class="{ 'header--search-open': searchOpened }"
     itemscope itemtype="https://schema.org/Organization">
-    <vue-scroll-progress-bar :barClass="vspb.barClass" />
+    <c-scroll-progress-bar :barClass="vspb.barClass" />
     <navigation class="header-navigation" v-if="$themeConfig.topNavigation" />
     <div class="row header-top">
       <div class="column xs-20 sm-20">
@@ -47,7 +47,7 @@
 
   import EventBus from '@theme/plugins/EventBus'
 
-  import { VueScrollProgressBar } from '@guillaumebriday/vue-scroll-progress-bar'
+  import CScrollProgressBar from '@theme/components/Custom/c-scroll-progress-bar/index'
 
   export default {
     name: 'Header',
@@ -60,7 +60,7 @@
       Languages: () => import(/* webpackChunkName = Languages */ '@theme/components/Header/Languages'),
       BlackWhite: () => import(/* webpackChunkName = BlackWhite */ '@theme/components/BlackWhite'),
 
-      VueScrollProgressBar,
+      CScrollProgressBar,
     },
 
     data () {
