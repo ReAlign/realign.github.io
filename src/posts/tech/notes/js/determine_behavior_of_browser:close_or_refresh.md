@@ -53,3 +53,5 @@ onunload();
 [基于JavaScript判断浏览器到底是关闭还是刷新(超准确)](https://www.jb51.net/article/78977.htm)
 
 [关闭窗口时onunload和onbeforeunload不起作用的解决办法](https://blog.csdn.net/wls666/article/details/89282244)
+
+【未完待续】
