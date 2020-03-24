@@ -48,6 +48,7 @@
       this.elevator()
       this.handleScrollEffectBackToTop()
       this.injectScriptAbout()
+      this.wxjssdk()
     },
 
     beforeDestroy () {
@@ -228,6 +229,46 @@
         });
         return _strArr.join(_strSep);
       },
+      wxjssdk() {
+        this.insertWXJSSDK()
+        this.initWXAfterJSSDKLoaded()
+      },
+      insertWXJSSDK() {
+        const s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.defer = true;
+        s.src = 'https://res.wx.qq.com/open/js/jweixin-1.6.0.js';
+        // s.onload = () => {};
+
+        this.injectDom2Body(s);
+      },
+      initWXAfterJSSDKLoaded() {
+        wx.config({
+          // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+          debug: false,
+          // 必填，公众号的唯一标识
+          appId: 'wx87d633dd51658ca3',
+          // 必填，生成签名的时间戳
+          timestamp: '',
+          // 必填，生成签名的随机串
+          nonceStr: '',
+          // 必填，签名
+          signature: '',
+          // 必填，需要使用的JS接口列表
+          jsApiList: [
+            'checkJsApi',
+            'scanQRCode',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation'
+          ],
+        });
+      }
     }
   }
 </script>
