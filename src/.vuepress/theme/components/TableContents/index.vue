@@ -87,6 +87,10 @@
       setTimeout(() => {
         vm.load();
       }, 200);
+
+      setTimeout(() => {
+        vm.gotoByUrlHash();
+      }, 1000);
     },
     methods: {
       handleHeaders() {
@@ -113,20 +117,25 @@
           }
         });
       },
+      gotoByUrlHash() {
+        const h = location.hash || '';
+        if(h) {
+          this.scrollToHeader(decodeURI(h.substr(1)));
+        }
+      },
       scrollToHeader (selector) {
-        const el = document.querySelector(`#${selector}`);
+        const s = `#${selector}`;
+        const el = document.querySelector(s);
+
+        // window.location.hash = s;
 
         if(el) {
           window.scrollTo({
             top: el.offsetTop - 30,
             behavior: 'smooth'
           });
-
-          // setTimeout(() => {
-          //   window.location.hash = selector;
-          // }, 1200);
         } else {
-          console.error(`selector not exist: ${selector}`);
+          console.error(`selector not exist: ${s}`);
         }
       },
       ///////////
