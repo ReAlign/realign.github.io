@@ -21,3 +21,8 @@
     }
   }
 </script>
+
+<style lang="stylus">
+img.lazy-load-image
+  margin 0 0 6px 0!important
+</style>

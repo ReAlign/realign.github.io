@@ -310,7 +310,8 @@
 </script>
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
-@import '~@theme/styles/markdown-it-copy-style.styl'
+@import '~@n_ms/markdown-it-copy/theme/default.styl'
+@import '~@theme/styles/override-markdown-it-copy-style.styl'
 
 .page-header-cat
   margin-top: 14px

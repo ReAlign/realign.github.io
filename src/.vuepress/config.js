@@ -21,7 +21,9 @@ module.exports = {
     // },
     config: md => {
       // md.set({ breaks: true })
-      md.use(require('markdown-it-copy'))
+      md.use(require('markdown-it-copy'), {
+        showCodeLanguage: true,
+      })
     }
   },
   locales: {
@@ -33,7 +35,8 @@ module.exports = {
     return {
       resolve: {
         alias: {
-          '@public': resolve('./public')
+          '@public': resolve('./public'),
+          '@n_ms': resolve('./../../node_modules')
         }
       }
     }

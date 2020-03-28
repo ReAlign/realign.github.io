@@ -67,9 +67,11 @@
 @import '~@theme/styles/config.styl'
 
 .observer
-  position: relative
-  height: 100%
-  min-height: 200px
+  position relative
+  height 100%
+  min-height 200px
+  // background-color #f9f9f9
+  // border-radius 3px
 
   &--displayed
     min-height: auto

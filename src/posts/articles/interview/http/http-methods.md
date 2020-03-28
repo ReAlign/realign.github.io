@@ -3,9 +3,9 @@ view: post
 layout: post
 lang: zh-cn
 author: realign
-title: Http(1) - Methods
-description: Http(1) - Methods
-excerpt: Http(1) - Methods
+title: Http(1) - Methods 方法
+description: Http(1) - Methods 方法
+excerpt: Http(1) - Methods 方法
 cover: true
 categories:
   - api
@@ -19,7 +19,7 @@ created_at: 2020-03-26 01:00
 updated_at: 2020-03-26 01:00
 meta:
   - name: keywords
-    content: http, api, notes
+    content: http, api, notes, js, methods
 ---
 
 ## 概述
@@ -94,15 +94,27 @@ HTTP 定义了一组请求方法，以表明要对给定资源执行的操作。
 ### GET-POST
 
 * 数据传输方式不同
-  * GET请求通过URL传输数据，而POST的数据通过请求体传输。
+  * GET 请求通过URL传输数据
+  * POST的数据通过请求体传输
 * 安全性不同
-  * POST的数据因为在请求主体内，所以有一定的安全性保证，而GET的数据在URL中，通过历史记录，缓存很容易查到数据信息。
+  * GET的数据在URL中，通过历史记录，缓存很容易查到数据信息
+  * POST 的数据因为在请求主体内，所以有一定的安全性保证，
 * 数据类型不同
-  * GET只允许 ASCII 字符，而POST无限制
+  * GET 只允许 ASCII 字符
+    * 因为需要进过 URL Encode
+  * POST 无限制
 * GET无害
-  * 刷新、后退等浏览器操作GET请求是无害的，POST可能重复提交表单
+  * 刷新、后退等浏览器操作GET请求是无害的
+  * POST 可能重复提交表单
 * 特性不同
-  * GET是安全（这里的安全是指只读特性，就是使用这个方法不会引起服务器状态变化）且幂等（幂等的概念是指同一个请求方法执行多次和仅执行一次的效果完全相同），而POST是非安全非幂等
+  * GET 是安全（这里的安全是指只读特性，就是使用这个方法不会引起服务器状态变化）且幂等（幂等的概念是指同一个请求方法执行多次和仅执行一次的效果完全相同）
+  * POST 是非安全非幂等
+* TCP 传输
+  * GET 请求会把请求报文一次性发出去
+  * POST 会分为两个 TCP 数据包
+    * 首先发 header 部分，如果服务器响应 100(continue)
+    * 然后发 body 部分
+    * ⚠️ 火狐浏览器除外，它的 POST 请求只发一个 TCP 包
 
 ### PUT-POST
 
@@ -112,42 +124,42 @@ PUT 和POST方法的区别是：PUT方法是幂等的：连续调用一次或者
 
 除此之外还有一个区别，通常情况下，PUT的URI指向是具体单一资源，而POST可以指向资源集合。
 
-举个例子，我们在开发一个博客系统，当我们要创建一篇文章的时候往往用POST https://www.jianshu.com/articles，这个请求的语义是，在articles的资源集合下创建一篇新的文章，如果我们多次提交这个请求会创建多个文章，这是非幂等的。
+举个例子，我们在开发一个博客系统，当我们要创建一篇文章的时候往往用POST `https://blog.realign.pro/posts`，这个请求的语义是，在 posts 的资源集合下创建一篇新的文章，如果我们多次提交这个请求会创建多个文章，这是非幂等的。
 
-而PUT https://www.jianshu.com/articles/820357430的语义是更新对应文章下的资源（比如修改作者名称等），这个URI指向的就是单一资源，而且是幂等的，比如你把『刘德华』修改成『蔡徐坤』，提交多少次都是修改成『蔡徐坤』
+而 PUT `https://blog.realign.pro/aposts/1` 的语义是更新对应文章下的资源，这个 URI 指向的就是单一资源，而且是幂等的，比如你把作者「XXX」修改成「YYY」，不管提交多少次，最后都是修改成「YYY」
 
 ### PUT-PATCH
 
 > 都是给服务器发送修改资源
 
-PUT和PATCH都是更新资源，而PATCH用来对已知资源进行局部更新。
+PUT 和 PATCH 都是更新资源，而 PATCH 用来对已知资源进行局部更新。
 
-比如我们有一篇文章的地址https://www.jianshu.com/articles/820357430,这篇文章的可以表示为:
+比如我们有一篇文章的地址  `https://blog.realign.pro/aposts/1`，这篇文章的可以表示为:
 
-```js
-article = {
-  author: 'dxy',
-  creationDate: '2019-6-12',
-  content: '我写文章像蔡徐坤',
-  id: 820357430
+```json
+{
+  "author": "XXX",
+  "createDate": "2020-01-01",
+  "content": "这是一篇文章",
+  "id": 1
 }
 ```
 
-当我们要修改文章的作者时，我们可以直接发送PUT https://www.jianshu.com/articles/820357430，这个时候的数据应该是:
+当我们要修改文章的作者时，我们可以直接发送 PUT `https://blog.realign.pro/aposts/1`，这个时候的数据应该是:
 
-```js
+```json
 {
-  author:'蔡徐坤',
-  creationDate: '2019-6-12',
-  content: '我写文章像蔡徐坤',
-  id: 820357430
+  "author": "XXX",
+  "createDate": "2020-01-01",
+  "content": "这是一篇文章",
+  "id": 1
 }
 ```
 
-这种直接覆盖资源的修改方式应该用put，但是你觉得每次都带有这么多无用的信息，那么可以发送PATCH https://www.jianshu.com/articles/820357430，这个时候只需要:
+这种直接覆盖资源的修改方式应该用 PUT，但是你觉得每次都带有这么多无用的信息，那么可以发送 PATCH `https://blog.realign.pro/aposts/1`，这个时候只需要:
 
-```js
+```json
 {
-  author:'蔡徐坤',
+  "author": "YYY"
 }
 ```
