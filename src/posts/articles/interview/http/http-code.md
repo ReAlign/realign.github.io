@@ -4,8 +4,8 @@ layout: post
 lang: zh-cn
 author: realign
 title: Http(3) - Code 状态码
-description: Http(3) - Code 状态码
-excerpt: Http(3) - Code 状态码
+description: RFC 规定 HTTP 的状态码为三位数，分为五大类：* 1xx - 信息响应：表示目前是协议处理的中间状态，还需要后续操作 * 2xx - 成功响应：表示成功状态
+excerpt: RFC 规定 HTTP 的状态码为三位数，分为五大类：* 1xx - 信息响应：表示目前是协议处理的中间状态，还需要后续操作 * 2xx - 成功响应：表示成功状态
 cover: true
 categories:
   - api
@@ -17,8 +17,8 @@ tags:
   - http
   - js
   - notes
-created_at: 2020-03-28 03:00
-updated_at: 2020-03-28 03:00
+created_at: 2020-03-28 13:02
+updated_at: 2020-03-28 15:35
 meta:
   - name: keywords
     content: http, js, api, notes

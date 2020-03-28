@@ -4,8 +4,8 @@ layout: post
 lang: zh-cn
 author: realign
 title: Http(1) - Methods 方法
-description: Http(1) - Methods 方法
-excerpt: Http(1) - Methods 方法
+description: HTTP 定义了一组请求方法，以表明要对给定资源执行的操作。指示针对给定资源要执行的期望动作。虽然他们也可以是名词，但这些请求方法有时被称为 HTTP 动词。每一个请求方法都实现了不同的语义，但一些共同的特征由一组共享，例如：一个请求方法可以是 safe、idempotent 或 cacheable。
+excerpt: HTTP 定义了一组请求方法，以表明要对给定资源执行的操作。指示针对给定资源要执行的期望动作。虽然他们也可以是名词，但这些请求方法有时被称为 HTTP 动词。每一个请求方法都实现了不同的语义，但一些共同的特征由一组共享，例如：一个请求方法可以是 safe、idempotent 或 cacheable。
 cover: true
 categories:
   - api
@@ -15,8 +15,8 @@ tags:
   - api
   - http
   - notes
-created_at: 2020-03-26 01:00
-updated_at: 2020-03-26 01:00
+created_at: 2020-03-26 15:29
+updated_at: 2020-03-26 17:33
 meta:
   - name: keywords
     content: http, api, notes, js, methods

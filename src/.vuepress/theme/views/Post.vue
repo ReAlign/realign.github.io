@@ -128,8 +128,20 @@
               <section class="post-content__disqus">
                 <h3>{{ $t('text_comments') }}</h3>
                 <ClientOnly>
+                  <div class="m-lbl-wrap-outer">
+                    <div class="m-lbl-wrap-inner">
+                      <!-- 来必力City版安装代码 -->
+                      <div id="lv-container" data-id="city" data-uid="MTAyMC80OTMxNy8yNTgwOQ==">
+                      <!-- <script type="text/javascript">
+
+                      </script>
+                      <noscript>为正常使用来必力评论功能请激活JavaScript</noscript> -->
+                      </div>
+                      <!-- City版安装代码已完成 -->
+                    </div>
+                  </div>
                   <!-- aaa -->
-                  <div :ref="jGitalkContainer" :id="jGitalkContainer"></div>
+                  <!-- <div :ref="jGitalkContainer" :id="jGitalkContainer"></div> -->
                   <!-- <vue-disqus class="mt-30" :shortname="$themeConfig.disqus" /> -->
                 </ClientOnly>
               </section>
@@ -239,10 +251,25 @@
       }
     },
     mounted() {
-      this.initGitalk();
+      // this.initGitalk();
+      this.installLBL();
       this.updateHeader(this.$page.headers);
     },
     methods: {
+      installLBL() {
+        // https://livere.com
+        (function(d, s) {
+            var j, e = d.getElementsByTagName(s)[0];
+
+            if (typeof LivereTower === 'function') { return; }
+
+            j = d.createElement(s);
+            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+            j.async = true;
+
+            e.parentNode.insertBefore(j, e);
+        })(document, 'script');
+      },
       updateHeader(x) {
         const vm = this;
 
@@ -421,4 +448,9 @@
 
     @media (max-width: $min-large)
       word-break: break-all
+
+.m-lbl-wrap-outer
+  //
+  .m-lbl-wrap-inner
+    width calc(100% - 15vw)
 </style>

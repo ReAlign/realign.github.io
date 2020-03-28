@@ -4,8 +4,8 @@ layout: post
 lang: zh-cn
 author: realign
 title: Http(4) - Transfer 传输
-description: Http(4) - Transfer 传输
-excerpt: Http(4) - Transfer 传输
+description: 此部分，会分析 http 层面数据的几种传输方式。
+excerpt: 此部分，会分析 http 层面数据的几种传输方式。
 cover: true
 categories:
   - api
@@ -18,7 +18,7 @@ tags:
   - js
   - notes
 created_at: 2020-03-28 15:19
-updated_at: 2020-03-28 15:19
+updated_at: 2020-03-28 17:15
 meta:
   - name: keywords
     content: http, js, api, notes
@@ -26,7 +26,7 @@ meta:
 
 ## 概述
 
-[暂 略]
+此部分，会分析 http 层面数据的几种传输方式。
 
 ## 定长数据传输
 

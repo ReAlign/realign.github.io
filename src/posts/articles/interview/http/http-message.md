@@ -4,8 +4,8 @@ layout: post
 lang: zh-cn
 author: realign
 title: Http(2) - Message 报文
-description: Http(2) - Message 报文
-excerpt: Http(2) - Message 报文
+description: TCP 协议，在传输的时候分为两个部分：TCP头 和 数据。HTTP 类似，是 header + body 的结构
+excerpt: TCP 协议，在传输的时候分为两个部分：TCP头 和 数据。HTTP 类似，是 header + body 的结构
 cover: true
 categories:
   - api
@@ -17,8 +17,8 @@ tags:
   - http
   - js
   - notes
-created_at: 2020-03-28 02:00
-updated_at: 2020-03-28 02:00
+created_at: 2020-03-28 09:01
+updated_at: 2020-03-28 11:52
 meta:
   - name: keywords
     content: http, js, api, notes, message
