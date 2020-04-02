@@ -24,12 +24,22 @@ meta:
 
 ## call-apply-bind
 
+> Function
+
 一句话：都是为了改变某个函数运行时的上下文（context）而存在的。
+
+### call-apply-bind签名
+
+```js
+function.call(thisArg, arg1, arg2, ...)
+function.apply(thisArg, [argsArray])
+function.bind(thisArg[, arg1[, arg2[, ...]]])
+```
 
 ### call-apply-bind相似点
 
-1. 都是用来改变函数体 this 的指向
-2. 第一个参数都是 this 要指向的对象
+1. 都是用来改变函数体 `this` 的指向
+2. 第一个参数都是 `this` 要指向的对象
 3. 都可以利用后续参数传参
 
 ### call-apply-bind不同点
@@ -37,7 +47,7 @@ meta:
 一个通用的例子：
 
 ```js
-const X = {
+var X = {
     name: 'xxx',
     gender: 'male',
     age : 18,
@@ -56,7 +66,7 @@ X.say(); // xxx, male, 18 years old.
 现在有个 `Y`，定义如下：
 
 ```js
-const Y = {
+var Y = {
     name: 'yyy',
     gender: 'female',
     age: 16,
@@ -89,7 +99,7 @@ X.say.bind(Y); //
 把通用例子稍改写一下：
 
 ```js
-const X = {
+var X = {
     name: 'xxx',
     gender: 'male',
     age : 18,
@@ -124,3 +134,62 @@ X.say.bind(Y)('noodles', 'running');
 * `call` 的非第一个参数，与 `say` 方法的参数是一一对应的
 * `apply` 的第二个参数是一个数组，数组的元素是和 `say` 方法中一一对应的
 * `bind`返回的是一个函数，正常函数传参即可
+
+## slice-substr-substring
+
+> String
+
+一句话：都是截取字符串。
+
+### slice-substr-substring签名
+
+```js
+// 从一个字符串中提取字符串并返回新字符串
+// 参数可为负数。第二个参数是指定结束位置
+str.slice(beginIndex[, endIndex])
+
+// 返回一个字符串中从指定位置开始到指定字符数的字符
+// 参数可为负数。第二个参数是指定截取长度
+str.substr(start[, length])
+
+// 返回一个字符串在开始索引到结束索引之间的一个子集, 或从开始索引直到字符串的末尾的一个子集
+// 参数为负数被替换成 0；【内部保证非负】
+// indexStart < indexEnd；【内部保证小参在前】，会强制被换掉
+str.substring(indexStart[, indexEnd])
+```
+
+### slice-substr-substring从效果看差异
+
+```js
+var str = 'helloworld!';
+
+str.substr(2, 5);     // 'llowo'
+str.slice(2, 5);      // 'llo'
+str.substring(2, 5);  // 'llo'
+```
+
+### slice-substr-substring相似点
+
+[略]
+
+### slice-substr-substring不同点
+
+[略]
+
+<!-- ## call-apply-bind
+
+> Function
+
+一句话：都是为了改变某个函数运行时的上下文（context）而存在的。
+
+### call-apply-bind签名
+
+```js
+function.call(thisArg, arg1, arg2, ...)
+```
+
+### call-apply-bind相似点
+
+1. 都是用来改变函数体 `this` 的指向
+
+### call-apply-bind不同点 -->
