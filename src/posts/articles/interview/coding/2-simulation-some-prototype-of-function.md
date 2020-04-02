@@ -193,5 +193,4 @@ function myInstanceof(L, R) {
     L = L.__proto__;
   }
 }
-
 ```
