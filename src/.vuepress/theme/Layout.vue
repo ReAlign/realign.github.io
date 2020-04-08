@@ -54,13 +54,20 @@
   // Mixins
   import NProgressMixin from '@theme/mixins/NProgress'
   import AnnouncerMixin from '@theme/mixins/Announcer'
+  import TranslateYDMixin from '@theme/mixins/translate-yd'
 
   import FontFaceObserver from 'fontfaceobserver'
+
+  import _ from '@theme/utils/_'
 
   export default {
     name: 'MainLayout',
 
-    mixins: [NProgressMixin, AnnouncerMixin],
+    mixins: [
+      NProgressMixin,
+      AnnouncerMixin,
+      TranslateYDMixin,
+    ],
 
     components: {
       Home,
@@ -124,6 +131,19 @@
       // SW update tip for PWA
       this.$on('sw-updated', this.onSWUpdated)
       this.handleLoadWebFont()
+    },
+
+    mounted() {
+      const vm = this;
+      Promise.all([
+        _.insertJs('http://shared.ydstatic.com/js/jquery/jquery-3.1.1.min.js'),
+        _.insertJs('https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js'),
+        _.insertJs('https://cdn.bootcss.com/js-sha256/0.9.0/sha256.js'),
+      ])
+        .then(res => {
+          vm.initTransCont();
+        })
+        .catch(console.error);
     },
 
     methods: {
