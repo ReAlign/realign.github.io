@@ -136,7 +136,7 @@
     mounted() {
       const vm = this;
       Promise.all([
-        _.insertJs('http://shared.ydstatic.com/js/jquery/jquery-3.1.1.min.js'),
+        _.insertJs('https://shared.ydstatic.com/js/jquery/jquery-3.1.1.min.js'),
         _.insertJs('https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js'),
         _.insertJs('https://cdn.bootcss.com/js-sha256/0.9.0/sha256.js'),
       ])
