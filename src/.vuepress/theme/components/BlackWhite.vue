@@ -1,23 +1,23 @@
 <template>
   <div class="switch-bw">
-    <span 
-      class="switch-bw__text" 
+    <span
+      class="switch-bw__text"
       :class="{ 'switch-bw__text--turnon': toggle }">
       {{ getText }}
     </span>
     <label for="switch-bw" class="switch-bw__label">
-      <input 
-        type="checkbox" 
-        id="switch-bw" 
-        name="switch-bw" 
-        class="switch-bw__input" 
-        @change="handle" 
+      <input
+        type="checkbox"
+        id="switch-bw"
+        name="switch-bw"
+        class="switch-bw__input"
+        @change="handle"
         :checked="toggle"
         aria-labelledby="switch-bw-text">
       <span class="switch-bw__ball"></span>
       <span id="switch-bw-text" hidden>switch to black or white</span>
     </label>
-  </div> 
+  </div>
 </template>
 
 <script>
@@ -67,7 +67,7 @@
     color: black
     text-transform: uppercase
     margin-right: 12px
-    margin-top: 5px
+    margin-top: 3px
     letter-spacing: .5px
 
     &--turnon
@@ -90,14 +90,14 @@
     background: $primaryColor
     border-radius: 50%
     transition: left .5s
-    
+
   &__input
     opacity: 0
     cursor: pointer
 
   &__input:checked
     + .switch-bw__ball
-      left: 20px 
+      left: 20px
       background-color: #999
 
 </style>
