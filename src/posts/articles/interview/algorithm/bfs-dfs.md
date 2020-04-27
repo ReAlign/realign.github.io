@@ -84,6 +84,8 @@ root, container, sidebar, main, tips, menu, post, copyright
  * @param arr 记录数组
  * @param roots 节点序列
  * @param rootLayer 节点层级
+ * @description
+ * 逐层递归，每一层收集起来，递归处理下一层时层级标记
  */
 function BFS_R(arr, roots, rootLayer = 0) {
   // 子节点序列
@@ -109,7 +111,7 @@ function BFS_R(arr, roots, rootLayer = 0) {
 
 ```js
 /**
- * 宽先搜-递归
+ * 宽先搜-非递归
  * @param arr 记录数组
  * @param roots 节点序列
  * @param rootLayer 节点层级
@@ -142,7 +144,7 @@ function BFS_NR(arr, roots, rootLayer = 0) {
       rootsQueue.push(...node.children);
       // 将当前层级 +1，得到子节点的层级
       rootLayer = rootsLayer[rootIndex] + 1;
-      // 记录当前层级
+      // 记录子节点层级
       recordLayer(Array.from(node.children), rootsLayer, rootLayer);
     }
     // 处理下一个root节点
