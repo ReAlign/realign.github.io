@@ -190,7 +190,7 @@
       min-height: 150px
 
       @media (max-width: $max-tablet)
-        min-height: 10px
+        min-height: 100px
 
     &--side
       min-height: 120px
