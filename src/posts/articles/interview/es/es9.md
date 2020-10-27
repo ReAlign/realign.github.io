@@ -24,6 +24,8 @@ meta:
 
 ### Async-for-await
 
+> [如何在 JS 循环中正确使用 async 与 await](https://www.jianshu.com/p/5b8c695474f0)
+
 ```js
 var doSomething = (i) => {
   return new Promise(res => {
