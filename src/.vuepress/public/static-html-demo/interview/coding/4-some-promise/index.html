@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" href="/favicon/favicon-32x32.png" sizes="32x32">
+    <title>测试页面 | promise-limit | 杂记</title>
+    <link rel="stylesheet" href="/static-html-demo/css.css" />
+    <link rel="stylesheet" href="/static-html-demo/styles/default.css" />
+    <link rel="stylesheet" href="/static-html-demo/styles/github.css" />
+</head>
+
+<body>
+    <div id="j-source" class="g-source">
+        <div>
+            <button id="btn-start">start</button> console.log 查看效果
+        </div>
+
+        <script>
+            /**
+             * 核心逻辑
+             */
+            class PromiseLimit {
+                constructor(max) {
+                    /* 上限 */
+                    this._max = max;
+
+                    /* 当前在执行的数量 */
+                    this._count = 0;
+                    /* 等待执行的队列 */
+                    this._taskQueue = [];
+                }
+                /**
+                 * 调用函数，排布任务
+                 * @param caller 异步任务函数 async | promiseReturn
+                 * @param args 参数列表
+                 * @returns {Promise} 新的 Promise
+                 */
+                call(caller, ...args) {
+                    return new Promise((resolve, reject) => {
+                        const task = this.createTask(caller, args, resolve, reject);
+                        if (this._count >= this._max) {
+                            this._taskQueue.push(task);
+                        } else {
+                            task();
+                        }
+                    });
+                }
+                /**
+                 * 任务创建函数
+                 * @param caller 实际执行函数
+                 * @param args 执行函数的参数
+                 * @param resolve
+                 * @param reject
+                 * @returns {Function} 任务函数
+                 */
+                createTask(caller, args, resolve, reject) {
+                    return () => {
+                        caller(...args)
+                            .then(resolve)
+                            .catch(reject)
+                            .finally(() => {
+                                this._count--;
+                                if (this._taskQueue.length) {
+                                    this._taskQueue.shift()();
+                                }
+                            });
+                        this._count++;
+                    };
+                }
+            }
+
+            /**
+             * DF 时间格式化
+             * R 请求
+             * PLR 基于 PromiseLimit 的请求
+             */
+            const DF = {
+                dateFormat(fmt, date) {
+                    let ret;
+                    const opt = {
+                        "Y+": date.getFullYear().toString(),
+                        "m+": (date.getMonth() + 1).toString(),
+                        "d+": date.getDate().toString(),
+                        "H+": date.getHours().toString(),
+                        "M+": date.getMinutes().toString(),
+                        "S+": date.getSeconds().toString(),
+                    };
+                    for (let k in opt) {
+                        ret = new RegExp("(" + k + ")").exec(fmt);
+                        if (ret) {
+                            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1]
+                                .length, "0")))
+                        };
+                    };
+                    return fmt;
+                },
+                ms(date) {
+                    return DF.dateFormat("MM:SS", date);
+                },
+            };
+            const R = {
+                get(url = '', params = {}) {
+                    const {
+                        delay = 0,
+                    } = params;
+                    console.log(`${DF.ms(new Date())}\t started: ${url}`);
+                    return new Promise((res, rej) => {
+                        setTimeout(() => {
+                            console.log(`${DF.ms(new Date())}\t ${url} finished`);
+                            res({
+                                url,
+                                params
+                            });
+                        }, delay);
+                    });
+                },
+            };
+            const PLR = {
+                MAX: 3
+            };
+            PLR.limitP = new PromiseLimit(PLR.MAX);
+            PLR.get = (url, params) => {
+                return PLR.limitP.call(R.get, url, params);
+            };
+            const start = () => {
+                const list = [1000, 3000, 2000, 4000, 1000, 1000, 2000, 4000, 5000];
+
+                Promise.all(list.map((l, i) => {
+                    return PLR.get(`/api/${i}-${l}`, {
+                        delay: l
+                    })
+                })).then(results => {
+                    console.log('results:', results);
+                })
+            };
+
+            document.getElementById('btn-start').onclick = function () {
+                start();
+            };
+        </script>
+    </div>
+
+    <script src="/static-html-demo/highlight.pack.js"></script>
+    <script src="/static-html-demo/view-source.js"></script>
+</body>
+
+</html>

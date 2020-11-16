@@ -48,18 +48,18 @@ var E = {
         hljs.initHighlighting();
     },
 };
-// window.onload = function() {
-//     E.initHj();
+window.onload = function() {
+    E.initHj();
 
-//     // var bodyDom = document.querySelector('body');
-//     // var btnDom = document.createElement('div');
+    var bodyDom = document.querySelector('body');
+    var btnDom = document.createElement('div');
 
-//     // btnDom.className = 'u-view-source-btn';
+    btnDom.className = 'u-view-source-btn';
 
-//     // btnDom.onclick = function() {
-//     //     var x = document.getElementById('j-source');
-//     //     console.log(x.innerHTML);
-//     // };
+    btnDom.onclick = function() {
+        var x = document.getElementById('j-source');
+        console.log(x.innerHTML);
+    };
 
-//     // bodyDom.appendChild(btnDom);
-// };
+    bodyDom.appendChild(btnDom);
+};
