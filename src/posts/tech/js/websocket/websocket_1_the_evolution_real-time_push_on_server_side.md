@@ -67,7 +67,7 @@ meta:
 * C：（生无可恋.jpg）有数据了没？（第 n+m 趟）
 * S：有了，给你给你
 
-<lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/9416731d-e770-476a-a637-e1024ba8a779_1466_1566.png', alt: 'polling', style: { maxWidth: '700px'} }" />
+<lazy-load tag="img" :data="{ src: 'https://kaola-haitao.oss.kaolacdn.com/9416731d-e770-476a-a637-e1024ba8a779_1466_1566.png', alt: 'polling', style: { maxWidth: '700px'} }" />
 
 ***
 
@@ -86,7 +86,7 @@ meta:
 * C：有数据了没？（第 n 趟）
 * S：有了，给你给你
 
-<lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/4b5584a3-45eb-4fa8-8807-da220166483a_1490_1630.png', alt: 'Long-Polling', style: { maxWidth: '700px'} }" />
+<lazy-load tag="img" :data="{ src: 'https://kaola-haitao.oss.kaolacdn.com/4b5584a3-45eb-4fa8-8807-da220166483a_1490_1630.png', alt: 'Long-Polling', style: { maxWidth: '700px'} }" />
 
 ***
 
@@ -107,7 +107,7 @@ meta:
 * ...
 * S：有 数据n 了，伙计，噢，下班了呀。天都黑了，算了吧，等他再来吧
 
-<lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/cde8e718-d3a6-4322-8bc7-26b8f9f8aa71_1408_1632.png', alt: 'streaming', style: { maxWidth: '700px'} }" />
+<lazy-load tag="img" :data="{ src: 'https://kaola-haitao.oss.kaolacdn.com/cde8e718-d3a6-4322-8bc7-26b8f9f8aa71_1408_1632.png', alt: 'streaming', style: { maxWidth: '700px'} }" />
 
 ***
 
@@ -122,7 +122,7 @@ meta:
 * S：👌，给你
 * ...
 
-<lazy-load tag="img" :data="{ src: 'https://haitao.nos.netease.com/0a97058b-50e7-4cc6-935d-9fab045bd8bb_1290_1562.png', alt: 'websocket', style: { maxWidth: '700px'} }" />
+<lazy-load tag="img" :data="{ src: 'https://kaola-haitao.oss.kaolacdn.com/0a97058b-50e7-4cc6-935d-9fab045bd8bb_1290_1562.png', alt: 'websocket', style: { maxWidth: '700px'} }" />
 
 ***
 

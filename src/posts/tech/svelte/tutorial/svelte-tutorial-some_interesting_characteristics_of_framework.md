@@ -17,7 +17,7 @@ tags:
   - svelte
   - characteristics
 created_at: 2019-12-24 13:28
-updated_at: 2019-12-24 13:28
+updated_at: 2021-01-20 16:14
 meta:
   - name: keywords
     content: js,javascript,svelte,framework,characteristics
@@ -35,12 +35,13 @@ meta:
 <script>
   let count = 1;
 
-  // the `$:` means 're-run whenever these values change'
-  // when count changed, doubled and quadrupled will follow
+  // $: 表示这个变量在它的右值变化的时候会重新计算
+  // count 变化, doubled 和 quadrupled 这俩值也会跟着变
+  // 很类似 vue 的 computed
   $: doubled = count * 2;
   $: quadrupled = doubled * 2;
 
-  // also be applied to statements
+  // $: 也可以是一段逻辑
   $: if (count >= 10) {
     alert(`count is dangerously high!`);
     count = 9;
@@ -54,12 +55,15 @@ meta:
 
 ```html
 <script>
+  // 数组
   let numbers = [1, 2, 3, 4];
+  $: sum = numbers.reduce((t, n) => t + n, 0);
 
   // 不起作用
   function addNumber() {
     numbers.push(numbers.length + 1);
   }
+  // 只有显式用等号赋值，才能触发响应式
   // 需要多操作一下
   function addNumber() {
     numbers.push(numbers.length + 1);
@@ -75,7 +79,22 @@ meta:
     numbers[numbers.length] = numbers.length + 1;
   }
 
-  // 对象待完善...
+  // 对象
+  let obj = {
+    x: {
+      k: 'k',
+    },
+  };
+  $: ks = JSON.stringify(obj, null, 2);
+  // 不生效
+  function addProp() {
+    const x = obj.x;
+    x.c = 'k';
+  }
+  // 生效
+  function addProp() {
+    obj.x.c = 'k';
+  }
 </script>
 ```
 
