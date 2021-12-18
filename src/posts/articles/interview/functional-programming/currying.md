@@ -94,6 +94,21 @@ GS('天水'); // 中国-甘肃-天水
 
 解决了这个，那么任意参数的柯里化就解决了~
 
+```js
+function currying(fn) {
+  const _args = [];
+
+  return function cb() {
+    if(arguments.length === 0) {
+      return fn.apply(this, _args);
+    }
+    [].push.apply(_args, arguments);
+
+    return cb;
+  };
+}
+```
+
 ### 延迟计算/运行
 
 > 使用通用的实现 currying 方法来实现加法函数，即可看到延迟计算的效果。
