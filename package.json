@@ -11,7 +11,7 @@
         "postinstall": "cd ./src/.vuepress/theme && npm i",
         "add": "node ./tools/add.js",
         "docker-build": "docker build . -t 127.0.0.1:5000/x/realign.github.io",
-        "docker-before-push": "npm i && npm run build && npm run docker-build",
+        "docker-before-push": "npm install && npm run build && npm run docker-build",
         "docker-push": "docker push 127.0.0.1:5000/x/realign.github.io",
         "docker-cli": "npm run docker-before-push && npm run docker-push"
     },
