@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 pwd
 
-git pull && npm i && npm run build
+git pull && npm run docker-cli
 
 pwd
