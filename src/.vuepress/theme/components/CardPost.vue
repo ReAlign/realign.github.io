@@ -174,6 +174,7 @@ export default {
     width: 100%
     -o-object-fit: cover
     object-fit: cover
+    border-radius: 12px
 
     &--top
       min-height: 150px
@@ -183,7 +184,6 @@ export default {
 
     &--side
       min-height: 120px
-      border-radius: 12px
 
 .card-title
   display: block
