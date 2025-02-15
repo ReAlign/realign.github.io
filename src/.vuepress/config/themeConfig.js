@@ -12,7 +12,7 @@ module.exports = {
     }
   },
   disqus: 'realign',
-  url: `https://blog.realign.pro`,
+  url: `https://blog.realign.cn`,
   cdn: '',
   blackWhite: true,
   topNavigation: false,

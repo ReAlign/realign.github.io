@@ -1,7 +1,7 @@
 <template>
   <div class="observer" :class="{ 'observer--displayed': displayed }">
     <spinner class="observer__spinner" :class="{ 'observer__spinner--hide': displayed }" v-if="spinner" />
-    <component v-if="tag && displayed" :is="current" :tag="tag" :data="data" />
+    <component v-if="tag && displayed" :is="current" :tag="tag" :data="data" :styleData="styleData" />
     <slot v-if="!tag && displayed" />
   </div>
 </template>
@@ -19,6 +19,7 @@
     props: {
       tag: String,
       data: Object,
+      styleData: Object,
       spinner: {
         type: Boolean,
         default: true

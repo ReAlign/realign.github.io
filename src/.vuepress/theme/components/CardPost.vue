@@ -1,15 +1,10 @@
 <template>
-  <article
-    class="card box-default"
-    :class="{ 'card--cover-top': isCoverPosition('top') }">
+  <article class="card box-default" :class="{ 'card--cover-top': isCoverPosition('top') }">
     <div class="card__box1" :class="`card__box1--${cover}`">
       <header>
         <div class="card-category">
-          <router-link
-            v-if="getCurrentCategory"
-            class="card-category__link"
-            :to="getCurrentCategory.path"
-            :aria-labelledby="`sr-link-cat-${item.key}`" >
+          <router-link v-if="getCurrentCategory" class="card-category__link" :to="getCurrentCategory.path"
+            :aria-labelledby="`sr-link-cat-${item.key}`">
             <bullet :type="item.categories[0]" />
             <span class="meta-text">{{ getCurrentCategory.frontmatter.title }}</span>
           </router-link>
@@ -20,10 +15,8 @@
         <div class="card-cover" v-if="isCoverPosition('top')">
           <router-link :to="item.path" :aria-labelledby="`sr-link-post-${item.key}`">
             <responsive-picture :coverName="item.coverName">
-              <img
-                class="card-cover__image card-cover__image--top cover"
-                :src="`${item.cover ? `${item.coverName}.${extension}` : ''}`"
-                :title="item.coverAlt"
+              <img class="card-cover__image card-cover__image--top cover"
+                :src="`${item.cover ? `${item.coverName}.${extension}` : ''}`" :title="item.coverAlt"
                 :alt="item.coverAlt">
             </responsive-picture>
           </router-link>
@@ -37,11 +30,8 @@
           <ul class="card-info__list">
             <li class="card-info__item">
               <time-provider type="ago" :date="item.created_at">
-                <time
-                  :datetime="`${item.created_at}`"
-                  class="card-timeago"
-                  slot-scope="{ time }">
-                    {{ time }}
+                <time :datetime="`${item.created_at}`" class="card-timeago" slot-scope="{ time }">
+                  {{ time }}
                 </time>
               </time-provider>
             </li>
@@ -51,12 +41,9 @@
           </ul>
         </div>
         <div class="column xs-50">
-          <router-link
-            class="card-readmore"
-            :to="item.path"
-            :aria-labelledby="`sr-link-post-${item.key}`">
-              <span class="card-readmore__text">{{ $t('see_post') }}</span>
-              <span class="icon card-readmore__icon icon--arrow">arrow</span>
+          <router-link class="card-readmore" :to="item.path" :aria-labelledby="`sr-link-post-${item.key}`">
+            <span class="card-readmore__text">{{ $t('see_post') }}</span>
+            <span class="icon card-readmore__icon icon--arrow">arrow</span>
           </router-link>
           <span hidden :id="`sr-link-post-${item.key}`"> {{ $t('labelledby_post_card_post') }} {{ item.title }}</span>
         </div>
@@ -65,69 +52,67 @@
 
     <div class="card__box2" :class="`card__box2--${cover}`" v-if="item.cover && cover && !isCoverPosition('top')">
       <router-link :to="item.path">
-        <img
-          class="card-cover__image card-cover__image--side cover"
-          :src="`${item.coverName}.${item.coverExt || $themeConfig.responsive.ext || 'png'}`"
-          :alt="item.coverAlt">
+        <img class="card-cover__image card-cover__image--side cover"
+          :src="`${item.coverName}.${item.coverExt || $themeConfig.responsive.ext || 'png'}`" :alt="item.coverAlt">
       </router-link>
     </div>
   </article>
 </template>
 
 <script>
-  import ResponsivePicture from '@theme/components/ResponsivePicture'
+import ResponsivePicture from '@theme/components/ResponsivePicture'
 
-  export default {
-    name: 'CardPost',
+export default {
+  name: 'CardPost',
 
-    components: {
-      ResponsivePicture,
-      bullet: () => import(/* webpackChunkName = "Bullet" */ '@theme/components/Bullet'),
-      TimeProvider: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Time/Provider')
+  components: {
+    ResponsivePicture,
+    bullet: () => import(/* webpackChunkName = "Bullet" */ '@theme/components/Bullet'),
+    TimeProvider: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Time/Provider')
+  },
+
+  props: {
+    item: {
+      type: Object,
+      required: true
     },
 
-    props: {
-      item: {
-        type: Object,
-        required: true
-      },
+    cover: {
+      type: [String, Boolean],
+      default: false
+    }
+  },
 
-      cover: {
-        type: [String, Boolean],
-        default: false
-      }
+  computed: {
+    getCurrentCategory() {
+      const cc = this.$site.pages.filter(page => {
+        return this.item.lang === page.frontmatter.lang && page.frontmatter.slug === this.item.categories[0]
+      });
+      return cc.length ? cc[0] : null;
     },
 
-    computed: {
-      getCurrentCategory () {
-        const cc = this.$site.pages.filter(page => {
-          return this.item.lang === page.frontmatter.lang && page.frontmatter.slug === this.item.categories[0]
-        });
-        return cc.length ? cc[0] : null;
-      },
-
-      lastBreakpoint () {
-        const bp = this.$themeConfig.responsive.breakpoints
-        return bp[bp.length - 1] || 680
-      },
-
-      extension () {
-        return this.item.coverExt || this.$themeConfig.responsive.ext || 'png'
-      }
+    lastBreakpoint() {
+      const bp = this.$themeConfig.responsive.breakpoints
+      return bp[bp.length - 1] || 680
     },
 
-    methods: {
-      isCoverPosition (position) {
-        return this.cover === position
-      },
-      getSideImage (coverName) {
-        // if (this.$themeConfig.responsive.active) {
-        //   return `${coverName},w_${this.$themeConfig.responsive.breakpoints[0]}.${this.extension}`
-        // }
-        return `${coverName}.${this.extension}`
-      }
+    extension() {
+      return this.item.coverExt || this.$themeConfig.responsive.ext || 'png'
+    }
+  },
+
+  methods: {
+    isCoverPosition(position) {
+      return this.cover === position
+    },
+    getSideImage(coverName) {
+      // if (this.$themeConfig.responsive.active) {
+      //   return `${coverName},w_${this.$themeConfig.responsive.breakpoints[0]}.${this.extension}`
+      // }
+      return `${coverName}.${this.extension}`
     }
   }
+}
 </script>
 
 <style lang="stylus">
@@ -169,6 +154,10 @@
       display: none
 
 .card-category
+  display: inline-block
+  &:hover
+    .meta-text
+      text-decoration: underline
   &__link
     display: inline-block
     margin-bottom: 10px
@@ -194,6 +183,7 @@
 
     &--side
       min-height: 120px
+      border-radius: 12px
 
 .card-title
   display: block

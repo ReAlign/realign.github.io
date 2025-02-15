@@ -124,9 +124,9 @@ PUT 和POST方法的区别是：PUT方法是幂等的：连续调用一次或者
 
 除此之外还有一个区别，通常情况下，PUT的URI指向是具体单一资源，而POST可以指向资源集合。
 
-举个例子，我们在开发一个博客系统，当我们要创建一篇文章的时候往往用POST `https://blog.realign.pro/posts`，这个请求的语义是，在 posts 的资源集合下创建一篇新的文章，如果我们多次提交这个请求会创建多个文章，这是非幂等的。
+举个例子，我们在开发一个博客系统，当我们要创建一篇文章的时候往往用POST `https://blog.realign.cn/posts`，这个请求的语义是，在 posts 的资源集合下创建一篇新的文章，如果我们多次提交这个请求会创建多个文章，这是非幂等的。
 
-而 PUT `https://blog.realign.pro/aposts/1` 的语义是更新对应文章下的资源，这个 URI 指向的就是单一资源，而且是幂等的，比如你把作者「XXX」修改成「YYY」，不管提交多少次，最后都是修改成「YYY」
+而 PUT `https://blog.realign.cn/aposts/1` 的语义是更新对应文章下的资源，这个 URI 指向的就是单一资源，而且是幂等的，比如你把作者「XXX」修改成「YYY」，不管提交多少次，最后都是修改成「YYY」
 
 ### PUT-PATCH
 
@@ -134,7 +134,7 @@ PUT 和POST方法的区别是：PUT方法是幂等的：连续调用一次或者
 
 PUT 和 PATCH 都是更新资源，而 PATCH 用来对已知资源进行局部更新。
 
-比如我们有一篇文章的地址  `https://blog.realign.pro/aposts/1`，这篇文章的可以表示为:
+比如我们有一篇文章的地址  `https://blog.realign.cn/aposts/1`，这篇文章的可以表示为:
 
 ```json
 {
@@ -145,7 +145,7 @@ PUT 和 PATCH 都是更新资源，而 PATCH 用来对已知资源进行局部�
 }
 ```
 
-当我们要修改文章的作者时，我们可以直接发送 PUT `https://blog.realign.pro/aposts/1`，这个时候的数据应该是:
+当我们要修改文章的作者时，我们可以直接发送 PUT `https://blog.realign.cn/aposts/1`，这个时候的数据应该是:
 
 ```json
 {
@@ -156,7 +156,7 @@ PUT 和 PATCH 都是更新资源，而 PATCH 用来对已知资源进行局部�
 }
 ```
 
-这种直接覆盖资源的修改方式应该用 PUT，但是你觉得每次都带有这么多无用的信息，那么可以发送 PATCH `https://blog.realign.pro/aposts/1`，这个时候只需要:
+这种直接覆盖资源的修改方式应该用 PUT，但是你觉得每次都带有这么多无用的信息，那么可以发送 PATCH `https://blog.realign.cn/aposts/1`，这个时候只需要:
 
 ```json
 {

@@ -199,7 +199,7 @@
       fill: black !important
 
       input, button:not(.back-button):not([class*='u-mdic-copy-'])
-        border: 1px solid white !important
+        border: 1px solid $borderColor !important
 
       ::placeholder
         color: white

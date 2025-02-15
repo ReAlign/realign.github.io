@@ -21,19 +21,20 @@ meta:
   - name: keywords
     content:
 ---
+
 <!-- https://www.infoq.cn/article/OCzmPGBj*pWPGMkFR4aN -->
 
 ## 概览
 
-<lazy-load tag="img" :data="{ src: 'https://public-bucket-realign.nos-eastchina1.126.net/image/normal/2020-11-24/1c43ffa4552c890fe1e6a27e5a793c60.jpg', alt: 'React is not fully reactive.' }" />
+<lazy-load tag="img" :data="{ src: 'https://public-bucket-realign.nos-eastchina1.126.net/image/normal/2020-11-24/1c43ffa4552c890fe1e6a27e5a793c60.jpg', alt: 'React is not fully reactive.' }" :styleData="{ w_h: '501_194' }" />
 
 上面那句话究竟是什么意思？这对我们现在写代码的方式有什么影响？要回答这个问题，我先简单介绍一下 React 的工作机制吧。
 
-* 当你呈现一个 React 应用时：
-  * React 会在所谓虚拟 DOM 中保留 DOM 的副本。
-  * 虚拟 DOM 充当你的 React 代码与浏览器绘制到 DOM 的内容之间的中间层。
-* 然后当你的数据出现变动时（比如：this.setState、useState），React 会做一些工作来确定如何在屏幕上重新绘制 UI。
-* 它会对比虚拟 DOM 与真实的 DOM，以确定数据更新导致了哪些更改。然后它会仅重新绘制与虚拟 DOM 中的新副本不匹配的 DOM 部分，这样就无需在每次数据更新时重新绘制整个 DOM 了。
+- 当你呈现一个 React 应用时：
+  - React 会在所谓虚拟 DOM 中保留 DOM 的副本。
+  - 虚拟 DOM 充当你的 React 代码与浏览器绘制到 DOM 的内容之间的中间层。
+- 然后当你的数据出现变动时（比如：this.setState、useState），React 会做一些工作来确定如何在屏幕上重新绘制 UI。
+- 它会对比虚拟 DOM 与真实的 DOM，以确定数据更新导致了哪些更改。然后它会仅重新绘制与虚拟 DOM 中的新副本不匹配的 DOM 部分，这样就无需在每次数据更新时重新绘制整个 DOM 了。
 
 这就显著提升了性能，因为： **更新虚拟 DOM 比更新真实 DOM 要节省很多资源**，对应 React 只更新真实 DOM 中需要改变的部分。
 
@@ -71,7 +72,7 @@ Svelte 采取了另一种方法解决这个问题。
 
 ```js
 (() => {
-  const square = number => number * number;
+  const square = (number) => number * number;
 
   const secondNumber = square(firstNumber);
   const firstNumber = 42;
@@ -108,13 +109,13 @@ Svelte 采取了另一种方法解决这个问题。
 // vanilla js
 let foo = 10;
 let bar = foo + 10; // bar is now 20
-foo = bar // bar is still 20 (no reactivity)
-bar = foo + 10 // now bar becomes 30
+foo = bar; // bar is still 20 (no reactivity)
+bar = foo + 10; // now bar becomes 30
 
 // svelte js
 let foo = 10;
 $: bar = foo + 10; // bar is now 20
-foo = 15 // bar is now 25 because it is bound to the value of foo
+foo = 15; // bar is now 25 because it is bound to the value of foo
 ```
 
 请注意，在上面的代码中我们不需要将 bar 重新分配给 foo 的新值——比如直接通过 bar = foo + 10；或者通过调用像 this.setState({ bar = foo + 10 }); 这样的 API 方法，现在都用不着了。它会自动为我们处理好的。
@@ -127,10 +128,12 @@ foo = 15 // bar is now 25 because it is bound to the value of foo
 // ... omitted for brevity ...
 function instance($$self, $$props, $$invalidate) {
   let foo = 10; // bar is now 20
-  $$invalidate('foo', foo = 15) // bar is now 25 because it is bound to the value of foo
+  $$invalidate('foo', (foo = 15)); // bar is now 25 because it is bound to the value of foo
   let bar;
   $$self.$$.update = ($$dirty = { foo: 1 }) => {
-    if ($$dirty.foo) { $$invalidate('bar', bar = foo + 19); }
+    if ($$dirty.foo) {
+      $$invalidate('bar', (bar = foo + 19));
+    }
   };
   return { bar };
 }
@@ -194,4 +197,3 @@ Svelte 3.0 是最近软件开发业的福音之一。有些人可能会说这是
 现在我可以说答案是否定的。与它们相比 Svelte 相对年轻，所以它需要时间来成长、成熟，并解决一些我们可能还没发现的问题。
 
 就像 React 诞生后改变了软件开发产业一样，Svelte 也有可能改变我们对框架的看法，以及我们开发新事物时的思路。
-

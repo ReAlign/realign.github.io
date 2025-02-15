@@ -1,19 +1,23 @@
 <template>
   <footer class="footer">
     <div class="footer-box1">
-      <svg class="footer-box__shape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1366 161">
-        <path d="M-11.925-4809v-154.746c40.454,19.75,273.683,130.936,420.544,142.612,161.25,12.821,339.978-42.709,521.543-86.3,169.82-40.769,395.43,29.2,423.912,38.429v60Z" transform="translate(11.926 4970)"/>
+      <svg class="footer-box__shape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1366 161">
+        <path
+          d="M-11.925-4809v-154.746c40.454,19.75,273.683,130.936,420.544,142.612,161.25,12.821,339.978-42.709,521.543-86.3,169.82-40.769,395.43,29.2,423.912,38.429v60Z"
+          transform="translate(11.926 4970)" />
       </svg>
     </div>
     <div class="footer-box2">
-      <svg class="footer-box__shape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1366 246">
-        <path d="M-1505.5-4725.5v-238.1c8.149-3.133,18.138-5.059,29.672-5.9h30.954c201.21,11.667,696.6,224.535,855.572,236.458,205.129,15.385,287.179-164.1,432.047-175.625a42.381,42.381,0,0,1,16.756,1.857V-4725.5Z" transform="translate(1506 4971)"/>
+      <svg class="footer-box__shape" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 0 1366 246">
+        <path
+          d="M-1505.5-4725.5v-238.1c8.149-3.133,18.138-5.059,29.672-5.9h30.954c201.21,11.667,696.6,224.535,855.572,236.458,205.129,15.385,287.179-164.1,432.047-175.625a42.381,42.381,0,0,1,16.756,1.857V-4725.5Z"
+          transform="translate(1506 4971)" />
       </svg>
 
       <ul class="footer-social__list">
-        <li
-          class="footer-social__item"
-          v-for="(network, index) in $themeLocaleConfig.social"
+        <li class="footer-social__item" v-for="(network, index) in $themeLocaleConfig.social"
           :key="`${network.name}-${index}`">
           <a :href="network.link" target="_blank" rel="noopener external" title="Follow us on Facebook">
             <span class="icon footer-social__icon">{{ network.name }}</span>
@@ -33,17 +37,14 @@
             <div class="watermark-logo"></div>
           </lazy-load>
         </div>
-        <div class="column sm-50 footer-nav">
-          <div class="row justify-right">
-            <div
-              v-if="$themeLocaleConfig.footer.nav1.items.length"
+        <div class="column sm-50 footer-nav" style="background-color: transparent !important;">
+          <div class="row justify-right" style="background-color: transparent !important;">
+            <div v-if="$themeLocaleConfig.footer.nav1.items.length"
               class="column xs-50 sm-40 md-33 footer-nav__box footer-nav__box--1">
               <h2 class="meta-text title">{{ $themeLocaleConfig.footer.nav1.title }}</h2>
               <nav class="footer-nav1">
                 <ul>
-                  <li
-                    class="footer-nav1__item"
-                    v-for="(item, index) in $themeLocaleConfig.footer.nav1.items"
+                  <li class="footer-nav1__item" v-for="(item, index) in $themeLocaleConfig.footer.nav1.items"
                     :key="`${item.label}-${index}`">
                     <router-link v-if="item.path" :to="item.path">{{ item.label }}</router-link>
                     <a v-if="item.link" :href="item.link" rel="noopener nofollow" target="_blank">{{ item.label }}</a>
@@ -51,15 +52,12 @@
                 </ul>
               </nav>
             </div>
-            <div
-              v-if="$themeLocaleConfig.footer.nav2.items.length"
+            <div v-if="$themeLocaleConfig.footer.nav2.items.length"
               class="column xs-50 sm-40 md-33 footer-nav__box footer-nav__box--2">
               <h2 class="meta-text title">{{ $themeLocaleConfig.footer.nav2.title }}</h2>
               <nav class="footer-nav2">
                 <ul>
-                  <li
-                    class="footer-nav2__item"
-                    v-for="(item, index) in $themeLocaleConfig.footer.nav2.items"
+                  <li class="footer-nav2__item" v-for="(item, index) in $themeLocaleConfig.footer.nav2.items"
                     :key="`${item.label}-${index}`">
                     <router-link v-if="item.path" :to="item.path">{{ item.label }}</router-link>
                     <a v-if="item.link" :href="item.link" rel="noopener nofollow" target="_blank">{{ item.label }}</a>
@@ -89,23 +87,23 @@
 </template>
 
 <script>
-  export default {
-    name: 'Footer',
+export default {
+  name: 'Footer',
 
-    components: {
-      CardAuthor: () => import(/* webpackChunkName = "CardAuthor" */ '@theme/components/CardAuthor'),
-      Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter'),
-      LazyLoad: () => import(/* webpackChunkName = "LazyLoad" */ '@theme/components/lazy/load')
-    },
+  components: {
+    CardAuthor: () => import(/* webpackChunkName = "CardAuthor" */ '@theme/components/CardAuthor'),
+    Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter'),
+    LazyLoad: () => import(/* webpackChunkName = "LazyLoad" */ '@theme/components/lazy/load')
+  },
 
-    computed: {
-      getAuthor () {
-        return this.$authors.filter(author => {
-          return author.frontmatter.lang === this.$localeConfig.lang
-        })
-      }
+  computed: {
+    getAuthor() {
+      return this.$authors.filter(author => {
+        return author.frontmatter.lang === this.$localeConfig.lang
+      })
     }
   }
+}
 </script>
 
 <style lang="stylus">

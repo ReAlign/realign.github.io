@@ -3,7 +3,7 @@ view: author
 lang: zh-cn
 title: Posts of
 description:
-name: 安亮军 | ReAlign
+name: ReAlign
 nickname: realign
 role: 前端 | Web Developer
 avatar: /autores/realign.jpeg
@@ -14,7 +14,7 @@ social:
   - name: github
     url: https://github.com/ReAlign
   - name: site
-    url: http://realign.pro
+    url: http://realign.cn
 meta:
   - property: og:image
     content: https://avatars0.githubusercontent.com/u/25849349

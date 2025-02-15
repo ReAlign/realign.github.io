@@ -7,8 +7,8 @@ module.exports = [
       alt: 'Ilustración de un usuario que estudia en línea'
     },
     by: {
-      text: 'by: realign.pro',
-      link: `http://realign.pro`
+      text: 'by: realign.cn',
+      link: `http://realign.cn`
     }
   },
   // {

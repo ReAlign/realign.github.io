@@ -3,8 +3,8 @@
     <transition name="bottom-top">
       <div class="search-box" v-if="show" :class="{ 'search-box--show': show }">
         <label for="query">
-          <input 
-            id="query" 
+          <input
+            id="query"
             type="text"
             ref="inputSearch"
             class="search-box__input reset-input"
@@ -29,14 +29,14 @@
                 <div class="page-title">
                   <span>{{ s.title || s.path }}</span>
                   <span v-if="s.header" class="header">
-                    <span class="meta-text meta-text--primary">=> {{ s.header.title }}</span>  
+                    <span class="meta-text meta-text--primary">=> {{ s.header.title }}</span>
                   </span>
                 </div>
               </router-link>
             </li>
             <li v-if="!suggestions.length && query" class="suggestion__item">
               <div class="suggestion__link">
-                <h2>{{ $t('no_search_results') }}</h2>  
+                <h2>{{ $t('no_search_results') }}</h2>
               </div>
             </li>
           </ul>
@@ -126,7 +126,7 @@
 
     methods: {
       toggle () {
-        this.show = !this.show        
+        this.show = !this.show
         if (this.show) this.setFocus()
         EventBus.$emit('show_search', this.show)
         EventBus.$emit('show_overlay', this.show)
@@ -176,7 +176,7 @@
   top: 74px
   right: 0px
   z-index: 10
-  width: 88vw  
+  width: 88vw
   max-width: 400px
   padding: 20px
   padding-bottom: 40px
@@ -187,13 +187,12 @@
   &__input.reset-input
     position: relative
     width: 100%
-    padding-top: 10px
-    padding-bottom: 10px
+    padding: 10px 12px
     color: $textColor
     font-family: inherit
     font-size: $title2
     outline: none
-    border-bottom: 1px solid #ccc
+    border-bottom: 1px solid $borderColor
 
     &:focus
       border-top-color: $textLightColor

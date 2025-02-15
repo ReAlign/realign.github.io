@@ -150,7 +150,7 @@ _linearGradient(l, r)
       display: none
 
 .g-vspb-bar-style
-  height 4px!important
+  height 8px!important
   box-shadow 0 3px 6px #999!important
   _linearGradient($primaryColor, $accentColor)
 

@@ -1,59 +1,55 @@
 <template>
   <div class="switch-bw">
-    <span
-      class="switch-bw__text"
-      :class="{ 'switch-bw__text--turnon': toggle }">
+    <span class="switch-bw__text" :class="{ 'switch-bw__text--turnon': blackMode }">
       {{ getText }}
     </span>
     <label for="switch-bw" class="switch-bw__label">
-      <input
-        type="checkbox"
-        id="switch-bw"
-        name="switch-bw"
-        class="switch-bw__input"
-        @change="handle"
-        :checked="toggle"
-        aria-labelledby="switch-bw-text">
+      <input type="checkbox" id="switch-bw" name="switch-bw" class="switch-bw__input" @change="handle"
+        :checked="blackMode" aria-labelledby="switch-bw-text">
       <span class="switch-bw__ball"></span>
-      <span id="switch-bw-text" hidden>switch to black or white</span>
     </label>
   </div>
 </template>
 
 <script>
-  import EventBus from '@theme/plugins/EventBus'
+import EventBus from '@theme/plugins/EventBus'
 
-  export default {
-    name: 'BlackWhite',
+const LS_KEY_THEME_MODE = 'ls_key_theme_mode'
+const LS_VALUE_THEME_MODE_WHITE = 'white'
+const LS_VALUE_THEME_MODE_BLACK = 'black'
 
-    data () {
-      return {
-        toggle: false
-      }
-    },
+export default {
+  name: 'BlackWhite',
 
-    computed: {
-      getText () {
-        return !this.toggle ? this.$t('turnon_night_mode') : this.$t('turnoff_night_mode')
-      }
-    },
+  data() {
+    return {
+      blackMode: false
+    }
+  },
 
-    mounted () {
-      this.toggle = Boolean(sessionStorage.getItem('switch_bw'))
+  computed: {
+    getText() {
+      return !this.blackMode ? this.$t('turnon_night_mode') : this.$t('turnoff_night_mode')
+    }
+  },
+
+  mounted() {
+    const x = localStorage.getItem(LS_KEY_THEME_MODE) || ''
+    this.blackMode = x === LS_VALUE_THEME_MODE_BLACK
+    this.emit()
+  },
+
+  methods: {
+    handle() {
+      this.blackMode = !this.blackMode
+      localStorage.setItem(LS_KEY_THEME_MODE, this.blackMode ? LS_VALUE_THEME_MODE_BLACK : LS_VALUE_THEME_MODE_WHITE)
       this.emit()
     },
-
-    methods: {
-      handle () {
-        this.toggle = !this.toggle
-        sessionStorage.setItem('switch_bw', (this.toggle || ''))
-        this.emit()
-      },
-      emit () {
-        EventBus.$emit('toggle_black_white', this.toggle)
-      }
+    emit() {
+      EventBus.$emit('toggle_black_white', this.blackMode)
     }
   }
+}
 </script>
 
 <style lang="stylus">

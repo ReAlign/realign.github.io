@@ -41,10 +41,10 @@ module.exports = {
     `
       © 2019
       <a
-        href="//realign.pro"
+        href="//realign.cn"
         rel="noopener"
         target="_blank">
-      🔗Realign.pro
+      🔗Realign.cn
       </a>
       版权所有
       ICP证：
