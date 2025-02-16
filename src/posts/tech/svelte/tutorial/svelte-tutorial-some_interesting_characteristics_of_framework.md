@@ -7,6 +7,11 @@ title: Svelte教程：框架一些有趣的特性
 description: Svelte教程：框架一些有趣的特性
 excerpt: Svelte教程：框架一些有趣的特性
 cover: true
+coverConfig:
+  - type: svelte
+  - iconType: svelte
+  - title: Svelte
+  - subTitle: Interesting features
 categories:
   - js
   - framework

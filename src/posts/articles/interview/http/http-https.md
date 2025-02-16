@@ -7,6 +7,11 @@ title: Http(5) - Https 安全协议
 description: 1
 excerpt: 2
 cover: true
+coverConfig:
+  - type: http
+  - iconType: http
+  - title: Http
+  - subTitle: 🔒 Security protocol
 categories:
   - http
   - js

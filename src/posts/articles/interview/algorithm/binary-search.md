@@ -7,6 +7,11 @@ title: 二分查找
 description: 二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。前提是要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。
 excerpt: 二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。前提是要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。
 cover: true
+coverConfig:
+  - type: algorithm
+  - iconType: algorithm
+  - title: Algorithm
+  - subTitle: Binary search
 categories:
   - algorithm
   - js

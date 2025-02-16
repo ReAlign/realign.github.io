@@ -7,6 +7,11 @@ title: 浏览器tab页隐藏/显示的判断和处理
 description: 浏览器tab页隐藏/显示的判断和处理
 excerpt: 浏览器tab页隐藏/显示的判断和处理
 cover: true
+coverConfig:
+  - type: browser
+  - iconType: browser
+  - title: Browser
+  - subTitle: Tab - Show or Hide
 categories:
   - js
   - api

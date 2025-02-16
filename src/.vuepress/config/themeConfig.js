@@ -31,8 +31,8 @@ module.exports = {
     // }
   },
   elevator: {
-    duration: 4000,
-    mainAudio: '/music/elevator.mp3',
-    endAudio: '/music/ding.mp3'
+    duration: 500,
+    // mainAudio: '/music/elevator.mp3',
+    // endAudio: '/music/ding.mp3'
   }
 }

@@ -7,6 +7,11 @@ title: Fetch:一些知识点【更新中】
 description: Fetch:一些知识点
 excerpt: Fetch:一些知识点
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Fetch
+  - subTitle: Some features
 categories:
   - api
   - js

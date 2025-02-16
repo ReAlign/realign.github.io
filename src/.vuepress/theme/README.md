@@ -12,18 +12,33 @@ https://github.com/ktquez/vuepress-theme-ktquez-starter
 ---
 
 ## Table of Contents
-- [Installation](#installation)
-- [Configuration](#configuration)
-- [Translations](#translations-of-the-theme)
-- [Newsletter](#newsletter)
-- [Responsive images](#responsive-post-cover)
-- [Structure](#structure-directores-suggestion)
+- [vuepress-theme-ktquez](#vuepress-theme-ktquez)
+  - [Vuepress theme ktquez starter](#vuepress-theme-ktquez-starter)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+  - [Configuration](#configuration)
+    - [themeConfig](#themeconfig)
+  - [Translations of the theme](#translations-of-the-theme)
+  - [Newsletter](#newsletter)
+  - [Responsive post cover](#responsive-post-cover)
+- [Structure directores (Suggestion)](#structure-directores-suggestion)
 - [Frontmatter](#frontmatter)
-- [Override CSS](#override-css-stylus)
-- [Accessibility](#the-best-pratice-of-accessibility-includes)
-- [Lazy-Load](#lazy-load)
+  - [Home](#home)
+  - [Post](#post)
+  - [Category](#category)
+  - [Author](#author)
+  - [Page](#page)
+- [Override CSS (Stylus)](#override-css-stylus)
+- [The best pratice of accessibility includes](#the-best-pratice-of-accessibility-includes)
+- [Lazy-load](#lazy-load)
 - [And more](#and-more)
-- [Tools](#tools)
+  - [Anaytics campaign in posts](#anaytics-campaign-in-posts)
+  - [Fonts](#fonts)
+  - [Assets](#assets)
+  - [Ads](#ads)
+  - [Tools](#tools)
+  - [License](#license)
+  - [Contributing](#contributing)
 
 
 ## Installation
@@ -34,8 +49,8 @@ npm install -S vuepress-theme-ktquez
 
 ## Configuration
 
-The theme customization is done through the `.vuepress/config.js`  
-For your reference, you can see the [config.js of my blog](https://github.com/ktquezplay/webapp/blob/master/src/.vuepress/config.js). 
+The theme customization is done through the `.vuepress/config.js`
+For your reference, you can see the [config.js of my blog](https://github.com/ktquezplay/webapp/blob/master/src/.vuepress/config.js).
 
 ```javascript
 module.exports = {
@@ -72,18 +87,18 @@ themeConfig: {
   locales: {
     '/': {
       languages: {                              // Used in the drop down of languages
-        label: 'English', 
-        shortname: 'EN' 
-       }, 
+        label: 'English',
+        shortname: 'EN'
+       },
       translation: {},                          // Look for the "translations section" below
-      logo: { 
-        name: 'MY_LOGO_FILENAME', 
-        ext: 'png', 
-        alt: 'My description about logo' 
+      logo: {
+        name: 'MY_LOGO_FILENAME',
+        ext: 'png',
+        alt: 'My description about logo'
       },
-      share: { 
-        facebookCaption: 'MY_CAPTION_FB_SHARE', 
-        twitterVia: 'MY_TWITTER_NICKNAME' 
+      share: {
+        facebookCaption: 'MY_CAPTION_FB_SHARE',
+        twitterVia: 'MY_TWITTER_NICKNAME'
       },
       newsletter: {
         provider: 'mailchimp',                  // Currently supports mailchimp
@@ -92,7 +107,7 @@ themeConfig: {
       copy: '2018 © Ktquez play - <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank"> MADE WITH VUEPRESS </a>',
       footer: {
         nav1: {
-          title: 'NAVIGATION 1',                
+          title: 'NAVIGATION 1',
           items: [
             {
               label: 'ABOUT',
@@ -102,7 +117,7 @@ themeConfig: {
           ]
         },
         nav2: {
-          title: 'NAVIGATION 2',                 
+          title: 'NAVIGATION 2',
           items: [
             {
               label: 'Slack Group',
@@ -112,7 +127,7 @@ themeConfig: {
           ]
         }
       },
-      social: [ 
+      social: [
         {
           name: 'twitter',                        // Look for the "social icon section" below
           link: 'https://www.twitter.com/ktquez'
@@ -122,8 +137,8 @@ themeConfig: {
     },
     '/pt/': {
       languages: {                              // Used in the drop down of languages
-        label: 'Portuguese', 
-        shortname: 'PT' 
+        label: 'Portuguese',
+        shortname: 'PT'
       },
       ...  // the rest of the properties of this locale are the same as the example above, but with information for that language
     },
@@ -184,7 +199,7 @@ For you to see all the `key: value` used in the theme, just access [this example
 
 ## Newsletter
 
-To make the newsletter form appear, simply add the action of your newsletter.  
+To make the newsletter form appear, simply add the action of your newsletter.
 
 ```js
 themeConfig: {
@@ -227,13 +242,13 @@ themeConfig: {
 
 With the example above, you need to insert the images with the final `,w_XXX`, for example:
 
-If your post is: `/posts/my-first-post.md`  
+If your post is: `/posts/my-first-post.md`
 Your images should be in `public/images/posts/__YEAR__/__MONTH__/` and with the following sizes:
 - `public/images/posts/2018/8/my-first-post,w_320.png`
 - `public/images/posts/2018/8/my-first-post,w_427.png`
 - `public/images/posts/2018/8/my-first-post,w_524.png`
 - `public/images/posts/2018/8/my-first-post,w_680.png`
-- `public/images/posts/2018/8/my-first-post.png` 
+- `public/images/posts/2018/8/my-first-post.png`
 
 **If you don't want to use responsive images, simply disable and to use `public/images/posts/2018/8/my-first-post.png`**
 
@@ -297,22 +312,22 @@ meta:
 view: post
 layout: post
 lang: pt-br             # Lang by locale of post (required)
-author: ktquez          # Nickname author 
+author: ktquez          # Nickname author
 title: My First post
-description: 
+description:
 excerpt:
 cover: true             # If true it displays the cover image of the post, if it has no image, leave it as false
 coverExt:               # If you want to specify the image extension, PNG is the default
 coverAlt:               # cover alt text
 demo:                   # If you have demo link, insert here, to display the demo demo button in post
 categories:
-  - vuejs               # slug of category
+  - vue                 # slug of category
   - javascript
-tags: 
+tags:
   - tag1                # You may feel free to create tags, it will be used on the category page
   - tag2
   - tag3
-created_at: 2018-08-22 11:00 
+created_at: 2018-08-22 11:00
 updated_at: 2018-08-22 11:00
 meta:
   - property: og:image
@@ -334,9 +349,9 @@ lang: pt-br       # Lang by locale of post (required)
 order: 1          # Order of display in list categories
 top: true         # Include category in navigation Top
 title: Vue.js
-description: 
-excerpt: 
-slug: vuejs       # Used in post yaml for the array of categories
+description:
+excerpt:
+slug: vue         # Used in post yaml for the array of categories
 ---
 ```
 
@@ -347,7 +362,7 @@ slug: vuejs       # Used in post yaml for the array of categories
 view: author
 lang: pt-br                       # Lang by locale of post (required)
 title: Articles by Alan Ktquez
-description: 
+description:
 name: Alan Ktquez
 nickname: ktquez                  # Used in post yaml to indicate the author
 role: Web developer
@@ -373,9 +388,9 @@ meta:
 ```yaml
 ---
 view: page
-title: 
-description: 
-excerpt: 
+title:
+description:
+excerpt:
 ctaContact: true    # Show call-to-action to contact page. If there is no contact page, set it to false
 ---
 ```
@@ -435,7 +450,7 @@ If you want to use and support older browsers, you can use [this polyfill](https
 
 ## Anaytics campaign in posts
 
-All posts sharing icons links are included in analytics campaign parameters.  
+All posts sharing icons links are included in analytics campaign parameters.
 `?utm_source=SOCIALNAMECLICKED&utm_medium=share&utm_campaign=single-post`
 
 > With this you can analyze the interaction and shares of your posts.

@@ -7,6 +7,11 @@ title: Http(4) - Transfer 传输
 description: 此部分，会分析 http 层面数据的几种传输方式。
 excerpt: 此部分，会分析 http 层面数据的几种传输方式。
 cover: true
+coverConfig:
+  - type: http
+  - iconType: http
+  - title: Http
+  - subTitle: Transfer
 categories:
   - api
   - http

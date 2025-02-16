@@ -7,6 +7,11 @@ title: 关于数组:一些有趣的东西
 description: 关于数组:一些有趣的东西
 excerpt: 关于数组:一些有趣的东西
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Array
+  - subTitle: Interesting things
 categories:
   - api
   - js

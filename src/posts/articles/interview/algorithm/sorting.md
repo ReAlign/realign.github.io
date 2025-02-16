@@ -7,6 +7,11 @@ title: 算法(1)-排序
 description: 排序
 excerpt: 排序
 cover: true
+coverConfig:
+  - type: algorithm
+  - iconType: algorithm
+  - title: Algorithm
+  - subTitle: Sorting
 categories:
   - algorithm
   - js

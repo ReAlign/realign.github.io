@@ -7,6 +7,11 @@ title: Http(2) - Message 报文
 description: TCP 协议，在传输的时候分为两个部分：TCP头 和 数据。HTTP 类似，是 header + body 的结构
 excerpt: TCP 协议，在传输的时候分为两个部分：TCP头 和 数据。HTTP 类似，是 header + body 的结构
 cover: true
+coverConfig:
+  - type: http
+  - iconType: http
+  - title: Http
+  - subTitle: Message
 categories:
   - api
   - http

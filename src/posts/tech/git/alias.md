@@ -7,6 +7,11 @@ title: Git-别名
 description: git alias 设置
 excerpt: git alias 设置
 cover: true
+coverConfig:
+  - type: git
+  - iconType: git
+  - title: Git
+  - subTitle: Alias
 categories:
   - git
   - notes

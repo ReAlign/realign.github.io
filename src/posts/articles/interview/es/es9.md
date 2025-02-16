@@ -7,6 +7,11 @@ title: ES9 总结
 description: ES9 总结
 excerpt: ES9 总结
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: ECMAScript
+  - subTitle: ES9
 categories:
   - api
   - js

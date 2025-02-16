@@ -7,6 +7,11 @@ title: 模拟实现函数-Function.prototype.xxx
 description: 模拟实现函数-Function.prototype.xxx
 excerpt: 模拟实现函数-Function.prototype.xxx
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Javascript
+  - subTitle: Function.prototype.xxx
 categories:
   - coding
   - js
@@ -24,26 +29,28 @@ meta:
 
 ## bind
 
-### 关于bind
+### 关于 bind
 
-* `bind()` 方法创建一个新的函数
-* 在 `bind()` 被调用时
-  * 这个新函数的 `this` 被指定为 `bind()` 的第一个参数
-  * 其余参数将作为新函数的参数，供调用时使用
+- `bind()` 方法创建一个新的函数
+- 在 `bind()` 被调用时
+  - 这个新函数的 `this` 被指定为 `bind()` 的第一个参数
+  - 其余参数将作为新函数的参数，供调用时使用
 
-### bind-MDN实现
+### bind-MDN 实现
 
 ```js
-Function.prototype.myBind = function() {
+Function.prototype.myBind = function () {
   var thatFunc = this;
   var thatArgs = arguments[0];
   var args = [].slice.call(arguments, 1);
   if (typeof thatFunc !== 'function') {
-    throw new TypeError('Function.prototype.bind - ' +
-      'what is trying to be bound is not callable');
+    throw new TypeError(
+      'Function.prototype.bind - ' +
+        'what is trying to be bound is not callable'
+    );
   }
-  return function() {
-    var funcArgs = args.concat([].slice.call(arguments))
+  return function () {
+    var funcArgs = args.concat([].slice.call(arguments));
     return thatFunc.apply(thatArgs, funcArgs);
   };
 };
@@ -57,11 +64,11 @@ Function.prototype.myBind = function() {
 
 ```js
 // 第一步：借方法
-obj.fn = func
+obj.fn = func;
 // 第二步：执行方法
-obj.fn()
+obj.fn();
 // 第三步：还方法
-delete obj.fn
+delete obj.fn;
 ```
 
 ```js
@@ -75,11 +82,11 @@ Function.prototype.myCall = function (context) {
 
   // 取参数 - es5
   var args = [];
-  for(var i = 1, len = arguments.length; i < len; i++) {
+  for (var i = 1, len = arguments.length; i < len; i++) {
     args.push('arguments[' + i + ']');
   }
   // 执行方法
-  var result = eval('context.fn(' + args +')');
+  var result = eval('context.fn(' + args + ')');
 
   // // 取参数 - es6
   // for (let i = 1, len = arguments.length; i < len; i++) {
@@ -92,7 +99,7 @@ Function.prototype.myCall = function (context) {
   delete context.fn;
   // 函数可以有返回值
   return result;
-}
+};
 ```
 
 ## apply
@@ -112,28 +119,27 @@ Function.prototype.myApply = function (context, arr) {
 
   if (!arr) {
     result = context.fn();
-  }
-  else {
+  } else {
     // result = context.fn(...arr);
     var args = [];
     for (var i = 0, len = arr.length; i < len; i++) {
       args.push('arr[' + i + ']');
     }
-    result = eval('context.fn(' + args + ')')
+    result = eval('context.fn(' + args + ')');
   }
 
   // 还方法
   delete context.fn;
   // 函数可以有返回值
   return result;
-}
+};
 ```
 
 ## Object.create
 
 ```js
 Object.prototype.myCreate = function (obj) {
-  function F () {};
+  function F() {}
   F.prototype = obj;
   return new F();
 };
@@ -141,14 +147,14 @@ Object.prototype.myCreate = function (obj) {
 
 ## new
 
-### new做的事情
+### new 做的事情
 
-1. 创建一个空的简单JavaScript对象（即{}）
+1. 创建一个空的简单 JavaScript 对象（即{}）
 2. 链接该对象（即设置该对象的构造函数）到另一个对象
-3. 将步骤1新创建的对象作为this的上下文
-4. 如果该函数没有返回对象，则返回this
+3. 将步骤 1 新创建的对象作为 this 的上下文
+4. 如果该函数没有返回对象，则返回 this
 
-### new代码实现
+### new 代码实现
 
 ```js
 // myNew(Person, 'cxk', '18')
@@ -168,7 +174,7 @@ function myNew() {
   //2.创建一个空对象obj,并让其继承Func.prototype
   var obj = Object.create(Func.prototype);
   //3.执行构造函数，并将this指向创建的空对象obj
-  Func.apply(obj,arguments);
+  Func.apply(obj, arguments);
   //4.返回创建的对象obj
   return obj;
 }

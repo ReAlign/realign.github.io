@@ -130,7 +130,7 @@
     beforeMount () {
       // SW update tip for PWA
       this.$on('sw-updated', this.onSWUpdated)
-      this.handleLoadWebFont()
+      // this.handleLoadWebFont()
     },
 
     mounted() {

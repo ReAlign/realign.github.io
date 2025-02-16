@@ -7,6 +7,11 @@ title: 判断浏览器的行为:关闭和刷新
 description: 判断浏览器的行为:关闭和刷新
 excerpt: 判断浏览器的行为:关闭和刷新
 cover: true
+coverConfig:
+  - type: browser
+  - iconType: browser
+  - title: Browser
+  - subTitle: Tab - Close or Refresh
 categories:
   - js
   - node

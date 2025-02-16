@@ -7,6 +7,11 @@ title: js 控制浏览器全屏和退出全屏
 description: js 控制浏览器全屏和退出全屏
 excerpt: js 控制浏览器全屏和退出全屏
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Full Screen
+  - subTitle: Request & Cancel
 categories:
   - js
   - api

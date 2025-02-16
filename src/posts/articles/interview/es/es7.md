@@ -7,6 +7,11 @@ title: ES7 总结
 description: ES7 总结
 excerpt: ES7 总结
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: ECMAScript
+  - subTitle: ES7
 categories:
   - api
   - js

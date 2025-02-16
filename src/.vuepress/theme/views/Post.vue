@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="page page__full row justify-right">
-      <article
-        class="column xs-100 page__full__box box-default"
-        itemscope
-        itemprop="blogPost"
+      <article class="column xs-100 page__full__box box-default" itemscope itemprop="blogPost"
         itemtype="https://schema.org/BlogPosting">
         <meta itemprop="mainEntityOfPage" :content="currentPost.path">
 
@@ -12,12 +9,8 @@
           <back-button />
           <div class="page-header__meta">
             <time-provider type="ago" :date="currentPost.created_at">
-              <time
-                :datetime="`${currentPost.created_at}`"
-                itemprop="datePublished"
-                class="text"
-                slot-scope="{ time }">
-                  {{ time }}
+              <time :datetime="`${currentPost.created_at}`" itemprop="datePublished" class="text" slot-scope="{ time }">
+                {{ time }}
               </time>
             </time-provider>
             <meta itemprop="dateModified" content="currentPost.updated_at">
@@ -40,11 +33,8 @@
               </ul>
             </nav>
           </div>
-          <div
-            v-if="getAuthor"
-            class="page-header__author"
-            itemprop="author"
-            itemscope itemtype="https://schema.org/Person">
+          <div v-if="getAuthor" class="page-header__author" itemprop="author" itemscope
+            itemtype="https://schema.org/Person">
             <strong>{{ $t('author') }}: </strong>
             <router-link class="link link--filler-s-primary" rel="author" itemprop="url" :to="getAuthor.path">
               <span itemprop="name">{{ getAuthor.frontmatter.name }}</span>
@@ -52,18 +42,15 @@
           </div>
         </header>
 
-        <div
-          v-if="currentPost.cover && !currentPost.video"
-          class="post-cover"
-          itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-          <responsive-picture :coverName="currentPost.coverName">
-            <img
-              class="post-cover__image cover"
-              itemprop="url"
+        <div v-if="currentPost.cover && !currentPost.video" class="post-cover" itemprop="image" itemscope
+          itemtype="https://schema.org/ImageObject">
+          <responsive-picture v-if="currentPost.coverConfig._attrCount_ === 0" :coverName="currentPost.coverName">
+            <img class="post-cover__image cover" itemprop="url"
               :src="`${currentPost.cover ? `${currentPost.coverName}.${currentPost.coverExt || $themeConfig.responsive.ext || 'png'}` : ''}`"
-              :title="currentPost.coverAlt"
-              :alt="currentPost.coverAlt">
+              :title="currentPost.coverAlt" :alt="currentPost.coverAlt">
           </responsive-picture>
+          <custom-cover v-if="currentPost.coverConfig._attrCount_ > 0" scene="post_cover_detail"
+            :meta="currentPost.coverConfig" />
         </div>
 
         <section class="post-cover post-cover--video" v-if="currentPost.video">
@@ -92,17 +79,14 @@
           <div class="row">
             <div class="column no-pad-l md-75 xl-67 post-content">
               <div class="post-content__box-player">
-                <div
-                  v-if="currentPost.audio"
-                  class="sound-player post-content__player"
+                <div v-if="currentPost.audio" class="sound-player post-content__player"
                   :class="`sound-player--${$themeConfig.players.default}`">
-                  <lazy-load
-                    tag="iframe"
-                    :data="getParamsSoundPlayer" />
+                  <lazy-load tag="iframe" :data="getParamsSoundPlayer" />
                 </div>
               </div>
               <div class="post-content__excerpt">
-                <h2 class="page-header__subtitle" itemprop="description" v-if="currentPost.excerpt">{{ currentPost.excerpt }}</h2>
+                <h2 class="page-header__subtitle" itemprop="description" v-if="currentPost.excerpt">{{
+                  currentPost.excerpt }}</h2>
               </div>
               <!-- <div class="post-content__table-contents" v-if="$page.headers">
                 <table-contents :headers="$page.headers" />
@@ -113,7 +97,8 @@
             </div>
             <div class="column no-pad-r sm-25 xl-33 xsNone smNone post-sidebar">
               <!-- <ads class="post-sidebar__bizu" direction="vertical" /> -->
-              <div class="post-content__table-contents post-content__table-contents_sticky" v-if="headers && headers.length">
+              <div class="post-content__table-contents post-content__table-contents_sticky"
+                v-if="headers && headers.length">
                 <table-contents :headers="headers" />
               </div>
             </div>
@@ -132,7 +117,7 @@
                     <div class="m-lbl-wrap-inner">
                       <!-- 来必力City版安装代码 -->
                       <div id="lv-container" data-id="city" data-uid="MTAyMC80OTMxNy8yNTgwOQ==">
-                      <!-- <script type="text/javascript">
+                        <!-- <script type="text/javascript">
 
                       </script>
                       <noscript>为正常使用来必力评论功能请激活JavaScript</noscript> -->
@@ -164,176 +149,178 @@
 </template>
 
 <script>
-  import ContentMixin from '@theme/mixins/Content'
-  import PostsMixin from '@theme/mixins/Posts'
+import ContentMixin from '@theme/mixins/Content'
+import PostsMixin from '@theme/mixins/Posts'
 
-  import MorePosts from '@theme/components/MorePosts'
-  import Sidebar from '@theme/components/Sidebar'
-  import ResponsivePicture from '@theme/components/ResponsivePicture'
+import MorePosts from '@theme/components/MorePosts'
+import Sidebar from '@theme/components/Sidebar'
+import ResponsivePicture from '@theme/components/ResponsivePicture'
+import CustomCover from '@theme/components/CustomCover'
 
-  import 'gitalk/dist/gitalk.css'
-  import Gitalk from 'gitalk'
+import 'gitalk/dist/gitalk.css'
+import Gitalk from 'gitalk'
 
-  export default {
-    name: 'Post',
-    mixins: [ContentMixin, PostsMixin],
-    components: {
-      Sidebar,
-      MorePosts,
-      ResponsivePicture,
-      Ads: () => import(/* webpackChunkName = Ads" */ '@theme/components/Ads'),
-      TimeProvider: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Time/Provider'),
-      TableContents: () => import(/* webpackChunkName = TableContents" */ '@theme/components/TableContents'),
-      KtButton: () => import(/* webpackChunkName = SharePost" */ '@theme/components/UI/Button'),
-      SharePost: () => import(/* webpackChunkName = KtButton" */ '@theme/components/SharePost'),
-      VueDisqus: () => import(/* webpackChunkName = "vue-disqus" */ 'vue-disqus/dist/vue-disqus.vue'),
-      BackButton: () => import(/* webpackChunkName = "BackButton" */ '@theme/components/BackButton'),
-      Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter'),
-      LazyLoad: () => import(/* webpackChunkName = "LazyLoad" */ '@theme/components/lazy/load')
-    },
-    data() {
-      return {
-        headers: [],
-        jGitalkContainer: 'j-gitalk-container'
-      };
-    },
-    computed: {
-      getCategories () {
-        return this.$categories.filter(category => {
-          if (this.currentPost.categories.includes(category.frontmatter.slug)) {
-            if (category.frontmatter.lang === this.$localeConfig.lang) return category
-          }
-        })
-      },
-
-      currentPost () {
-        return this.$posts.filter(post => {
-          return post.key === this.$page.key
-        })[0]
-      },
-
-      getAuthor () {
-        const [author] = this.$authors.filter(author => {
-          const fm = author.frontmatter
-          return fm.nickname === this.currentPost.author && fm.lang === this.$localeConfig.lang
-        })
-        if (author) return author
-        return this.$authors.filter(author => author.frontmatter.nickname === this.currentPost.author)[0]
-      },
-
-      relatedPosts () {
-        // return [...this.postsByLang].splice(3, 9)
-      },
-
-      getPlayer () {
-        return this.$themeConfig.players[this.$themeConfig.players.default]
-      },
-
-      getParamsSoundPlayer () {
-        return {
-          src: `${this.getPlayer.url}${this.currentPost.audio}${this.getUrlParams}`,
-          height: 166,
-          allow: 'autoplay'
+export default {
+  name: 'Post',
+  mixins: [ContentMixin, PostsMixin],
+  components: {
+    Sidebar,
+    MorePosts,
+    ResponsivePicture,
+    CustomCover,
+    Ads: () => import(/* webpackChunkName = Ads" */ '@theme/components/Ads'),
+    TimeProvider: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Time/Provider'),
+    TableContents: () => import(/* webpackChunkName = TableContents" */ '@theme/components/TableContents'),
+    KtButton: () => import(/* webpackChunkName = SharePost" */ '@theme/components/UI/Button'),
+    SharePost: () => import(/* webpackChunkName = KtButton" */ '@theme/components/SharePost'),
+    VueDisqus: () => import(/* webpackChunkName = "vue-disqus" */ 'vue-disqus/dist/vue-disqus.vue'),
+    BackButton: () => import(/* webpackChunkName = "BackButton" */ '@theme/components/BackButton'),
+    Newsletter: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Newsletter'),
+    LazyLoad: () => import(/* webpackChunkName = "LazyLoad" */ '@theme/components/lazy/load')
+  },
+  data() {
+    return {
+      headers: [],
+      jGitalkContainer: 'j-gitalk-container'
+    };
+  },
+  computed: {
+    getCategories() {
+      return this.$categories.filter(category => {
+        if (this.currentPost.categories.includes(category.frontmatter.slug)) {
+          if (category.frontmatter.lang === this.$localeConfig.lang) return category
         }
-      },
-      getUrlParams () {
-        return '&amp;' + Object.keys(this.getPlayer.params)
-                          .map(key => `${encodeURI(key)}=${encodeURI(this.getPlayer.params[key])}`)
-                          .join('&amp;')
-                          .replace(/#/g, '%23')
+      })
+    },
+
+    currentPost() {
+      return this.$posts.filter(post => {
+        return post.key === this.$page.key
+      })[0]
+    },
+
+    getAuthor() {
+      const [author] = this.$authors.filter(author => {
+        const fm = author.frontmatter
+        return fm.nickname === this.currentPost.author && fm.lang === this.$localeConfig.lang
+      })
+      if (author) return author
+      return this.$authors.filter(author => author.frontmatter.nickname === this.currentPost.author)[0]
+    },
+
+    relatedPosts() {
+      // return [...this.postsByLang].splice(3, 9)
+    },
+
+    getPlayer() {
+      return this.$themeConfig.players[this.$themeConfig.players.default]
+    },
+
+    getParamsSoundPlayer() {
+      return {
+        src: `${this.getPlayer.url}${this.currentPost.audio}${this.getUrlParams}`,
+        height: 166,
+        allow: 'autoplay'
       }
     },
-    watch: {
-      '$route' (to, from) {
-        // console.log('to, from');
-        // console.log(to, from);
-        this.updateHeader(this.$page.headers);
-      }
-    },
-    mounted() {
-      // this.initGitalk();
-      this.installLBL();
+    getUrlParams() {
+      return '&amp;' + Object.keys(this.getPlayer.params)
+        .map(key => `${encodeURI(key)}=${encodeURI(this.getPlayer.params[key])}`)
+        .join('&amp;')
+        .replace(/#/g, '%23')
+    }
+  },
+  watch: {
+    '$route'(to, from) {
+      // console.log('to, from');
+      // console.log(to, from);
       this.updateHeader(this.$page.headers);
+    }
+  },
+  mounted() {
+    // this.initGitalk();
+    this.installLBL();
+    this.updateHeader(this.$page.headers);
+  },
+  methods: {
+    installLBL() {
+      // https://livere.com
+      (function (d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+
+        if (typeof LivereTower === 'function') { return; }
+
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
     },
-    methods: {
-      installLBL() {
-        // https://livere.com
-        (function(d, s) {
-            var j, e = d.getElementsByTagName(s)[0];
+    updateHeader(x) {
+      const vm = this;
 
-            if (typeof LivereTower === 'function') { return; }
+      vm.headers = [];
+      setTimeout(() => {
+        vm.headers = x;
+      }, 0);
+    },
+    getUrl() {
+      return this.$el.baseURI
+    },
+    initGitalk() {
+      const vm = this;
 
-            j = d.createElement(s);
-            j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-            j.async = true;
+      const makeGitalk = () => {
+        const _env = process.env.NODE_ENV;
 
-            e.parentNode.insertBefore(j, e);
-        })(document, 'script');
-      },
-      updateHeader(x) {
-        const vm = this;
+        // set id
+        const _idOri = location.pathname;
+        const _len_idOri = _idOri.length;
+        const _prefix = 'ReAlign:';
+        const _max_len = 50 - _prefix.length;
+        const _flag = _len_idOri > _max_len;
+        const _id = `${_prefix}${_flag ? _idOri.substr(_len_idOri - _max_len, _len_idOri) : _idOri}`;
 
-        vm.headers = [];
-        setTimeout(() => {
-          vm.headers = x;
-        }, 0);
-      },
-      getUrl () {
-        return this.$el.baseURI
-      },
-      initGitalk() {
-        const vm = this;
-
-        const makeGitalk = () => {
-          const _env = process.env.NODE_ENV;
-
-          // set id
-          const _idOri = location.pathname;
-          const _len_idOri = _idOri.length;
-          const _prefix = 'ReAlign:';
-          const _max_len = 50 - _prefix.length;
-          const _flag = _len_idOri > _max_len;
-          const _id = `${_prefix}${_flag ? _idOri.substr(_len_idOri - _max_len, _len_idOri) : _idOri}`;
-
-          const CONF = {
-            production: {
-              clientID: '326af3875aa67ae1a698',
-              clientSecret: '3f4a9df676d6df9df3982dec0d1250ea2c5d4f9a',
-              repo: 'realign-gitalk-repo',
-            },
-            development: {
-              clientID: '50ec969bc8a321fc2d86',
-              clientSecret: '42b7634b0b3fb4c1c8c3b4c13d8500d114942bb2',
-              repo: 'realign-gitalk-repo-dev',
-            },
-          };
-
-          const gitalk = new Gitalk({
-            clientID: CONF[_env].clientID,
-            clientSecret: CONF[_env].clientSecret,
-            repo: CONF[_env].repo,
-            owner: 'realign',
-            admin: ['realign'],
-            // ↓ Ensure uniqueness and length less than 50
-            id: _id,
-            distractionFreeMode: true   // Facebook-like distraction free mode
-          });
-
-          gitalk.render(vm.jGitalkContainer);
+        const CONF = {
+          production: {
+            clientID: '326af3875aa67ae1a698',
+            clientSecret: '3f4a9df676d6df9df3982dec0d1250ea2c5d4f9a',
+            repo: 'realign-gitalk-repo',
+          },
+          development: {
+            clientID: '50ec969bc8a321fc2d86',
+            clientSecret: '42b7634b0b3fb4c1c8c3b4c13d8500d114942bb2',
+            repo: 'realign-gitalk-repo-dev',
+          },
         };
 
-        let _timer = null;
+        const gitalk = new Gitalk({
+          clientID: CONF[_env].clientID,
+          clientSecret: CONF[_env].clientSecret,
+          repo: CONF[_env].repo,
+          owner: 'realign',
+          admin: ['realign'],
+          // ↓ Ensure uniqueness and length less than 50
+          id: _id,
+          distractionFreeMode: true   // Facebook-like distraction free mode
+        });
 
-        _timer = setInterval(() => {
-          const _id = vm.$refs[vm.jGitalkContainer]
-          if(_id) {
-            clearInterval(_timer);
-            makeGitalk();
-          }
-        }, 100);
-      }
+        gitalk.render(vm.jGitalkContainer);
+      };
+
+      let _timer = null;
+
+      _timer = setInterval(() => {
+        const _id = vm.$refs[vm.jGitalkContainer]
+        if (_id) {
+          clearInterval(_timer);
+          makeGitalk();
+        }
+      }, 100);
     }
   }
+}
 </script>
 <style lang="stylus">
 @import '~@theme/styles/config.styl'
@@ -345,7 +332,7 @@
 
 .post-cover
   width: 100%
-  min-height: 318px
+  height: 400px
   margin-top: 30px
   margin-bottom: 30px
   background-color: lighten($primaryColor, 90%)

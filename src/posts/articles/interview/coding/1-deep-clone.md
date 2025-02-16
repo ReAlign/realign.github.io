@@ -7,6 +7,11 @@ title: 手写代码(2)-深拷贝
 description: 深拷贝
 excerpt: 深拷贝
 cover: true
+coverConfig:
+  - type: coding
+  - iconType: coding
+  - title: Coding
+  - subTitle: DeepClone
 categories:
   - coding
   - js

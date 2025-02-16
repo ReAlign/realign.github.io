@@ -7,6 +7,11 @@ title: ES6 总结之Promise
 description: ES6 总结之Promise
 excerpt: ES6 总结之Promise
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: ECMAScript
+  - subTitle: ES6 Promise
 categories:
   - api
   - js

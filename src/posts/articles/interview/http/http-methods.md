@@ -7,6 +7,11 @@ title: Http(1) - Methods 方法
 description: HTTP 定义了一组请求方法，以表明要对给定资源执行的操作。指示针对给定资源要执行的期望动作。虽然他们也可以是名词，但这些请求方法有时被称为 HTTP 动词。每一个请求方法都实现了不同的语义，但一些共同的特征由一组共享，例如：一个请求方法可以是 safe、idempotent 或 cacheable。
 excerpt: HTTP 定义了一组请求方法，以表明要对给定资源执行的操作。指示针对给定资源要执行的期望动作。虽然他们也可以是名词，但这些请求方法有时被称为 HTTP 动词。每一个请求方法都实现了不同的语义，但一些共同的特征由一组共享，例如：一个请求方法可以是 safe、idempotent 或 cacheable。
 cover: true
+coverConfig:
+  - type: http
+  - iconType: http
+  - title: Http
+  - subTitle: Methods
 categories:
   - api
   - http

@@ -6,7 +6,7 @@ top: true     # Include category in navigation Top
 title: js
 description: Framework.
 excerpt: Framework.
-slug: fw
+slug: framework
 meta:
   - property: og:image
     content: /image-social-share.png

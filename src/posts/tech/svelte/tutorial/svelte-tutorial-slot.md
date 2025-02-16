@@ -7,6 +7,11 @@ title: Svelte教程：插槽
 description: Svelte教程：插槽
 excerpt: Svelte教程：插槽
 cover: true
+coverConfig:
+  - type: svelte
+  - iconType: svelte
+  - title: Svelte
+  - subTitle: Slot
 categories:
   - framework
   - js

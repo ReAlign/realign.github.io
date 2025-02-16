@@ -7,6 +7,11 @@ title: 手写代码(1)-EventBus
 description: EventBus
 excerpt: EventBus
 cover: true
+coverConfig:
+  - type: coding
+  - iconType: coding
+  - title: Coding
+  - subTitle: EventBus
 categories:
   - coding
   - js
@@ -62,7 +67,7 @@ class EventBus {
       console.error(`Event ${type} is not register.`);
       return false;
     }
-    evt.forEach(item => {
+    evt.forEach((item) => {
       _emit_(item, args);
     });
     return true;

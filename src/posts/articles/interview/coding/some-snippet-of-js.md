@@ -7,6 +7,11 @@ title: 一些常见的js代码片段
 description: 一些常见的js代码片段
 excerpt: 一些常见的js代码片段
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Javascript
+  - subTitle: Code snippet
 categories:
   - coding
   - js

@@ -7,6 +7,11 @@ title: ES8 总结
 description: ES8 总结
 excerpt: ES8 总结
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: ECMAScript
+  - subTitle: ES8
 categories:
   - api
   - js

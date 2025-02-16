@@ -7,6 +7,11 @@ title: 自己说的一些琐言碎语
 description:
 excerpt:
 cover: true
+coverConfig:
+  - type: thought
+  - iconType: thought
+  - title: 随记
+  - subTitle: 自己说的一些琐言碎语
 categories:
   - 随笔
   - 随手记

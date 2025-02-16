@@ -13,12 +13,14 @@
           </span>
         </div>
         <div class="card-cover" v-if="isCoverPosition('top')">
-          <router-link :to="item.path" :aria-labelledby="`sr-link-post-${item.key}`">
-            <responsive-picture :coverName="item.coverName">
+          <router-link :style="{ position: 'relative', display: 'block', width: '100%', height: '100%' }" :to="item.path"
+            :aria-labelledby="`sr-link-post-${item.key}`">
+            <responsive-picture v-if="item.coverConfig._attrCount_ === 0" :coverName="item.coverName">
               <img class="card-cover__image card-cover__image--top cover"
                 :src="`${item.cover ? `${item.coverName}.${extension}` : ''}`" :title="item.coverAlt"
                 :alt="item.coverAlt">
             </responsive-picture>
+            <custom-cover v-if="item.coverConfig._attrCount_ > 0" scene="card_cover_top" :meta="item.coverConfig" />
           </router-link>
         </div>
         <router-link class="card-title" :to="item.path">
@@ -52,8 +54,9 @@
 
     <div class="card__box2" :class="`card__box2--${cover}`" v-if="item.cover && cover && !isCoverPosition('top')">
       <router-link :to="item.path">
-        <img class="card-cover__image card-cover__image--side cover"
+        <img v-if="item.coverConfig._attrCount_ === 0" class="card-cover__image card-cover__image--side cover"
           :src="`${item.coverName}.${item.coverExt || $themeConfig.responsive.ext || 'png'}`" :alt="item.coverAlt">
+        <custom-cover v-if="item.coverConfig._attrCount_ > 0" scene="card_cover_side" :meta="item.coverConfig" />
       </router-link>
     </div>
   </article>
@@ -61,12 +64,14 @@
 
 <script>
 import ResponsivePicture from '@theme/components/ResponsivePicture'
+import CustomCover from '@theme/components/CustomCover'
 
 export default {
   name: 'CardPost',
 
   components: {
     ResponsivePicture,
+    CustomCover,
     bullet: () => import(/* webpackChunkName = "Bullet" */ '@theme/components/Bullet'),
     TimeProvider: () => import(/* webpackChunkName = "Newsletter" */ '@theme/components/Time/Provider')
   },
@@ -125,7 +130,7 @@ export default {
     padding-bottom: 0
 
   &--cover-top .card-title
-    height: 84px
+    height: 74px
 
   &__box1
     width: 100%
@@ -164,7 +169,7 @@ export default {
 
 .card-cover
   width 100%
-  min-height 150px
+  height 150px
   margin-bottom 20px
 
   @media (max-width: $max-tablet)

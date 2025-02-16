@@ -124,10 +124,11 @@ const u = {
 
 export default {
   methods: {
+    // 翻译
     initTransCont() {
-      document.addEventListener('click', u.click, false);
-      // document.addEventListener('dblclick', u.doubleClick, true);
-      document.addEventListener('mouseup', u.mouseUp, true);
+      // document.addEventListener('click', u.click, false);
+      // // document.addEventListener('dblclick', u.doubleClick, true);
+      // document.addEventListener('mouseup', u.mouseUp, true);
     },
   }
 }

@@ -1,5 +1,11 @@
-import mappet from 'mappet'
-import { getImagePost, getTime, getDate } from '@theme/services/utils'
+import mappet from 'mappet';
+import {
+  //
+  getImagePost,
+  getTime,
+  getDate,
+  getCustomCover,
+} from '@theme/services/utils';
 
 const schema = {
   title: 'title',
@@ -19,12 +25,13 @@ const schema = {
   coverAlt: 'frontmatter.coverAlt',
   video: 'frontmatter.video',
   coverName: { path: 'path', modifier: getImagePost },
-  created_time: { path: 'frontmatter.created_at', modifier: getTime }
-}
+  coverConfig: { path: 'frontmatter.coverConfig', modifier: getCustomCover },
+  created_time: { path: 'frontmatter.created_at', modifier: getTime },
+};
 
-export function post (data) {
-  const mapper = mappet(schema)
-  return data.map(item => {
-    return mapper(item)
-  })
+export function post(data) {
+  const mapper = mappet(schema);
+  return data.map((item) => {
+    return mapper(item);
+  });
 }

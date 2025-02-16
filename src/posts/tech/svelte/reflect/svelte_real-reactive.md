@@ -7,14 +7,19 @@ title: svelte:真正的响应式
 description: svelte:真正的响应式
 excerpt: svelte:真正的响应式
 cover: true
+coverConfig:
+  - type: svelte
+  - iconType: svelte
+  - title: Svelte
+  - subTitle: Fully reactive
 categories:
+  - svelte
   - framework
   - js
-  - svelte
 tags:
+  - svelte
   - framework
   - js
-  - svelte
 created_at: 2020-12-29 00:04
 updated_at: 2020-12-29 00:04
 meta:

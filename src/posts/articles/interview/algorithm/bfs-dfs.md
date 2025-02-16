@@ -7,6 +7,11 @@ title: 宽搜和深搜的解析以及在前端中的典型应用
 description: 广搜和深搜
 excerpt: 广搜和深搜
 cover: true
+coverConfig:
+  - type: algorithm
+  - iconType: algorithm
+  - title: Algorithm
+  - subTitle: BFS / DFS / DOM Traverse
 categories:
   - algorithm
   - js

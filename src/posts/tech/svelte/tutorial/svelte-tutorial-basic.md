@@ -5,8 +5,13 @@ lang: zh-cn
 author: realign
 title: Svelte基础教程
 description: Svelte基础教程
-excerpt: Svelte基础教程)
+excerpt: Svelte基础教程
 cover: true
+coverConfig:
+  - type: svelte
+  - iconType: svelte
+  - title: Svelte
+  - subTitle: Basic tutorial
 categories:
   - js
   - framework

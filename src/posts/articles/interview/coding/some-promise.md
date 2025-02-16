@@ -3,10 +3,15 @@ view: post
 layout: post
 lang: zh-cn
 author: realign
-title: promise的一些实现
-description: promise的一些实现
-excerpt: promise
+title: Promise 的一些实现
+description: Promise 的一些实现
+excerpt: Promise
 cover: true
+coverConfig:
+  - type: coding
+  - iconType: coding
+  - title: Coding
+  - subTitle: Promise Pro
 categories:
   - coding
   - js
@@ -26,10 +31,10 @@ meta:
 
 <a href="/static-html-demo/interview/coding/4-some-promise/index.html" target="_blank">查看效果</a>
 
-* 调用器
-  * 就是把真正的执行函数和参数传入，创建返回一个新的Promise，而这个新Promise的什么时候返回，取决于这个异步任务何时被调度。Promise内部主要就是创建一个任务，判断任务是执行还是入队。
-* 任务创建
-  * 实际上就是返回了一个函数，将真正的执行函数放在里面执行。这里利用了Promise的finally方法，在finally中判断是否执行下一个任务，实现任务队列连续消费的地方就是这里。
+- 调用器
+  - 就是把真正的执行函数和参数传入，创建返回一个新的 Promise，而这个新 Promise 的什么时候返回，取决于这个异步任务何时被调度。Promise 内部主要就是创建一个任务，判断任务是执行还是入队。
+- 任务创建
+  - 实际上就是返回了一个函数，将真正的执行函数放在里面执行。这里利用了 Promise 的 finally 方法，在 finally 中判断是否执行下一个任务，实现任务队列连续消费的地方就是这里。
 
 ```js
 class PromiseLimit {

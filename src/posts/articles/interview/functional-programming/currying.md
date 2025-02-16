@@ -7,6 +7,11 @@ title: 函数柯里化
 description: 函数柯里化
 excerpt: 函数柯里化
 cover: true
+coverConfig:
+  - type: js
+  - iconType: js
+  - title: Function
+  - subTitle: Currying
 categories:
   - js
 tags:
