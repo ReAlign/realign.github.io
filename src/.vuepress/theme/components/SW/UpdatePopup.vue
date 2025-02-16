@@ -69,7 +69,7 @@ export default {
   padding 1em
   font-size 1.2em
   line-height 2em
-  // border 1px solid $accentColor
+  border 1px solid #fff
   border-radius 6px
   background #fff
   box-shadow 2px 5px 10px rgba(0, 0, 0, 0.5)

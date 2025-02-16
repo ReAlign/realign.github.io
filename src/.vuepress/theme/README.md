@@ -104,7 +104,7 @@ themeConfig: {
         provider: 'mailchimp',                  // Currently supports mailchimp
         action: 'link_form_action_mailchimp'
       },
-      copy: '2018 © Ktquez play - <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank"> MADE WITH VUEPRESS </a>',
+      copy: '2018 © Ktquez play - <a href="https://v0.vuepress.vuejs.org" rel="noopener" target="_blank"> MADE WITH VUEPRESS </a>',
       footer: {
         nav1: {
           title: 'NAVIGATION 1',
@@ -461,7 +461,7 @@ The theme have as fonts:
 - [Poppins](https://fonts.google.com/specimen/Poppins) - All site
 - [Hack](https://sourcefoundry.org/hack/) - For code blocks
 
-> To overwrite the fonts, simply use the `.vuepress/style.styl`. [Ver doc vuepress](https://vuepress.vuejs.org/default-theme-config/#migrate-your-styles-to-style-styl)
+> To overwrite the fonts, simply use the `.vuepress/style.styl`. [Ver doc vuepress](https://v0.vuepress.vuejs.org/default-theme-config/#migrate-your-styles-to-style-styl)
 
 **This theme adopts the strategy to load Web fonts using FontFaceObserver**
 

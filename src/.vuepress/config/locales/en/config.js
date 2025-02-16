@@ -24,7 +24,7 @@ module.exports = {
     action: ''
   },
   copy: `2018 © MY_BLOG_NAME -
-        <a href="https://vuepress.vuejs.org/" rel="noopener" target="_blank">
+        <a href="https://v0.vuepress.vuejs.org" rel="noopener" target="_blank">
           MADE WITH VUEPRESS
         </a>`,
   footer: {

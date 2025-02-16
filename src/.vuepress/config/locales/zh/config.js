@@ -70,7 +70,7 @@ module.exports = {
       </a>
       &nbsp;&&nbsp;
       <a
-        href="https://vuepress.vuejs.org/"
+        href="https://v0.vuepress.vuejs.org"
         rel="noopener"
         target="_blank"
         style="text-decoration: underline;">
