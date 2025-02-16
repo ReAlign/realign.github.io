@@ -76,4 +76,4 @@ const avatar = ({ scene }: { scene: 'home-list-card' | 'detail-top' }) => {
 };
 ```
 
-### Todo...
+Todo
